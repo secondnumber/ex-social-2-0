@@ -1,0 +1,25 @@
+@import '../../../colors.scss';
+
+.wrapper {
+    position: relative;
+    width: 480px;
+    height: 730px;
+    text-align: center;
+    margin-top: 150px;
+    background-color: $white;
+    color: $dark;
+    margin-left: 250px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px hsla(0, 0, 0, 0.5);
+}
+
+.image {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+}
+
+.header {
+    font-size: 26px;
+    font-weight: 700;
+}

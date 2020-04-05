@@ -13,8 +13,8 @@ const LoginIntro = () => {
                 your friends and play with our quests and badges gamification
                 system!
             </p>
-            <button className={classes.loginButton}>Login</button>
-            <button className={classes.registerButton}>Register</button>
+            <p  className={classes.loginButton}><a href="/login">Login</a></p>
+            <p  className={classes.registerButton}><a href="/register">Register</a></p>
         </div>
     );
 };

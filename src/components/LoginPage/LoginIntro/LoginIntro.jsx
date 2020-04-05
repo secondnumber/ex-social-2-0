@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './LoginIntro.module.scss';
 import Logo from './Logo.png';
+import {NavLink} from "react-router-dom";
 
 const LoginIntro = () => {
     return (
@@ -13,8 +14,8 @@ const LoginIntro = () => {
                 your friends and play with our quests and badges gamification
                 system!
             </p>
-            <p  className={classes.loginButton}><a href="/login">Login</a></p>
-            <p  className={classes.registerButton}><a href="/register">Register</a></p>
+            <p  className={classes.loginButton}><NavLink to="/login">Login</NavLink></p>
+            <p  className={classes.registerButton}><NavLink to="/register">Register</NavLink></p>
         </div>
     );
 };

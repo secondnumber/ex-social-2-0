@@ -1,0 +1,17 @@
+@import '../../../../colors';
+
+.wrapper {
+    display: flex;
+}
+
+.logo {
+    height: 40px;
+}
+
+.header {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: $white;
+}
+

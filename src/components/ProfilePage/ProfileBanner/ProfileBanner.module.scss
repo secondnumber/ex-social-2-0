@@ -1,0 +1,12 @@
+@import '../../../colors';
+
+.banner {
+    width: 100vw;
+    height: 80px;
+    background-color: $cyan;
+    background-image: url("./ProfileBanner.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+

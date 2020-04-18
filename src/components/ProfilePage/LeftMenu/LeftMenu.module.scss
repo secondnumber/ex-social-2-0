@@ -1,9 +1,10 @@
 @import '../../../colors';
 
-.header {
+.wrapper {
+    grid-area: ab;
     display: flex;
-    width: 5vw;
-    height: 100vh;
+    flex-direction: column;
+    width: 100px;
     background-color: $white;
 }
 

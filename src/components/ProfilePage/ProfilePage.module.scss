@@ -1,8 +1,16 @@
 @import '../../colors.scss';
 
 .wrapper {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    grid-template-rows: 80px 220px 1fr;
+    grid-template-areas:
+            "aa aa aa"
+            "ab ac ac"
+            "ab ac ac";
     width: 100vw;
     height: 100vh;
     margin: 0;
+    background-color: $grayLight;
 }
 

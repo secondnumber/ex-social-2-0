@@ -1,0 +1,16 @@
+@import '../../../colors';
+
+.wrapper {
+    grid-area: ac;
+    height: 230px;
+}
+
+.banner {
+    height: 155px;
+    margin: 30px 40px;
+    background-image: url("./ProfileBanner.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+

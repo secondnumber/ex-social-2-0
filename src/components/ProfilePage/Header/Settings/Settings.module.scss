@@ -1,0 +1,14 @@
+@import '../../../../colors';
+
+.wrapper {
+width: 30px;
+}
+
+
+.icon {
+    fill: $purpleLight;
+}
+
+.icon:hover {
+    fill: $white;
+}

@@ -1,0 +1,40 @@
+@import '../../../../colors';
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100px;
+    height: 35px;
+    color: $white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.caption {
+    width: 50px;
+    height: 15px;
+}
+
+.level {
+    width: 50px;
+    height: 15px;
+}
+
+.progressbar {
+    position: relative;
+    width: 100px;
+height: 5px;
+background-color: $white;
+border-radius: 5px;
+}
+
+.progress {
+position: absolute;
+top: 0;
+left: 0;
+width: 70px;
+height: 5px;
+background-color: $cyan;
+border-radius: 5px;
+}

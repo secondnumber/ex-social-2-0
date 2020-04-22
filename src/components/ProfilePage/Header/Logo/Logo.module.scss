@@ -2,13 +2,22 @@
 
 .wrapper {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
-.logo {
+.imageBlock {
+width: 100px;
+text-align: center;
+}
+
+.image {
     height: 40px;
+
 }
 
-.header {
+.text {
     font-family: 'Titillium Web', sans-serif;
     font-weight: 900;
     font-size: 20px;

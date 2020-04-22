@@ -1,0 +1,37 @@
+@import '../../../../colors';
+
+.wrapper {
+    display: flex;
+    list-style-type: none;
+}
+
+.input {
+    margin: 15px 0px;
+    box-sizing: border-box;
+    background-color: $purple;
+}
+
+.input::placeholder {
+    color: $white;
+}
+
+.input:focus::-webkit-input-placeholder {
+  color: transparent
+}
+ 
+.input:focus::-moz-placeholder {
+  color: transparent
+}
+ 
+.input:focus:-moz-placeholder {
+  color: transparent
+}
+ 
+.input:focus:-ms-input-placeholder {
+  color: transparent
+}
+ 
+
+input[type=text] {
+    border: none;
+}

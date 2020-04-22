@@ -1,0 +1,50 @@
+@import '../../../colors';
+
+.wrapper {
+grid-area: ad;
+display: grid;
+grid-template-columns: 2fr 6fr 1fr 18fr 1fr;
+grid-template-rows: 200px 20px 1fr;
+grid-template-areas:
+"ba bb bb bb bg"
+"b b b b b"
+"bc bd be bf bh";
+background-color: $grayLight;
+}
+
+.list {
+    grid-area: bd;
+    background-color: $white;
+    border-radius: 10px;
+    list-style-type: none;
+    color: $grayDark;
+    padding: 20px;
+}
+
+.item {
+    margin-bottom: 30px;
+    border-bottom: 1px solid $grayLight;
+}
+
+.header {
+    font-size: 18px;
+}
+
+.text {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.listInner {
+    list-style-type: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.link {
+    display: inline-block;
+    text-decoration: none;
+    padding-bottom: 10px;
+    color: gray;
+}

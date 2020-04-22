@@ -1,0 +1,15 @@
+@import '../../../colors';
+
+.list {
+    grid-area: ae;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100px;
+    background-color: $white;
+}
+
+.item {
+    list-style: none;
+    padding: 15px;
+}

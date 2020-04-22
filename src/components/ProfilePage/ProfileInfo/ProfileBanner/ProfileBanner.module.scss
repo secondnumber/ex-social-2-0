@@ -1,14 +1,14 @@
-@import '../../../colors';
+@import '../../../../colors';
 
 .wrapper {
-    grid-area: ac;
-    height: 230px;
+    grid-area: bb;
 }
 
 .banner {
-    height: 155px;
-    margin: 30px 40px;
+    width: 100%;
+    height: 100%;
     background-image: url("./ProfileBanner.png");
+    background-position: left;
     background-size: contain;
     background-repeat: no-repeat;
 }

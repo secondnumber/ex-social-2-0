@@ -13,63 +13,63 @@ import ForumsIcon from './icons/ForumsIcon.png';
 import MarketplaceIcon from './icons/MarketplaceIcon.png';
 
 const LeftMenu = () => (
-    <ul className={classes.list}>
-        <li className={classes.item}>
-            <a href="#">
-                <img src={smallAvatarIcon} alt="" />
-            </a>
-        </li>
-        <li className={classes.item}>
-            <a href="#">
-                <img src={NewsFeedIcon} alt="" />
-            </a>
-        </li>
-        <li className={classes.item}>
-            <a href="#">
-                <img src={OverviewIcon} alt="" />
-            </a>
-        </li>
-        <li className={classes.item}>
-            <a href="#">
-                <img src={GroupsIcon} alt="" />
-            </a>
-        </li>
-        <li className={classes.item}>
-            <a href="#">
-                <img src={MembersIcon} alt="" />
-            </a>
-        </li>
-        <li className={classes.item}>
-            <a href="#">
-                <img src={BadgesIcon} alt="" />
-            </a>
-        </li>
-        <li className={classes.item}>
-            <a href="#">
-                <img src={QuestsIcon} alt="" />
-            </a>
-        </li>
-        <li className={classes.item}>
-            <a href="#">
-                <img src={StreamsIcon} alt="" />
-            </a>
-        </li>
-        <li className={classes.item}>
-            <a href="#">
-                <img src={EventsIcon} alt="" />
-            </a>
-        </li>
-        <li className={classes.item}>
-            <a href="#">
-                <img src={ForumsIcon} alt="" />
-            </a>
-        </li>
-        <li className={classes.item}>
-            <a href="#">
-                <img src={MarketplaceIcon} alt="" />
-            </a>
-        </li>
-    </ul>
+  <ul className={classes.list}>
+    <li className={classes.item}>
+      <a href="#">
+        <img src={smallAvatarIcon} alt="" />
+      </a>
+    </li>
+    <li className={classes.item}>
+      <a href="#">
+        <img src={NewsFeedIcon} alt="" />
+      </a>
+    </li>
+    <li className={classes.item}>
+      <a href="#">
+        <img src={OverviewIcon} alt="" />
+      </a>
+    </li>
+    <li className={classes.item}>
+      <a href="#">
+        <img src={GroupsIcon} alt="" />
+      </a>
+    </li>
+    <li className={classes.item}>
+      <a href="#">
+        <img src={MembersIcon} alt="" />
+      </a>
+    </li>
+    <li className={classes.item}>
+      <a href="#">
+        <img src={BadgesIcon} alt="" />
+      </a>
+    </li>
+    <li className={classes.item}>
+      <a href="#">
+        <img src={QuestsIcon} alt="" />
+      </a>
+    </li>
+    <li className={classes.item}>
+      <a href="#">
+        <img src={StreamsIcon} alt="" />
+      </a>
+    </li>
+    <li className={classes.item}>
+      <a href="#">
+        <img src={EventsIcon} alt="" />
+      </a>
+    </li>
+    <li className={classes.item}>
+      <a href="#">
+        <img src={ForumsIcon} alt="" />
+      </a>
+    </li>
+    <li className={classes.item}>
+      <a href="#">
+        <img src={MarketplaceIcon} alt="" />
+      </a>
+    </li>
+  </ul>
 );
 
 export default LeftMenu;

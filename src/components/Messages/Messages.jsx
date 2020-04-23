@@ -13,7 +13,7 @@ const Messages = () => (
         <li className={classes.friendsItem}>Sarah Diamond</li>
         <li className={classes.friendsItem}>Matt Parker</li>
       </ul>
-      <ul className={classes.messagesArea}>Text</ul>
+      <ul>Text</ul>
     </div>
   </div>
 );

@@ -1,0 +1,27 @@
+@import '../../../colors';
+
+.wrapper {
+    grid-area: bf;
+    background-color: $grayLight;
+    border-radius: 10px;
+    list-style-type: none;
+    color: $grayDark;
+    padding: 20px;
+}
+
+.messagesArea {
+    display: flex;
+    width: 100%;
+    background-color: $white;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 0 rgba(94,92,154,.06);
+}
+
+.friendsList {
+    width: 50%;
+    list-style-type: none;
+}
+
+.friendsItem {
+    padding: 10px;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './ProfileInfo.module.scss';
 import ProfileBanner from './ProfileBanner/ProfileBanner';
-import Messages from '../../Messages/Messages';
+import Dialogs from '../Dialogs/Dialogs';
 
 const ProfileInfo = () => (
   <div className={classes.wrapper}>
@@ -64,7 +64,7 @@ const ProfileInfo = () => (
         </p>
       </li>
     </ul>
-    <Messages />
+    <Dialogs />
   </div>
 );
 

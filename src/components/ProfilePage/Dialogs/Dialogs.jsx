@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './Messages.module.scss';
+import classes from './Dialogs.module.scss';
 
-const Messages = () => (
+const Dialogs = () => (
   <div className={classes.wrapper}>
     <h3>MY PROFILE</h3>
     <h2>Messages</h2>
@@ -18,4 +18,4 @@ const Messages = () => (
   </div>
 );
 
-export default Messages;
+export default Dialogs;

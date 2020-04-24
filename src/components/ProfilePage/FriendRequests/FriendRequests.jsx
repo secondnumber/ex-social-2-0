@@ -1,16 +1,16 @@
 import React from 'react';
-import classes from './ProfileInfo.module.scss';
+import classes from './FriendRequests.module.scss';
 
-const ProfileInfo = () => (
+const FriendRequests = () => (
   <div className={classes.wrapper}>
     <h3>MY PROFILE</h3>
-    <h2>ProfileInfo</h2>
+    <h2>Friend Requests</h2>
     <div className={classes.messagesArea}>
       <ul>
-        <li>ProfileInfo</li>
+        <li>Friend Requests</li>
       </ul>
     </div>
   </div>
 );
 
-export default ProfileInfo;
+export default FriendRequests;

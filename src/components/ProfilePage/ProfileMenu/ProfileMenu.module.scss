@@ -35,5 +35,13 @@
     display: inline-block;
     text-decoration: none;
     padding-bottom: 10px;
-    color: gray;
+    color: $gray;
+}
+
+.link:hover {
+    color: $cyan;
+}
+
+.active {
+    color: $purpleLight;
 }

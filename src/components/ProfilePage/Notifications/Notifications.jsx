@@ -1,16 +1,16 @@
 import React from 'react';
-import classes from './ProfileInfo.module.scss';
+import classes from './Notifications.module.scss';
 
-const ProfileInfo = () => (
+const Notifications = () => (
   <div className={classes.wrapper}>
     <h3>MY PROFILE</h3>
-    <h2>ProfileInfo</h2>
+    <h2>Notifications</h2>
     <div className={classes.messagesArea}>
       <ul>
-        <li>ProfileInfo</li>
+        <li>Notifications</li>
       </ul>
     </div>
   </div>
 );
 
-export default ProfileInfo;
+export default Notifications;

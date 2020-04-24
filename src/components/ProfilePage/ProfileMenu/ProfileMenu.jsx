@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './ProfileMenu.module.scss';
+import { NavLink } from 'react-router-dom';
 
 const ProfileMenu = () => (
   <ul className={classes.list}>
@@ -10,34 +11,34 @@ const ProfileMenu = () => (
       </p>
       <ul className={classes.listInner}>
         <li>
-          <a className={classes.link} href="#">
+          <NavLink className={classes.link} activeClassName={classes.active} to="/timeline">
             Timeline
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className={classes.link} href="#">
+          <NavLink className={classes.link} activeClassName={classes.active} to="/profile_info">
             Profile Info
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className={classes.link} href="#">
+          <NavLink className={classes.link} activeClassName={classes.active} to="/social_and_stream">
             Social and Stream
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className={classes.link} href="#">
-            Notification
-          </a>
+          <NavLink className={classes.link} activeClassName={classes.active} to="/notifications">
+            Notifications
+          </NavLink>
         </li>
         <li>
-          <a className={classes.link} href="#">
+          <NavLink className={classes.link} activeClassName={classes.active} to="/dialogs">
             Messages
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a className={classes.link} href="#">
+          <NavLink className={classes.link} activeClassName={classes.active} to="/friend_requests">
             Friend Requests
-          </a>
+          </NavLink>
         </li>
       </ul>
     </li>

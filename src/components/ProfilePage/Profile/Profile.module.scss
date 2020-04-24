@@ -1,0 +1,13 @@
+@import '../../../colors';
+
+.wrapper {
+grid-area: ad;
+display: grid;
+grid-template-columns: 2fr 6fr 1fr 18fr 1fr;
+grid-template-rows: 200px 20px 1fr 20px;
+grid-template-areas:
+"ba bb bb bb bg"
+"b b b b b"
+"bc bd be bf bh";
+background-color: $grayLight;
+}

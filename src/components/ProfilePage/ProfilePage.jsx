@@ -2,14 +2,14 @@ import React from 'react';
 import classes from './ProfilePage.module.scss';
 import Header from './Header/Header/Header';
 import LeftMenu from './LeftMenu/LeftMenu';
-import ProfileInfo from './ProfileInfo/ProfileInfo';
+import Profile from './Profile/Profile';
 import RightMenu from './RightMenu/RightMenu';
 
 const ProfilePage = () => (
   <div className={classes.wrapper}>
     <Header />
     <LeftMenu />
-    <ProfileInfo />
+    <Profile />
     <RightMenu />
   </div>
 );

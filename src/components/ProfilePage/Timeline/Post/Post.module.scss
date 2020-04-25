@@ -1,0 +1,21 @@
+@import '../../../../colors.scss';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+.interactions {
+    display: flex;
+    justify-content: space-around;
+}

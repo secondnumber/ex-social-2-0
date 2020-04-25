@@ -9,7 +9,7 @@
     padding: 20px;
 }
 
-.messagesArea {
+.postsArea {
     display: flex;
     width: 100%;
     background-color: $white;
@@ -17,11 +17,3 @@
     box-shadow: 0 0 40px 0 rgba(94,92,154,.06);
 }
 
-.friendsList {
-    width: 50%;
-    list-style-type: none;
-}
-
-.friendsItem {
-    padding: 10px;
-}

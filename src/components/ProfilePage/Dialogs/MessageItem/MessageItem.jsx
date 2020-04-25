@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './MessageItem.module.scss';
 
-const MessageItem = (props) => <li>{props.message}</li>;
+const MessageItem = (props) => <li className={classes.messageItem}>{props.message}</li>;
 
 export default MessageItem;

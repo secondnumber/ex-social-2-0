@@ -1,5 +1,7 @@
 import React from 'react';
 import classes from './Dialogs.module.scss';
+import FriendItem from './FriendItem/FriendItem';
+import MessageItem from './MessageItem/MessageItem';
 
 const Dialogs = () => (
   <div className={classes.wrapper}>
@@ -7,13 +9,16 @@ const Dialogs = () => (
     <h2>Messages</h2>
     <div className={classes.messagesArea}>
       <ul className={classes.friendsList}>
-        <li className={classes.friendsItem}>Bearded Wonder</li>
-        <li className={classes.friendsItem}>Neko Bebop</li>
-        <li className={classes.friendsItem}>Nick Grissom</li>
-        <li className={classes.friendsItem}>Sarah Diamond</li>
-        <li className={classes.friendsItem}>Matt Parker</li>
+        <FriendItem name="Bearded Wonder" id="1" />
+        <FriendItem name="Neko Bebop" id="2" />
+        <FriendItem name="Nick Grissom" id="3" />
+        <FriendItem name="Sarah Diamond" id="4" />
+        <FriendItem name="Matt Parker" id="5" />
       </ul>
-      <ul>Text</ul>
+      <ul className={classes.messagesList}>
+        <MessageItem message="Hi"/>
+        <MessageItem message="Hello"/>
+      </ul>
     </div>
   </div>
 );

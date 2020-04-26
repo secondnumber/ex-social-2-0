@@ -3,12 +3,12 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import classes from './Profile.module.scss';
 import ProfileBanner from '../ProfileBanner/ProfileBanner';
 import ProfileMenu from '../ProfileMenu/ProfileMenu';
-import Timeline from '../Timeline/Timeline';
+import Timeline from './Timeline/Timeline';
 import ProfileInfo from '../ProfileInfo/ProfileInfo';
-import Dialogs from '../Dialogs/Dialogs';
-import SocialStream from '../SocialStream/SocialStream';
-import Notifications from '../Notifications/Notifications';
-import FriendRequests from '../FriendRequests/FriendRequests';
+import Dialogs from './Dialogs/Dialogs';
+import SocialStream from './SocialStream/SocialStream';
+import Notifications from './Notifications/Notifications';
+import FriendRequests from './FriendRequests/FriendRequests';
 
 const Profile = () => (
   <BrowserRouter>

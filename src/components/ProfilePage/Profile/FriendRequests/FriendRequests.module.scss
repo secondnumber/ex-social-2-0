@@ -1,4 +1,4 @@
-@import '../../../colors';
+@import '../../../../colors';
 
 .wrapper {
     grid-area: bf;
@@ -9,12 +9,19 @@
     padding: 20px;
 }
 
-.postsArea {
+.messagesArea {
     display: flex;
-    flex-direction: column;
     width: 100%;
     background-color: $white;
     border-radius: 10px;
     box-shadow: 0 0 40px 0 rgba(94,92,154,.06);
 }
 
+.friendsList {
+    width: 50%;
+    list-style-type: none;
+}
+
+.friendsItem {
+    padding: 10px;
+}

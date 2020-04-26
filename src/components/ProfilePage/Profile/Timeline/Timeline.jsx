@@ -35,36 +35,23 @@ const Timeline = () => {
     },
   ];
 
+  let postsElements = postsData.map((post) => (
+    <Post
+      message={post.message}
+      author={post.author}
+      time={post.time}
+      reactions={post.reactions}
+      comments={post.comments}
+      shares={post.shares}
+    />
+  ));
+
   return (
     <div className={classes.wrapper}>
       <h3>MY PROFILE</h3>
       <h2>Timelime</h2>
       <ul className={classes.postsArea}>
-        <Post
-          message={postsData[0].message}
-          author={postsData[0].author}
-          time={postsData[0].time}
-          reactions={postsData[0].reactions}
-          comments={postsData[0].comments}
-          shares={postsData[0].shares}
-        />
-        <Post
-          message={postsData[1].message}
-          author={postsData[1].author}
-          time={postsData[1].time}
-          reactions={postsData[1].reactions}
-          comments={postsData[1].comments}
-          shares={postsData[1].shares}
-
-        />
-        <Post
-          message={postsData[2].message}
-          author={postsData[2].author}
-          time={postsData[2].time}
-          reactions={postsData[2].reactions}
-          comments={postsData[2].comments}
-          shares={postsData[2].shares}
-        />
+        {postsElements}
       </ul>
     </div>
   );

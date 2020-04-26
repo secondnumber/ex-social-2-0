@@ -18,22 +18,24 @@ const Dialogs = () => {
     { id: 3, message: 'How are you?' },
   ];
 
+  let friendsElements = friendsData.map((friend) => (
+    <FriendItem id={friend.id} name={friend.name} />
+  ));
+
+  let messagesElements = messagesData.map((message) => (
+    <MessageItem id={message.id} message={message.message} />
+  ));
+
   return (
     <div className={classes.wrapper}>
       <h3>MY PROFILE</h3>
       <h2>Messages</h2>
       <div className={classes.messagesArea}>
         <ul className={classes.friendsList}>
-          <FriendItem name={friendsData[0].name} id={friendsData[0].id} />
-          <FriendItem name={friendsData[1].name} id={friendsData[1].id} />
-          <FriendItem name={friendsData[2].name} id={friendsData[2].id} />
-          <FriendItem name={friendsData[3].name} id={friendsData[3].id} />
-          <FriendItem name={friendsData[4].name} id={friendsData[4].id} />
+          {friendsElements}
         </ul>
         <ul className={classes.messagesList}>
-          <MessageItem message={messagesData[0].message} />
-          <MessageItem message={messagesData[1].message} />
-          <MessageItem message={messagesData[2].message} />
+          {messagesElements}
         </ul>
       </div>
     </div>

@@ -3,26 +3,13 @@ import classes from './Dialogs.module.scss';
 import FriendItem from './FriendItem/FriendItem';
 import MessageItem from './MessageItem/MessageItem';
 
-const Dialogs = () => {
-  let friendsData = [
-    { id: 1, name: 'Bearded Wonder' },
-    { id: 2, name: 'Neko Bebop' },
-    { id: 3, name: 'Nick Grissom' },
-    { id: 4, name: 'Sarah Diamond' },
-    { id: 5, name: 'Matt Parker' },
-  ];
+const Dialogs = (props) => {
 
-  let messagesData = [
-    { id: 1, message: 'Hi' },
-    { id: 2, message: 'Hello' },
-    { id: 3, message: 'How are you?' },
-  ];
-
-  let friendsElements = friendsData.map((friend) => (
+  let friendsElements = props.friendsData.map((friend) => (
     <FriendItem id={friend.id} name={friend.name} />
   ));
 
-  let messagesElements = messagesData.map((message) => (
+  let messagesElements = props.messagesData.map((message) => (
     <MessageItem id={message.id} message={message.message} />
   ));
 

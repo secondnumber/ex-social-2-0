@@ -2,9 +2,9 @@ import React from 'react';
 import LoginPage from './components/LoginPage/LoginPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 
-const App = () => (
+const App = (props) => (
   <div>
-    <ProfilePage />
+    <ProfilePage postsData={props.postsData} friendsData={props.friendsData} messagesData={props.messagesData}/>
   </div>
 );
 

@@ -5,11 +5,11 @@ import LeftMenu from './LeftMenu/LeftMenu';
 import Profile from './Profile/Profile';
 import RightMenu from './RightMenu/RightMenu';
 
-const ProfilePage = () => (
+const ProfilePage = (props) => (
   <div className={classes.wrapper}>
     <Header />
     <LeftMenu />
-    <Profile />
+    <Profile postsData={props.postsData} friendsData={props.friendsData} messagesData={props.messagesData}/>
     <RightMenu />
   </div>
 );

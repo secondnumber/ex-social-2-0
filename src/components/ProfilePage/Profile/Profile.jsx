@@ -9,18 +9,30 @@ import Dialogs from './Dialogs/Dialogs';
 import SocialStream from './SocialStream/SocialStream';
 import Notifications from './Notifications/Notifications';
 import FriendRequests from './FriendRequests/FriendRequests';
+import ProfilePage from '../ProfilePage';
 
-const Profile = () => (
+const Profile = (props) => (
   <BrowserRouter>
     <div className={classes.wrapper}>
       <ProfileBanner />
       <ProfileMenu />
-      <Route path="/timeline" component={Timeline} />
-      <Route path="/profile_info" component={ProfileInfo} />
-      <Route path="/social_and_stream" component={SocialStream} />
-      <Route path="/notifications" component={Notifications} />
-      <Route path="/dialogs" component={Dialogs} />
-      <Route path="/friend_requests" component={FriendRequests} />
+      <Route
+        path="/timeline"
+        render={() => <Timeline postsData={props.postsData} />}
+      />
+      <Route path="/profile_info" render={() => <ProfileInfo />} />
+      <Route path="/social_and_stream" render={() => <SocialStream />} />
+      <Route path="/notifications" render={() => <Notifications />} />
+      <Route
+        path="/dialogs"
+        render={() => (
+          <Dialogs
+            friendsData={props.friendsData}
+            messagesData={props.messagesData}
+          />
+        )}
+      />
+      <Route path="/friend_requests" render={() => <FriendRequests />} />
     </div>
   </BrowserRouter>
 );

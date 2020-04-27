@@ -11,28 +11,22 @@ import Notifications from './Notifications/Notifications';
 import FriendRequests from './FriendRequests/FriendRequests';
 
 const Profile = (props) => (
-  <BrowserRouter>
-    <div className={classes.wrapper}>
-      <ProfileBanner />
-      <ProfileMenu />
-      <Route
-        path="/timeline"
-        render={() => <Timeline timeline={props.state.timeline} />}
-      />
-      <Route path="/profile_info" render={() => <ProfileInfo />} />
-      <Route path="/social_and_stream" render={() => <SocialStream />} />
-      <Route path="/notifications" render={() => <Notifications />} />
-      <Route
-        path="/dialogs"
-        render={() => (
-          <Dialogs
-            messages={props.state.messages}
-          />
-        )}
-      />
-      <Route path="/friend_requests" render={() => <FriendRequests />} />
-    </div>
-  </BrowserRouter>
+  <div className={classes.wrapper}>
+    <ProfileBanner />
+    <ProfileMenu />
+    <Route
+      path="/timeline"
+      render={() => <Timeline timeline={props.state.timeline} />}
+    />
+    <Route path="/profile_info" render={() => <ProfileInfo />} />
+    <Route path="/social_and_stream" render={() => <SocialStream />} />
+    <Route path="/notifications" render={() => <Notifications />} />
+    <Route
+      path="/dialogs"
+      render={() => <Dialogs messages={props.state.messages} />}
+    />
+    <Route path="/friend_requests" render={() => <FriendRequests />} />
+  </div>
 );
 
 export default Profile;

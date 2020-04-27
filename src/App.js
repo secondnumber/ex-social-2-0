@@ -4,7 +4,7 @@ import ProfilePage from './components/ProfilePage/ProfilePage';
 
 const App = (props) => (
   <div>
-    <ProfilePage postsData={props.postsData} friendsData={props.friendsData} messagesData={props.messagesData}/>
+    <ProfilePage state={props.state} />
   </div>
 );
 

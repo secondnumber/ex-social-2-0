@@ -9,7 +9,6 @@ import Dialogs from './Dialogs/Dialogs';
 import SocialStream from './SocialStream/SocialStream';
 import Notifications from './Notifications/Notifications';
 import FriendRequests from './FriendRequests/FriendRequests';
-import ProfilePage from '../ProfilePage';
 
 const Profile = (props) => (
   <BrowserRouter>
@@ -18,7 +17,7 @@ const Profile = (props) => (
       <ProfileMenu />
       <Route
         path="/timeline"
-        render={() => <Timeline postsData={props.postsData} />}
+        render={() => <Timeline timeline={props.state.timeline} />}
       />
       <Route path="/profile_info" render={() => <ProfileInfo />} />
       <Route path="/social_and_stream" render={() => <SocialStream />} />
@@ -27,8 +26,7 @@ const Profile = (props) => (
         path="/dialogs"
         render={() => (
           <Dialogs
-            friendsData={props.friendsData}
-            messagesData={props.messagesData}
+            messages={props.state.messages}
           />
         )}
       />

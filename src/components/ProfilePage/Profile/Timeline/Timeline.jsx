@@ -3,8 +3,7 @@ import classes from './Timeline.module.scss';
 import Post from './Post/Post';
 
 const Timeline = (props) => {
-
-  let postsElements = props.postsData.map((post) => (
+  let postsElements = props.timeline.postsData.map((post) => (
     <Post
       message={post.message}
       author={post.author}
@@ -14,7 +13,6 @@ const Timeline = (props) => {
       shares={post.shares}
     />
   ));
-
   return (
     <div className={classes.wrapper}>
       <h3>MY PROFILE</h3>

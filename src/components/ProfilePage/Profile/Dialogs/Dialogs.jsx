@@ -5,11 +5,11 @@ import MessageItem from './MessageItem/MessageItem';
 
 const Dialogs = (props) => {
 
-  let friendsElements = props.friendsData.map((friend) => (
+  let friendsElements = props.messages.friendsData.map((friend) => (
     <FriendItem id={friend.id} name={friend.name} />
   ));
 
-  let messagesElements = props.messagesData.map((message) => (
+  let messagesElements = props.messages.messagesData.map((message) => (
     <MessageItem id={message.id} message={message.message} />
   ));
 

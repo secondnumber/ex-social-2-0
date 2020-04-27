@@ -9,7 +9,7 @@ const ProfilePage = (props) => (
   <div className={classes.wrapper}>
     <Header />
     <LeftMenu />
-    <Profile postsData={props.postsData} friendsData={props.friendsData} messagesData={props.messagesData}/>
+    <Profile state={props.state} />
     <RightMenu />
   </div>
 );

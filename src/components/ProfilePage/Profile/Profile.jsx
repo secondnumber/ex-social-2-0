@@ -16,7 +16,9 @@ const Profile = (props) => (
     <ProfileMenu />
     <Route
       path="/timeline"
-      render={() => <Timeline timeline={props.state.timeline} />}
+      render={() => (
+        <Timeline timeline={props.state.timeline} addPost={props.addPost} />
+      )}
     />
     <Route path="/profile_info" render={() => <ProfileInfo />} />
     <Route path="/social_and_stream" render={() => <SocialStream />} />

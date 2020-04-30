@@ -13,13 +13,21 @@ const Timeline = (props) => {
       shares={post.shares}
     />
   ));
+
+  let newPostElement = React.createRef();
+
+  let addPost = () => {
+    let text = newPostElement.current.value;
+    props.addPost(text);
+  };
+
   return (
     <div className={classes.wrapper}>
       <h3>MY PROFILE</h3>
       <h2>Timelime</h2>
-      <ul className={classes.postsArea}>
-        {postsElements}
-      </ul>
+      <textarea ref={newPostElement}></textarea>
+      <button onClick={addPost}>Add post</button>
+      <ul className={classes.postsArea}>{postsElements}</ul>
     </div>
   );
 };

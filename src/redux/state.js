@@ -50,4 +50,19 @@ let state = {
   },
 };
 
+export let addPost = (postMessage) => {
+  let date = new Date();
+  let dateString = date.toLocaleDateString();
+  let newPost = {
+    id: 5,
+    author: 'Marina Valentine',
+    time: dateString,
+    message: postMessage,
+    reactions: 0,
+    comments: 0,
+    shares: 0,
+  };
+  state.timeline.postsData.push(newPost);
+};
+
 export default state;

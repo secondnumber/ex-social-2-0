@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Settings.module.scss';
 
-const Settings = () => (
+const Settings = (props) => (
   <div className={classes.wrapper}>
     <svg
       className={classes.icon}

@@ -7,9 +7,9 @@ import RightMenu from './RightMenu/RightMenu';
 
 const ProfilePage = (props) => (
   <div className={classes.wrapper}>
-    <Header />
-    <LeftMenu />
-    <Profile state={props.state} addPost={props.addPost} />
+    <Header headerData={props.state.headerData} />
+    <LeftMenu menusData={props.menusData} />
+    <Profile state={props.state} addPost={props.state.addPost} />
     <RightMenu />
   </div>
 );

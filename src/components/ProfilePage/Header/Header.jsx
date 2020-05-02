@@ -8,16 +8,26 @@ import Progress from './Progress/Progress';
 import Actions from './Actions/Actions';
 import Settings from './Settings/Settings';
 
-const Header = () => (
-  <div className={classes.header}>
-    <Logo />
-    <ToggleSideMenu />
-    <NavMenu />
-    <Search />
-    <Progress />
-    <Actions />
-    <Settings />
-  </div>
-);
+const Header = (props) => {
+  let navMenuList = props.headerData.navMenuList.map((element) => (
+    <NavMenu navMenuItem={element.name} />
+  ));
+
+  let progress = props.headerData.progressCount.map((element) => (
+    <Progress progressCount={element.experience} />
+  ));
+
+  return (
+    <div className={classes.header}>
+      <Logo />
+      <ToggleSideMenu />
+      {navMenuList}
+      <Search />
+      {progress}
+      <Actions />
+      <Settings />
+    </div>
+  );
+};
 
 export default Header;

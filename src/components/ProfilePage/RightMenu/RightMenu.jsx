@@ -1,50 +1,12 @@
 import React from 'react';
 import classes from './RightMenu.module.scss';
-import smallAvatarIcon from './icons/SmallProfileInfo.png';
+import RightMenuItem from './RightMenuItem/RightMenuItem';
 
-const RightMenu = () => (
-  <ul className={classes.list}>
-    <li className={classes.item}>
-      <a href="#">
-        <img src={smallAvatarIcon} alt="" />
-      </a>
-    </li>
-    <li className={classes.item}>
-      <a href="#">
-        <img src={smallAvatarIcon} alt="" />
-      </a>
-    </li>
-    <li className={classes.item}>
-      <a href="#">
-        <img src={smallAvatarIcon} alt="" />
-      </a>
-    </li>
-    <li className={classes.item}>
-      <a href="#">
-        <img src={smallAvatarIcon} alt="" />
-      </a>
-    </li>
-    <li className={classes.item}>
-      <a href="#">
-        <img src={smallAvatarIcon} alt="" />
-      </a>
-    </li>
-    <li className={classes.item}>
-      <a href="#">
-        <img src={smallAvatarIcon} alt="" />
-      </a>
-    </li>
-    <li className={classes.item}>
-      <a href="#">
-        <img src={smallAvatarIcon} alt="" />
-      </a>
-    </li>
-    <li className={classes.item}>
-      <a href="#">
-        <img src={smallAvatarIcon} alt="" />
-      </a>
-    </li>
-  </ul>
-);
+const RightMenu = (props) => {
+  let rightMenuList = props.rightMenuData.iconsList.map((element) => (
+    <RightMenuItem menuIcon={element.icon} />
+  ));
+  return <ul className={classes.list}>{rightMenuList}</ul>;
+};
 
 export default RightMenu;

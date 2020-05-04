@@ -9,7 +9,11 @@ const ProfilePage = (props) => (
   <div className={classes.wrapper}>
     <Header headerData={props.state.headerData} />
     <LeftMenu leftMenuData={props.state.leftMenuData} />
-    <Profile state={props.state} addPost={props.state.addPost} />
+    <Profile
+      state={props.state}
+      addPost={props.state.addPost}
+      accountInfoData={props.state.accountInfoData}
+    />
     <RightMenu rightMenuData={props.state.rightMenuData} />
   </div>
 );

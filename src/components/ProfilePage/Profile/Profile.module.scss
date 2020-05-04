@@ -11,3 +11,13 @@ grid-template-areas:
 "bc bd be bf bh";
 background-color: $grayLight;
 }
+
+.list {
+  grid-area: bd;
+  background-color: $white;
+  border-radius: 10px;
+  list-style-type: none;
+  color: $grayDark;
+  padding: 20px;
+  box-shadow: 0 0 40px 0 rgba(94,92,154,.06);
+}

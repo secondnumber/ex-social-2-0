@@ -12,6 +12,7 @@ const ProfilePage = (props) => (
     <Profile
       state={props.state}
       addPost={props.addPost}
+      updateNewPostText={props.updateNewPostText}
       accountInfoData={props.state.accountInfoData}
     />
     <RightMenu rightMenuData={props.state.rightMenuData} />

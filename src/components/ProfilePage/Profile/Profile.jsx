@@ -13,14 +13,18 @@ import AccountInfo from './AccountInfo/AccountInfo';
 
 const Profile = (props) => {
   let accountInfoList = props.accountInfoData.accountInfoList.map((element) => (
-    <AccountInfo name={element.name} description={element.description} />
+    <AccountInfo
+      id={element.id}
+      name={element.name}
+      description={element.description}
+      profileMenuList={element.profileMenuList}
+    />
   ));
+
   return (
     <div className={classes.wrapper}>
       <ProfileBanner />
-        <ul className={classes.list}>
-      {accountInfoList}
-        </ul>
+      <ul className={classes.list}>{accountInfoList}</ul>
       <Route
         path="/timeline"
         render={() => (

@@ -19,13 +19,23 @@ const Timeline = (props) => {
   let addPost = () => {
     let text = newPostElement.current.value;
     props.addPost(text);
+    props.updateNewPostText('');
+  };
+
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
   };
 
   return (
     <div className={classes.wrapper}>
       <h3>MY PROFILE</h3>
       <h2>Timelime</h2>
-      <textarea ref={newPostElement}></textarea>
+      <textarea
+        onChange={onPostChange}
+        ref={newPostElement}
+        value={props.timeline.newPostText}
+      />
       <button onClick={addPost}>Add post</button>
       <ul className={classes.postsArea}>{postsElements}</ul>
     </div>

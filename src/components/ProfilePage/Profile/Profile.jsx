@@ -28,7 +28,11 @@ const Profile = (props) => {
       <Route
         path="/timeline"
         render={() => (
-          <Timeline timeline={props.state.timeline} addPost={props.addPost} />
+          <Timeline
+            timeline={props.state.timeline}
+            addPost={props.addPost}
+            updateNewPostText={props.updateNewPostText}
+          />
         )}
       />
       <Route path="/profile_info" render={() => <ProfileInfo />} />

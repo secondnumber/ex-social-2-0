@@ -9,6 +9,7 @@ import NewsfeedIcon from '../components/ProfilePage/LeftMenu/icons/NewsfeedIcon.
 import OverviewIcon from '../components/ProfilePage/LeftMenu/icons/OverviewIcon.png';
 import QuestsIcon from '../components/ProfilePage/LeftMenu/icons/QuestsIcon.png';
 import StreamsIcon from '../components/ProfilePage/LeftMenu/icons/StreamsIcon.png';
+import { rerenderEntireTree } from '../render';
 
 let state = {
   headerData: {
@@ -114,6 +115,7 @@ let state = {
         shares: 0,
       },
     ],
+    newPostText: 'new',
   },
 
   messages: {
@@ -133,19 +135,27 @@ let state = {
   },
 };
 
-export let addPost = (postMessage) => {
+window.state = state;
+
+export let addPost = () => {
   let date = new Date();
   let dateString = date.toLocaleDateString();
   let newPost = {
     id: 5,
     author: 'Marina Valentine',
     time: dateString,
-    message: postMessage,
+    message: state.timeline.newPostText,
     reactions: 0,
     comments: 0,
     shares: 0,
   };
   state.timeline.postsData.push(newPost);
+  rerenderEntireTree(state);
+};
+
+export let updateNewPostText = (newText) => {
+  state.timeline.newPostText = newText;
+  rerenderEntireTree(state);
 };
 
 export default state;

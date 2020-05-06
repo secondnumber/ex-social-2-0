@@ -19,7 +19,6 @@ const Timeline = (props) => {
   let addPost = () => {
     let text = newPostElement.current.value;
     props.addPost(text);
-    props.updateNewPostText('');
   };
 
   let onPostChange = () => {

@@ -9,7 +9,10 @@ import NewsfeedIcon from '../components/ProfilePage/LeftMenu/icons/NewsfeedIcon.
 import OverviewIcon from '../components/ProfilePage/LeftMenu/icons/OverviewIcon.png';
 import QuestsIcon from '../components/ProfilePage/LeftMenu/icons/QuestsIcon.png';
 import StreamsIcon from '../components/ProfilePage/LeftMenu/icons/StreamsIcon.png';
-import { rerenderEntireTree } from '../render';
+
+let rerenderEntireTree = () => {
+  console.log('State changed');
+};
 
 let state = {
   headerData: {
@@ -137,7 +140,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
   let date = new Date();
   let dateString = date.toLocaleDateString();
   let newPost = {
@@ -153,9 +156,13 @@ export let addPost = () => {
   rerenderEntireTree(state);
 };
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
   state.timeline.newPostText = newText;
   rerenderEntireTree(state);
+};
+
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer;
 };
 
 export default state;

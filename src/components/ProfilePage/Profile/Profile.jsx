@@ -30,8 +30,7 @@ const Profile = (props) => {
         render={() => (
           <Timeline
             timeline={props.state.timeline}
-            addPost={props.addPost}
-            updateNewPostText={props.updateNewPostText}
+            dispatch={props.dispatch}
           />
         )}
       />

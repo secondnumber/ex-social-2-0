@@ -135,38 +135,38 @@ let store = {
       ],
     },
   },
-  getState() {
-    return this._state;
-  },
 
   _callSubscriber() {
     console.log('State changed');
   },
 
-  addPost() {
-    let date = new Date();
-    let dateString = date.toLocaleDateString();
-    let newPost = {
-      id: 5,
-      author: 'Marina Valentine',
-      time: dateString,
-      message: this._state.timeline.newPostText,
-      reactions: 0,
-      comments: 0,
-      shares: 0,
-    };
-    this._state.timeline.postsData.push(newPost);
-    this._state.timeline.newPostText = '';
-    this._callSubscriber(this._state);
+  getState() {
+    return this._state;
   },
-
-  updateNewPostText(newText) {
-    this._state.timeline.newPostText = newText;
-    this._callSubscriber(this._state);
-  },
-
   subscribe(observer) {
     this._callSubscriber = observer;
+  },
+
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let date = new Date();
+      let dateString = date.toLocaleDateString();
+      let newPost = {
+        id: 5,
+        author: 'Marina Valentine',
+        time: dateString,
+        message: this._state.timeline.newPostText,
+        reactions: 0,
+        comments: 0,
+        shares: 0,
+      };
+      this._state.timeline.postsData.push(newPost);
+      this._state.timeline.newPostText = '';
+      this._callSubscriber(this._state);
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.timeline.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    }
   },
 };
 export default store;

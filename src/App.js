@@ -6,8 +6,7 @@ const App = (props) => (
   <div>
     <ProfilePage
       state={props.state}
-      addPost={props.addPost}
-      updateNewPostText={props.updateNewPostText}
+      dispatch={props.dispatch}
     />
   </div>
 );

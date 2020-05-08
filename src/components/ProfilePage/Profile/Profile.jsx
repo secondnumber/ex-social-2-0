@@ -28,10 +28,7 @@ const Profile = (props) => {
       <Route
         path="/timeline"
         render={() => (
-          <Timeline
-            timeline={props.state.timeline}
-            dispatch={props.dispatch}
-          />
+          <Timeline timeline={props.state.timeline} dispatch={props.dispatch} />
         )}
       />
       <Route path="/profile_info" render={() => <ProfileInfo />} />
@@ -39,7 +36,9 @@ const Profile = (props) => {
       <Route path="/notifications" render={() => <Notifications />} />
       <Route
         path="/dialogs"
-        render={() => <Dialogs messages={props.state.messages} />}
+        render={() => (
+          <Dialogs messages={props.state.messages} dispatch={props.dispatch} />
+        )}
       />
       <Route path="/friend_requests" render={() => <FriendRequests />} />
     </div>

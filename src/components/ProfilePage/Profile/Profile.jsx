@@ -37,7 +37,7 @@ const Profile = (props) => {
       <Route
         path="/dialogs"
         render={() => (
-          <Dialogs messages={props.state.messages} dispatch={props.dispatch} />
+          <Dialogs messages={props.state.messages} store={props.store} />
         )}
       />
       <Route path="/friend_requests" render={() => <FriendRequests />} />

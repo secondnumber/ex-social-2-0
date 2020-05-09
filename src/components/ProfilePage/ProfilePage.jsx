@@ -13,6 +13,7 @@ const ProfilePage = (props) => (
       state={props.state}
       dispatch={props.dispatch}
       accountInfoData={props.state.accountInfoData}
+      store={props.store}
     />
     <RightMenu rightMenuData={props.state.rightMenuData} />
   </div>

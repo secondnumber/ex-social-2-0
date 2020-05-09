@@ -7,6 +7,7 @@ const App = (props) => (
     <ProfilePage
       state={props.state}
       dispatch={props.dispatch}
+      store={props.store}
     />
   </div>
 );

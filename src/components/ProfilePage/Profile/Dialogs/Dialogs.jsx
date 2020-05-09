@@ -3,29 +3,31 @@ import classes from './Dialogs.module.scss';
 import FriendItem from './FriendItem/FriendItem';
 import MessageItem from './MessageItem/MessageItem';
 import {
-  addMessageActionCreator,
-  updateNewMessageTextActionCreator,
+  sendMessageCreator,
+  updateNewMessageBodyCreator,
 } from '../../../../redux/store';
 
 const Dialogs = (props) => {
-  let friendsElements = props.messages.friendsData.map((friend) => (
+  let state = props.store.getState().messages;
+
+  let friendsElements = state.friendsData.map((friend) => (
     <FriendItem id={friend.id} name={friend.name} />
   ));
 
-  let messagesElements = props.messages.messagesData.map((message) => (
+  let messagesElements = state.messagesData.map((message) => (
     <MessageItem id={message.id} message={message.message} />
   ));
 
   let newMessageElement = React.createRef();
 
-  let addMessage = () => {
-    props.dispatch(addMessageActionCreator());
+  let sendMessage = () => {
+    props.store.dispatch(sendMessageCreator());
   };
 
-  let onMessageChange = () => {
-    let text = newMessageElement.current.value;
-    let action = updateNewMessageTextActionCreator(text);
-    props.dispatch(action);
+  let onMessageChange = (e) => {
+    let body = e.target.value;
+    let action = updateNewMessageBodyCreator(body);
+    props.store.dispatch(action);
   };
 
   return (
@@ -34,13 +36,18 @@ const Dialogs = (props) => {
       <h2>Messages</h2>
       <div className={classes.messagesArea}>
         <ul className={classes.friendsList}>{friendsElements}</ul>
-        <ul className={classes.messagesList}>{messagesElements}</ul>
-        <textarea
-          onChange={onMessageChange}
-          ref={newMessageElement}
-          value={props.messages.newMessageText}
-        ></textarea>
-        <button onClick={addMessage}>Add message</button>
+        <div className={classes.dialogsArea}>
+          <ul className={classes.messagesList}>{messagesElements}</ul>
+          <textarea
+            className={classes.textarea}
+            onChange={onMessageChange}
+            ref={newMessageElement}
+            value={state.newMessageBody}
+          ></textarea>
+          <button className={classes.button} onClick={sendMessage}>
+            Add message
+          </button>
+        </div>
       </div>
     </div>
   );

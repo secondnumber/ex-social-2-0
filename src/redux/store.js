@@ -12,8 +12,8 @@ import StreamsIcon from '../components/ProfilePage/LeftMenu/icons/StreamsIcon.pn
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 
 let store = {
   _state: {
@@ -138,7 +138,7 @@ let store = {
         { id: 2, message: 'Hello' },
         { id: 3, message: 'How are you?' },
       ],
-      newMessageText: 'newMsg',
+      newMessageBody: 'newMsg',
     },
   },
 
@@ -172,16 +172,13 @@ let store = {
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.timeline.newPostText = action.newText;
       this._callSubscriber(this._state);
-    } else if (action.type === ADD_MESSAGE) {
-      let newMessage = {
-        id: 4,
-        message: this._state.messages.newMessageText,
-      };
-      this._state.messages.messagesData.push(newMessage);
-      this._state.messages.newMessageText = '';
+    } else if (action.type === SEND_MESSAGE) {
+      let body = this._state.messages.newMessageBody;
+      this._state.messages.messagesData.push( {id: 4, message: body} );
+      this._state.messages.newMessageBody = '';
       this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-      this._state.messages.newMessageText = action.newText;
+    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+      this._state.messages.newMessageBody = action.newBody;
       this._callSubscriber(this._state);
     }
   },
@@ -194,11 +191,11 @@ export const updateNewPostTextActionCreator = (text) => ({
   newText: text,
 });
 
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
 
-export const updateNewMessageTextActionCreator = (text) => ({
-  type: UPDATE_NEW_MESSAGE_TEXT,
-  newText: text,
+export const updateNewMessageBodyCreator = (text) => ({
+  type: UPDATE_NEW_MESSAGE_BODY,
+  newBody: text,
 });
 
 export default store;

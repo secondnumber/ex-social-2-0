@@ -7,15 +7,14 @@ import RightMenu from './RightMenu/RightMenu';
 
 const ProfilePage = (props) => (
   <div className={classes.wrapper}>
-    <Header headerData={props.state.headerData} />
-    <LeftMenu leftMenuData={props.state.leftMenuData} />
+    <Header state={props.state} />
+    <LeftMenu state={props.state} />
     <Profile
-      state={props.state}
       dispatch={props.dispatch}
-      accountInfoData={props.state.accountInfoData}
+      state={props.state}
       store={props.store}
     />
-    <RightMenu rightMenuData={props.state.rightMenuData} />
+    <RightMenu state={props.state} />
   </div>
 );
 

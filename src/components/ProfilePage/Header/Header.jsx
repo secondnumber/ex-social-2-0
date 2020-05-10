@@ -9,11 +9,11 @@ import Actions from './Actions/Actions';
 import Settings from './Settings/Settings';
 
 const Header = (props) => {
-  let navMenuList = props.headerData.navMenuList.map((element) => (
+  let navMenuList = props.state.headers.navMenuList.map((element) => (
     <NavMenu navMenuItem={element.name} />
   ));
 
-  let progress = props.headerData.progressCount.map((element) => (
+  let progress = props.state.headers.progressCount.map((element) => (
     <Progress progressCount={element.experience} />
   ));
 

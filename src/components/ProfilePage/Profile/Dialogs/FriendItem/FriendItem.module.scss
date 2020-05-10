@@ -1,6 +1,12 @@
 @import '../../../../../colors';
 
 .friendItem {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.image {
     padding: 10px;
 }
 

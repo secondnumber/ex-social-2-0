@@ -9,11 +9,8 @@ import NewsfeedIcon from '../components/ProfilePage/LeftMenu/icons/NewsfeedIcon.
 import OverviewIcon from '../components/ProfilePage/LeftMenu/icons/OverviewIcon.png';
 import QuestsIcon from '../components/ProfilePage/LeftMenu/icons/QuestsIcon.png';
 import StreamsIcon from '../components/ProfilePage/LeftMenu/icons/StreamsIcon.png';
-
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
+import messagesReducer from './messagesReducer';
+import timelineReducer from './timelineReducer';
 
 let store = {
   _state: {
@@ -123,7 +120,6 @@ let store = {
       ],
       newPostText: 'new',
     },
-
     messages: {
       friendsData: [
         { id: 1, name: 'Bearded Wonder' },
@@ -154,48 +150,10 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let date = new Date();
-      let dateString = date.toLocaleDateString();
-      let newPost = {
-        id: 5,
-        author: 'Marina Valentine',
-        time: dateString,
-        message: this._state.timeline.newPostText,
-        reactions: 0,
-        comments: 0,
-        shares: 0,
-      };
-      this._state.timeline.postsData.push(newPost);
-      this._state.timeline.newPostText = '';
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.timeline.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    } else if (action.type === SEND_MESSAGE) {
-      let body = this._state.messages.newMessageBody;
-      this._state.messages.messagesData.push( {id: 4, message: body} );
-      this._state.messages.newMessageBody = '';
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-      this._state.messages.newMessageBody = action.newBody;
-      this._callSubscriber(this._state);
-    }
+    this._state.timeline = timelineReducer(this._state.timeline, action);
+    this._state.messages = messagesReducer(this._state.messages, action);
+    this._callSubscriber(this._state);
   },
 };
-
-export const addPostActionCreator = () => ({ type: ADD_POST });
-
-export const updateNewPostTextActionCreator = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: text,
-});
-
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
-
-export const updateNewMessageBodyCreator = (text) => ({
-  type: UPDATE_NEW_MESSAGE_BODY,
-  newBody: text,
-});
 
 export default store;

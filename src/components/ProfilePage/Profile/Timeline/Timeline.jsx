@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Timeline.module.scss';
 import Post from './Post/Post';
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux/store";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux/timelineReducer";
 
 const Timeline = (props) => {
   let postsElements = props.timeline.postsData.map((post) => (

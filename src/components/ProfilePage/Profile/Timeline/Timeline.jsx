@@ -4,6 +4,7 @@ import Post from './Post/Post';
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux/timelineReducer";
 
 const Timeline = (props) => {
+    debugger;
   let postsElements = props.timeline.postsData.map((post) => (
     <Post
       message={post.message}

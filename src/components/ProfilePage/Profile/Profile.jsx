@@ -12,7 +12,8 @@ import FriendRequests from './FriendRequests/FriendRequests';
 import AccountInfo from './AccountInfo/AccountInfo';
 
 const Profile = (props) => {
-  let accountInfoList = props.accountInfoData.accountInfoList.map((element) => (
+    debugger;
+  let accountInfoList = props.state.account.accountInfoList.map((element) => (
     <AccountInfo
       id={element.id}
       name={element.name}
@@ -28,7 +29,7 @@ const Profile = (props) => {
       <Route
         path="/timeline"
         render={() => (
-          <Timeline timeline={props.state.timeline} dispatch={props.dispatch} />
+          <Timeline timeline={props.state.timeline} dispatch={props.store.dispatch} store={props.store} />
         )}
       />
       <Route path="/profile_info" render={() => <ProfileInfo />} />
@@ -37,7 +38,7 @@ const Profile = (props) => {
       <Route
         path="/dialogs"
         render={() => (
-          <Dialogs messages={props.state.messages} store={props.store} />
+          <Dialogs messages={props.state.messages} dispatch={props.store.dispatch} store={props.store} />
         )}
       />
       <Route path="/friend_requests" render={() => <FriendRequests />} />

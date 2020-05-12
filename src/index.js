@@ -1,4 +1,3 @@
-import state, { subscribe } from './redux/store';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -10,7 +9,7 @@ import * as serviceWorker from './serviceWorker';
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <BrowserRouter>
-      <App state={state} dispatch={store.dispatch.bind(store)} store={store} />
+      <App state={state} store={store} />
     </BrowserRouter>,
     document.getElementById('root')
   );

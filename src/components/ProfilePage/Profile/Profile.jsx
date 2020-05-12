@@ -1,18 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import classes from './Profile.module.scss';
 import ProfileBanner from './ProfileBanner/ProfileBanner';
-import ProfileMenu from './AccountInfo/ProfileMenu/ProfileMenu';
-import Timeline from './Timeline/Timeline';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
-import Dialogs from './Dialogs/Dialogs';
 import SocialStream from './SocialStream/SocialStream';
 import Notifications from './Notifications/Notifications';
 import FriendRequests from './FriendRequests/FriendRequests';
 import AccountInfo from './AccountInfo/AccountInfo';
+import TimelineContainer from './Timeline/TimelineContainer';
+import DialogsContainer from "./Dialogs/DialogsContainer";
 
 const Profile = (props) => {
-    debugger;
   let accountInfoList = props.state.account.accountInfoList.map((element) => (
     <AccountInfo
       id={element.id}
@@ -28,9 +26,7 @@ const Profile = (props) => {
       <ul className={classes.list}>{accountInfoList}</ul>
       <Route
         path="/timeline"
-        render={() => (
-          <Timeline timeline={props.state.timeline} dispatch={props.store.dispatch} store={props.store} />
-        )}
+        render={() => <TimelineContainer store={props.store} />}
       />
       <Route path="/profile_info" render={() => <ProfileInfo />} />
       <Route path="/social_and_stream" render={() => <SocialStream />} />
@@ -38,7 +34,7 @@ const Profile = (props) => {
       <Route
         path="/dialogs"
         render={() => (
-          <Dialogs messages={props.state.messages} dispatch={props.store.dispatch} store={props.store} />
+            <DialogsContainer store={props.store} />
         )}
       />
       <Route path="/friend_requests" render={() => <FriendRequests />} />

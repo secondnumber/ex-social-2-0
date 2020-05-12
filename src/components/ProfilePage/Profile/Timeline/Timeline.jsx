@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './Timeline.module.scss';
 import Post from './Post/Post';
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux/timelineReducer";
 
 const Timeline = (props) => {
   let postsElements = props.timeline.postsData.map((post) => (
@@ -17,14 +16,13 @@ const Timeline = (props) => {
 
   let newPostElement = React.createRef();
 
-  let addPost = () => {
-    props.dispatch(addPostActionCreator());
+  let onAddPost = () => {
+    props.addPost();
   };
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    let action = updateNewPostTextActionCreator(text);
-    props.dispatch(action);
+    props.updateNewPostText(text);
   };
 
   return (
@@ -36,7 +34,7 @@ const Timeline = (props) => {
         ref={newPostElement}
         value={props.timeline.newPostText}
       />
-      <button onClick={addPost}>Add post</button>
+      <button onClick={onAddPost}>Add post</button>
       <ul className={classes.postsArea}>{postsElements}</ul>
     </div>
   );

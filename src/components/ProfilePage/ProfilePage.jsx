@@ -10,7 +10,6 @@ const ProfilePage = (props) => (
     <Header state={props.state} />
     <LeftMenu state={props.state} />
     <Profile
-      dispatch={props.dispatch}
       state={props.state}
       store={props.store}
     />

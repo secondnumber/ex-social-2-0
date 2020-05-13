@@ -4,33 +4,29 @@ import {
   updateNewPostTextActionCreator,
 } from '../../../../redux/timelineReducer';
 import Timeline from './Timeline';
-import StoreContext from '../../../../storeContext';
+import { connect } from 'react-redux';
 
-const TimelineContainer = (props) => {
-  return (
-    <StoreContext.Consumer>
-      { store => {
-        let state = store.getState();
-
-        let addPost = () => {
-          store.dispatch(addPostActionCreator());
-        };
-
-        let onPostChange = (text) => {
-          let action = updateNewPostTextActionCreator(text);
-          store.dispatch(action);
-        };
-
-        return (
-          <Timeline
-            updateNewPostText={onPostChange}
-            addPost={addPost}
-            timeline={state.timeline}
-          />
-        );
-      }}
-    </StoreContext.Consumer>
-  );
+let mapStateToProps = (state) => {
+  return {
+    timeline: state.timeline,
+    newPostText: state.timeline.newPostText,
+  };
 };
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    addPost: () => {
+      dispatch(addPostActionCreator());
+    },
+    updateNewPostText: (text) => {
+      dispatch(updateNewPostTextActionCreator(text));
+    },
+  };
+};
+
+const TimelineContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Timeline);
 
 export default TimelineContainer;

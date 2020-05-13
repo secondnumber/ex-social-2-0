@@ -3,6 +3,7 @@ import classes from './Timeline.module.scss';
 import Post from './Post/Post';
 
 const Timeline = (props) => {
+    debugger
   let postsElements = props.timeline.postsData.map((post) => (
     <Post
       message={post.message}
@@ -32,7 +33,7 @@ const Timeline = (props) => {
       <textarea
         onChange={onPostChange}
         ref={newPostElement}
-        value={props.timeline.newPostText}
+        value={props.newPostText}
       />
       <button onClick={onAddPost}>Add post</button>
       <ul className={classes.postsArea}>{postsElements}</ul>

@@ -4,7 +4,7 @@ import ProfilePage from './components/ProfilePage/ProfilePage';
 
 const App = (props) => (
   <div>
-    <ProfilePage state={props.state} store={props.store} />
+    <ProfilePage />
   </div>
 );
 

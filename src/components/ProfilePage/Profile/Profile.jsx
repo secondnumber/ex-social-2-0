@@ -13,7 +13,7 @@ import DialogsContainer from './Dialogs/DialogsContainer';
 const Profile = (props) => {
   let accountInfoList = props.account.accountInfoList.map((element) => (
     <AccountInfo
-      id={element.id}
+      key={element.id}
       name={element.name}
       description={element.description}
       profileMenuList={element.profileMenuList}

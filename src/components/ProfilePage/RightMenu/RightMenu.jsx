@@ -4,7 +4,7 @@ import RightMenuItem from './RightMenuItem/RightMenuItem';
 
 const RightMenu = (props) => {
   let rightMenuList = props.rightMenu.iconsList.map((element) => (
-    <RightMenuItem menuIcon={element.icon} />
+    <RightMenuItem key={element.id} menuIcon={element.icon} />
   ));
   return <ul className={classes.list}>{rightMenuList}</ul>;
 };

@@ -5,22 +5,15 @@ import App from './App';
 import store from './redux/reduxStore';
 import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-<<<<<<< Updated upstream
-=======
 import { Provider } from 'react-redux';
->>>>>>> Stashed changes
 
 <<<<<<< Updated upstream
 let rerenderEntireTree = (state) => {
   ReactDOM.render(
     <BrowserRouter>
-<<<<<<< Updated upstream
-      <App state={state} store={store} />
-=======
       <Provider store={store}>
         <App />
       </Provider>
->>>>>>> Stashed changes
     </BrowserRouter>,
     document.getElementById('root')
   );

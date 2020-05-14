@@ -7,6 +7,7 @@ import RightMenuContainer from './RightMenu/RightMenuContainer';
 
 const ProfilePage = (props) => (
   <div className={classes.wrapper}>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     <Header state={props.state} />
@@ -17,10 +18,13 @@ const ProfilePage = (props) => (
     />
     <RightMenu state={props.state} />
 =======
+=======
+>>>>>>> 6fe16831e054a48bc371604709a6085bbe95971a
     {/*<Header />*/}
     {/*<LeftMenu />*/}
     <ProfileContainer />
     {/*<RightMenu />*/}
+<<<<<<< HEAD
 >>>>>>> Stashed changes
 =======
     <HeaderContainer />
@@ -28,6 +32,8 @@ const ProfilePage = (props) => (
     <ProfileContainer />
     <RightMenuContainer />
 >>>>>>> Stashed changes
+=======
+>>>>>>> 6fe16831e054a48bc371604709a6085bbe95971a
   </div>
 );
 

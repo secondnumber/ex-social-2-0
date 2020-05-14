@@ -1,12 +1,13 @@
 import React from 'react';
 import classes from './ProfilePage.module.scss';
-import Header from './Header/Header';
-import LeftMenu from './LeftMenu/LeftMenu';
-import RightMenu from './RightMenu/RightMenu';
 import ProfileContainer from './Profile/ProfileContainer';
+import HeaderContainer from './Header/HeaderContainer';
+import LeftMenuContainer from './LeftMenu/LeftMenuContainer';
+import RightMenuContainer from './RightMenu/RightMenuContainer';
 
 const ProfilePage = (props) => (
   <div className={classes.wrapper}>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     <Header state={props.state} />
     <LeftMenu state={props.state} />
@@ -20,6 +21,12 @@ const ProfilePage = (props) => (
     {/*<LeftMenu />*/}
     <ProfileContainer />
     {/*<RightMenu />*/}
+>>>>>>> Stashed changes
+=======
+    <HeaderContainer />
+    <LeftMenuContainer />
+    <ProfileContainer />
+    <RightMenuContainer />
 >>>>>>> Stashed changes
   </div>
 );

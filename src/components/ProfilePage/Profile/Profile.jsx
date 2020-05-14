@@ -14,6 +14,7 @@ const Profile = (props) => {
   let accountInfoList = props.account.accountInfoList.map((element) => (
     <AccountInfo
       key={element.id}
+      id={element.id}
       name={element.name}
       description={element.description}
       profileMenuList={element.profileMenuList}

@@ -3,9 +3,9 @@ import classes from './Timeline.module.scss';
 import Post from './Post/Post';
 
 const Timeline = (props) => {
-    debugger
   let postsElements = props.timeline.postsData.map((post) => (
     <Post
+      key={post.id}
       message={post.message}
       author={post.author}
       time={post.time}

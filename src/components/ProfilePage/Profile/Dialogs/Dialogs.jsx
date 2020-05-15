@@ -5,11 +5,11 @@ import MessageItem from './MessageItem/MessageItem';
 
 const Dialogs = (props) => {
   let friendsElements = props.messages.friendsData.map((friend) => (
-    <FriendItem id={friend.id} name={friend.name} />
+    <FriendItem key={friend.id} id={friend.id} name={friend.name} />
   ));
 
   let messagesElements = props.messages.messagesData.map((message) => (
-    <MessageItem id={message.id} message={message.message} />
+    <MessageItem key={message.id} id={message.id} message={message.message} />
   ));
 
   let newMessageElement = React.createRef();

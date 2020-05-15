@@ -37,14 +37,14 @@ let initialState = {
 };
 
 const timelineReducer = (state = initialState, action) => {
-  let stateCopy = { ...state, postsData: [...state.postsData] };
+  let stateCopy;
 
   switch (action.type) {
-    case ADD_POST: {
+    case ADD_POST:
       let date = new Date();
       let dateString = date.toLocaleDateString();
       let newPost = {
-        id: 5,
+        id: 4,
         author: 'Marina Valentine',
         time: dateString,
         message: state.newPostText,
@@ -52,14 +52,13 @@ const timelineReducer = (state = initialState, action) => {
         comments: 0,
         shares: 0,
       };
-      stateCopy.postsData.push(newPost);
+      stateCopy = { ...state, postsData: [...state.postsData, newPost] };
       stateCopy.newPostText = '';
       return stateCopy;
-    }
-    case UPDATE_NEW_POST_TEXT: {
+    case UPDATE_NEW_POST_TEXT:
+      stateCopy = { ...state };
       stateCopy.newPostText = action.newText;
       return stateCopy;
-    }
     default:
       return state;
   }

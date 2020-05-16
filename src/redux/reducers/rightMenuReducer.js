@@ -1,4 +1,4 @@
-import SmallProfileIcon from '../components/ProfilePage/LeftMenu/icons/SmallProfileInfo.png';
+import SmallProfileIcon from '../../assets/LeftMenu/icons/SmallProfileInfo.png';
 
 let initialState = {
   iconsList: [

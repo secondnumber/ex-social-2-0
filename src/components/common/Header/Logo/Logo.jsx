@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Logo.module.scss';
-import LogoSmall from './LogoSmall.png';
+import LogoSmall from '../../../../assets/Header/LogoSmall.png';
 
 const Logo = () => (
   <div className={classes.wrapper}>

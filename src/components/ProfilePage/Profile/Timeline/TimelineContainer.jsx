@@ -2,7 +2,7 @@ import React from 'react';
 import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
-} from '../../../../redux/timelineReducer';
+} from '../../../../redux/reducers/timelineReducer';
 import Timeline from './Timeline';
 import { connect } from 'react-redux';
 

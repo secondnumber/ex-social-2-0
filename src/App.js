@@ -2,10 +2,12 @@ import React from 'react';
 import LoginPage from './components/LoginPage/LoginPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import FriendsPage from './components/FriendsPage/FriendsPage';
+import { Route } from 'react-router-dom';
 
 const App = (props) => (
   <div>
-    <FriendsPage />
+    <Route path="/friends" render={() => <FriendsPage />} />
+    <Route path="/*" render={() => <ProfilePage />} />
   </div>
 );
 

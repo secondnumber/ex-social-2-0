@@ -4,7 +4,7 @@ import classes from './NavMenu.module.scss';
 const NavMenu = (props) => (
   <ul className={classes.wrapper}>
     <li>
-      <a className={classes.item} href="http://">
+      <a className={classes.item} href={props.navMenuLink}>
           {props.navMenuItem}
       </a>
     </li>

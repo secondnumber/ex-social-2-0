@@ -1,10 +1,10 @@
 import { combineReducers, createStore } from 'redux';
-import timelineReducer from './timelineReducer';
-import messagesReducer from './messagesReducer';
-import headersReducer from './headersReducer';
-import accountReducer from './accountReducer';
-import leftMenuReducer from './leftMenuReducer';
-import rightMenuReducer from './rightMenuReducer';
+import timelineReducer from './reducers/timelineReducer';
+import messagesReducer from './reducers/messagesReducer';
+import headersReducer from './reducers/headersReducer';
+import accountReducer from './reducers/accountReducer';
+import leftMenuReducer from './reducers/leftMenuReducer';
+import rightMenuReducer from './reducers/rightMenuReducer';
 
 let reducers = combineReducers({
   headers: headersReducer,

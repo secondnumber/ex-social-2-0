@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './LoginIntro.module.scss';
-import Logo from './Logo.png';
+import Logo from '../../../assets/LoginPage/Logo.png';
 
 const LoginIntro = () => (
   <div className={classes.intro}>

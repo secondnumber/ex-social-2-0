@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './RegisterForm.module.scss';
-import Rocket from './Rocket.png';
+import Rocket from '../../../assets/LoginPage/Rocket.png';
 
 const RegisterForm = () => (
   <div className={classes.wrapper}>

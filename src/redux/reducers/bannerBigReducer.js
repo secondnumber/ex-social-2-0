@@ -8,23 +8,23 @@ import Youtube from '../../assets/FriendsPage/social/youtube.png';
 import Patreon from '../../assets/FriendsPage/social/patreon.png';
 import Discord from '../../assets/FriendsPage/social/discord.png';
 
-
 let initialState = {
   bannerBigAvatar: Avatar,
   bannerBigName: 'Marina Valentine',
   bannerBigStatus: 'WWW.GAMEHUNTRESS.COM',
   bannerBigStats: [
-    {id: 1, posts: 930, friends: 82, visits: 5.7, flag: Flag, country: 'USA'},
+    { id: 1, value: 930, label: 'posts' },
+    { id: 2, value: 82, label: 'friends' },
+    { id: 3, value: 5.7, label: 'visits' },
   ],
   bannerBigSocial: [
-    {id: 1, name: Facebook, hint: 'Facebook'},
-    {id: 2, name: Twitter, hint: 'Twitter'},
-    {id: 3, name: Instagram, hint: 'Instagram'},
-    {id: 4, name: Twitch, hint: 'Twitch'},
-    {id: 5, name: Youtube, hint: 'Youtube'},
-    {id: 6, name: Patreon, hint: 'Patreon'},
-    {id: 7, name: Discord, hint: 'Discord'},
-
+    { id: 1, name: Facebook, hint: 'Facebook' },
+    { id: 2, name: Twitter, hint: 'Twitter' },
+    { id: 3, name: Instagram, hint: 'Instagram' },
+    { id: 4, name: Twitch, hint: 'Twitch' },
+    { id: 5, name: Youtube, hint: 'Youtube' },
+    { id: 6, name: Patreon, hint: 'Patreon' },
+    { id: 7, name: Discord, hint: 'Discord' },
   ],
 };
 

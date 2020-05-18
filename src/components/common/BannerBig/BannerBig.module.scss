@@ -28,19 +28,22 @@
 }
 
 .info {
+  width: 100%;
   height: 100px;
   padding-top: 25px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .stats {
+  min-width: 400px;
+  display: flex;
   list-style-type: none;
 }
 
 .label {
-
+  min-width: 400px;
 }
 
 .name {
@@ -60,5 +63,7 @@
 }
 
 .social {
-  background-color: burlywood;
+  min-width: 400px;
+  display: flex;
+  list-style-type: none;
 }

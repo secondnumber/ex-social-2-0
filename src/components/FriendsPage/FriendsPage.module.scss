@@ -13,3 +13,14 @@
     background-color: $grayLight;
 }
 
+.block {
+    grid-area: ad;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 65vw;
+    margin: 30px auto 0 auto;
+    background-color: $grayLight;
+    border-radius: 15px;
+}

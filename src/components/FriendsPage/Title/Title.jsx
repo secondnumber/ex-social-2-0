@@ -3,8 +3,10 @@ import classes from './Title.module.scss';
 
 const Title = (props) => {
   return (
-    <div>
-      Title
+    <div className={classes.wrapper}>
+      <span className={classes.label}>BROWSE MARINA’S</span>
+      <span className={classes.title}>Friends</span>
+      <span className={classes.counter}>{props.friends.friendsList.counter}</span>
     </div>
   );
 };

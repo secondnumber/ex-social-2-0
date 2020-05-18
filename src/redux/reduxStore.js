@@ -6,6 +6,8 @@ import accountReducer from './reducers/accountReducer';
 import leftMenuReducer from './reducers/leftMenuReducer';
 import rightMenuReducer from './reducers/rightMenuReducer';
 import bannerBigReducer from './reducers/bannerBigReducer';
+import friendsReducer from './reducers/friendsReducer';
+import innerMenuReducer from './reducers/innerMenuReducer';
 
 let reducers = combineReducers({
   headers: headersReducer,
@@ -15,6 +17,8 @@ let reducers = combineReducers({
   messages: messagesReducer,
   timeline: timelineReducer,
   bannerBig: bannerBigReducer,
+  friends: friendsReducer,
+  innerMenu: innerMenuReducer,
 });
 
 let store = createStore(reducers);

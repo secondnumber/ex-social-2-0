@@ -13,6 +13,7 @@ const BannerBig = (props) => {
       country={element.country}
     />
   ));
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.cover}></div>

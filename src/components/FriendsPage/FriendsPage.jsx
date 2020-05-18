@@ -8,6 +8,7 @@ import InnerMenu from '../common/InnerMenu/InnerMenu';
 import Title from './Title/Title';
 import Sorting from './Sorting/Sorting';
 import BannerBigContainer from '../common/BannerBig/BannerBigContainer';
+import TitleContainer from './Title/TitleContainer';
 
 const FriendsPage = (props) => (
   <div className={classes.wrapper}>
@@ -17,7 +18,7 @@ const FriendsPage = (props) => (
     <div className={classes.block}>
       <BannerBigContainer />
       <InnerMenu />
-      <Title />
+      <TitleContainer />
       <Sorting />
       <FriendsContainer />
     </div>

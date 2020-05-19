@@ -10,9 +10,9 @@ let initialState = {
   ],
 
   viewList: [
-    { id: 1, icon: BigViewIcon },
-    { id: 2, icon: SmallViewIcon },
-    { id: 3, icon: ListViewIcon },
+    { id: 1, icon: BigViewIcon, link: '#' },
+    { id: 2, icon: SmallViewIcon, link: '#' },
+    { id: 3, icon: ListViewIcon, link: '#' },
   ],
 };
 

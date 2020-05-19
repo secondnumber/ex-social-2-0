@@ -8,6 +8,7 @@ import rightMenuReducer from './reducers/rightMenuReducer';
 import bannerBigReducer from './reducers/bannerBigReducer';
 import friendsReducer from './reducers/friendsReducer';
 import innerMenuReducer from './reducers/innerMenuReducer';
+import friendsFilterReducer from './reducers/friendsFilterResucer';
 
 let reducers = combineReducers({
   headers: headersReducer,
@@ -19,6 +20,7 @@ let reducers = combineReducers({
   bannerBig: bannerBigReducer,
   friends: friendsReducer,
   innerMenu: innerMenuReducer,
+  friendFilter: friendsFilterReducer,
 });
 
 let store = createStore(reducers);

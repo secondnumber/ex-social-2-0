@@ -8,6 +8,7 @@ import FriendsFilter from './FriendsFilter/FriendsFilter';
 import BannerBigContainer from '../common/BannerBig/BannerBigContainer';
 import TitleContainer from './Title/TitleContainer';
 import InnerMenuContainer from '../common/InnerMenu/InnerMenuContainer';
+import FriendsFilterContainer from './FriendsFilter/FriendsFilterContainer';
 
 const FriendsPage = (props) => (
   <div className={classes.wrapper}>
@@ -18,7 +19,7 @@ const FriendsPage = (props) => (
       <BannerBigContainer />
       <InnerMenuContainer />
       <TitleContainer />
-      <FriendsFilter />
+      <FriendsFilterContainer />
       <FriendsContainer />
     </div>
   </div>

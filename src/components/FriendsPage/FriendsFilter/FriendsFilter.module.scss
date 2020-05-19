@@ -11,13 +11,20 @@
   border-radius: 15px;
 }
 
-.list {
+.sortList {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   list-style-type: none;
 }
 
-.list:nth-last-child(n) {
+.sortList:nth-last-child(n) {
   border-right: 2px solid $grayLight;
+}
+
+.viewList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
 }

@@ -4,9 +4,9 @@ import ListViewIcon from '../../assets/FriendsPage/sort/ListViewIcon.png';
 
 let initialState = {
   sortList: [
-    { id: 1, name: 'Recently Active' },
-    { id: 2, name: 'Newest Friends' },
-    { id: 3, name: 'Alphabetical' },
+    { id: 1, name: 'Recently Active', link: '#' },
+    { id: 2, name: 'Newest Friends', link: '#' },
+    { id: 3, name: 'Alphabetical', link: '#' },
   ],
 
   viewList: [

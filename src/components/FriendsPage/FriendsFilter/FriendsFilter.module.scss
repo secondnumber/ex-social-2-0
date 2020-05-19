@@ -4,6 +4,20 @@
   width: 100%;
   height: 95px;
   margin: 15px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   background-color: $white;
   border-radius: 15px;
+}
+
+.list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+}
+
+.list:nth-last-child(n) {
+  border-right: 2px solid $grayLight;
 }

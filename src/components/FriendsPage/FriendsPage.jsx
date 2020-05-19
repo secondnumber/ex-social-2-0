@@ -4,7 +4,7 @@ import HeaderContainer from '../common/Header/HeaderContainer';
 import LeftMenuContainer from '../common/LeftMenu/LeftMenuContainer';
 import RightMenuContainer from '../common/RightMenu/RightMenuContainer';
 import FriendsContainer from './Friends/FriendsContainer';
-import Sorting from './Sorting/Sorting';
+import FriendsFilter from './FriendsFilter/FriendsFilter';
 import BannerBigContainer from '../common/BannerBig/BannerBigContainer';
 import TitleContainer from './Title/TitleContainer';
 import InnerMenuContainer from '../common/InnerMenu/InnerMenuContainer';
@@ -18,7 +18,7 @@ const FriendsPage = (props) => (
       <BannerBigContainer />
       <InnerMenuContainer />
       <TitleContainer />
-      <Sorting />
+      <FriendsFilter />
       <FriendsContainer />
     </div>
   </div>

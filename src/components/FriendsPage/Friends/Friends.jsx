@@ -1,22 +1,32 @@
 import React from 'react';
 import classes from './Friends.module.scss';
-import Friend from './Friend/Friend';
 
 const Friends = (props) => {
-  let friendsList = props.friends.friendsList.friends.map((element) => (
-    <Friend
-      key={element.id}
-      name={element.name}
-      cover={element.bgImg}
-      avatar={element.avatar}
-      status={element.status}
-      welcome={element.welcome}
-      posts={element.posts}
-      friends={element.friends}
-      visits={element.visits}
-    />
-  ));
-  return <div className={classes.wrapper}>{friendsList}</div>;
+  return (
+    <div>
+      {props.friends.users.map((element) => (
+        <div>
+          {element.followed ? (
+            <button
+              onClick={(userId) => {
+                props.deleteFriend(element.id);
+              }}
+            >
+              Delete Friend -
+            </button>
+          ) : (
+            <button
+              onClick={(userId) => {
+                props.addFriend(element.id);
+              }}
+            >
+              Add Friend +
+            </button>
+          )}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Friends;

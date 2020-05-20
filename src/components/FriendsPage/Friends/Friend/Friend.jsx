@@ -24,7 +24,23 @@ const Friend = (props) => {
       </div>
       <div className={classes.social}></div>
       <div className={classes.buttons}>
-        <button>Add Friend +</button>
+        {props.followed ? (
+          <button
+            onClick={() => {
+              props.addFriend(props.id);
+            }}
+          >
+            Add Friend +
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              props.deleteFriend(props.id);
+            }}
+          >
+            Delete Friend +
+          </button>
+        )}
         <button>Send Message</button>
       </div>
     </div>

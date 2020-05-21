@@ -124,6 +124,7 @@ let initialState = {
 const friendsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FRIEND: {
+      console.log('add' + action.userId);
       return {
         ...state,
         users: state.users.map((user) => {
@@ -135,6 +136,7 @@ const friendsReducer = (state = initialState, action) => {
       };
     }
     case DELETE_FRIEND: {
+      console.log('delete' + action.userId);
       return {
         ...state,
         users: state.users.map((user) => {
@@ -144,6 +146,9 @@ const friendsReducer = (state = initialState, action) => {
           return user;
         }),
       };
+    }
+    case SET_USERS: {
+      return { ...state, users: [...state.users, ...action.users] };
     }
     default:
       return state;

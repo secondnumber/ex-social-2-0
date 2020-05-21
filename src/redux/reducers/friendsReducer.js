@@ -124,12 +124,26 @@ let initialState = {
 const friendsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FRIEND: {
-      console.log('add' + action.userId);
-      return state;
+      return {
+        ...state,
+        users: state.users.map((user) => {
+          if (user.id === action.userId) {
+            return { ...user, followed: true };
+          }
+          return user;
+        }),
+      };
     }
     case DELETE_FRIEND: {
-      console.log('delete' + action.userId);
-      return state;
+      return {
+        ...state,
+        users: state.users.map((user) => {
+          if (user.id === action.userId) {
+            return { ...user, followed: false };
+          }
+          return user;
+        }),
+      };
     }
     default:
       return state;
@@ -138,6 +152,6 @@ const friendsReducer = (state = initialState, action) => {
 
 export const addFriendAC = (userId) => ({ type: ADD_FRIEND, userId });
 export const deleteFriendAC = (userId) => ({ type: DELETE_FRIEND, userId });
-export const setUsersAC = (users) =>({ type: SET_USERS, users });
+export const setUsersAC = (users) => ({ type: SET_USERS, users });
 
 export default friendsReducer;

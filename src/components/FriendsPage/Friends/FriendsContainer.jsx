@@ -4,6 +4,7 @@ import Friends from './Friends';
 import {
   addFriendAC,
   deleteFriendAC,
+  setUsersAC,
 } from '../../../redux/reducers/friendsReducer';
 
 let mapStateToProps = (state) => {
@@ -19,6 +20,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     deleteFriend: (userId) => {
       dispatch(deleteFriendAC(userId));
+    },
+    setUsers: (users) => {
+      dispatch(setUsersAC(users));
     },
   };
 };

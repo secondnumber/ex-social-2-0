@@ -2,10 +2,13 @@ import React from 'react';
 import classes from './Friend.module.scss';
 
 const Friend = (props) => {
-
   return (
     <li className={classes.item}>
-      {props.name}
+      <img
+        src={props.avatar != null ? props.avatar : props.defaultAvatar}
+        alt=""
+      />
+      <div>{props.name}</div>
       <div>
         {props.followed ? (
           <button

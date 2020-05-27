@@ -3,8 +3,7 @@ import * as axios from 'axios';
 import classes from './Friends.module.scss';
 
 class Users extends React.Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     axios
       .get('https://social-network.samuraijs.com/api/1.0/users')
       .then((response) => {
@@ -12,6 +11,7 @@ class Users extends React.Component {
         console.log(this.props.friends.users);
       });
   }
+
   render() {
     return (
       <div className={classes.wrapper}>

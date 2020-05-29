@@ -1,9 +1,14 @@
 const ADD_FRIEND = 'ADD_FRIEND';
 const DELETE_FRIEND = 'DELETE_FRIEND';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 
 let initialState = {
   users: [],
+  pageSize: 5,
+  totalUsersCount: 0,
+  currentPage: 1,
 };
 
 const friendsReducer = (state = initialState, action) => {
@@ -35,6 +40,12 @@ const friendsReducer = (state = initialState, action) => {
     case SET_USERS: {
       return { ...state, users: action.users };
     }
+    case SET_CURRENT_PAGE: {
+      return { ...state, currentPage: action.pageNumber };
+    }
+    case SET_TOTAL_USERS_COUNT: {
+      return { ...state, totalUsersCount: action.totalUsersCount };
+    }
     default:
       return state;
   }
@@ -43,5 +54,7 @@ const friendsReducer = (state = initialState, action) => {
 export const addFriendAC = (userId) => ({ type: ADD_FRIEND, userId });
 export const deleteFriendAC = (userId) => ({ type: DELETE_FRIEND, userId });
 export const setUsersAC = (users) => ({ type: SET_USERS, users });
+export const setCurrentPageAC = (pageNumber) => ({ type: SET_CURRENT_PAGE, pageNumber });
+export const setTotalUsersCountAC = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount });
 
 export default friendsReducer;

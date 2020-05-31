@@ -5,13 +5,15 @@ import {
   deleteFriendAC,
   setCurrentPageAC,
   setTotalUsersCountAC,
-  setUsersAC,
+  setUsersAC, toggleIsFetchingAC,
 } from '../../../redux/reducers/friendsReducer';
 import * as axios from "axios";
 import Users from "./Users";
+import Preloader from '../../common/Preloader/Preloader'
 
 class UsersContainer extends React.Component {
   componentDidMount() {
+    this.props.toggleIsFetching(true);
     axios
         .get(
             `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.friends.currentPage}&count=${this.props.friends.pageSize}`
@@ -19,10 +21,12 @@ class UsersContainer extends React.Component {
         .then((response) => {
           this.props.setUsers(response.data.items);
           this.props.setTotalUsersCount(response.data.totalCount);
+          this.props.toggleIsFetching(false);
         });
   }
 
   onPageChanged = (pageNumber) => {
+    this.props.toggleIsFetching(true);
     this.props.setCurrentPage(pageNumber);
     axios
         .get(
@@ -31,16 +35,23 @@ class UsersContainer extends React.Component {
         .then((response) => {
           this.props.setUsers(response.data.items);
           this.props.setTotalUsersCount(response.data.totalCount);
+          this.props.toggleIsFetching(false);
         });
+  }
+  toggleIsFetching = (isLoaded) => {
+    this.props.toggleIsFetching(false);
   }
 
   render() {
-    return <Users
-        friends={this.props.friends}
-        deleteFriend={this.props.deleteFriend}
-        addFriend={this.props.addFriend}
-        onPageChanged={this.onPageChanged}
-    />
+    return <>
+      {this.props.friends.isFetching ? <Preloader />
+          : <Users
+          friends={this.props.friends}
+          deleteFriend={this.props.deleteFriend}
+          addFriend={this.props.addFriend}
+          onPageChanged={this.onPageChanged}
+      />}
+    </>
   }
 }
 
@@ -66,6 +77,9 @@ let mapDispatchToProps = (dispatch) => {
     },
     setTotalUsersCount: (totalUsersCount) => {
       dispatch(setTotalUsersCountAC(totalUsersCount));
+    },
+    toggleIsFetching: (isLoaded) => {
+      dispatch(toggleIsFetchingAC(isLoaded));
     },
   };
 };

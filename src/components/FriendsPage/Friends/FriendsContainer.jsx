@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Friends from './Friends';
 import {
-  addFriendAC,
-  deleteFriendAC,
-  setUsersAC,
+  addFriend,
+  deleteFriend,
+  setUsers,
 } from '../../../redux/reducers/friendsReducer';
 
 let mapStateToProps = (state) => {
@@ -16,13 +16,13 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
   return {
     addFriend: (userId) => {
-      dispatch(addFriendAC(userId));
+      dispatch(addFriend(userId));
     },
     deleteFriend: (userId) => {
-      dispatch(deleteFriendAC(userId));
+      dispatch(deleteFriend(userId));
     },
     setUsers: (users) => {
-      dispatch(setUsersAC(users));
+      dispatch(setUsers(users));
     },
   };
 };

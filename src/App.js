@@ -1,13 +1,15 @@
 import React from 'react';
 import LoginPage from './components/LoginPage/LoginPage';
-import ProfilePage from './components/ProfilePage/ProfilePage';
 import FriendsPage from './components/FriendsPage/FriendsPage';
 import { Route } from 'react-router-dom';
+import AccountHubPage from './components/AccountHubPage/AccountHubPage';
+import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
 
 const App = (props) => (
   <div>
     <Route path="/friends" render={() => <FriendsPage />} />
-    <Route path="/profile" render={() => <ProfilePage />} />
+    <Route path="/account" render={() => <AccountHubPage />} />
+    <Route path="/profile" render={() => <ProfilePageContainer />} />
   </div>
 );
 

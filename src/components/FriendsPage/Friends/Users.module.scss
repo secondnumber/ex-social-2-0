@@ -6,6 +6,12 @@
   background-color: $grayLight;
 }
 
+.pages {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .list {
   display: flex;
   justify-content: space-between;

@@ -1,3 +1,5 @@
+import DefaultAvatar from '../../assets/FriendsPage/friendAvatar.png';
+
 const ADD_FRIEND = 'ADD_FRIEND';
 const DELETE_FRIEND = 'DELETE_FRIEND';
 const SET_USERS = 'SET_USERS';
@@ -7,8 +9,9 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
   users: [],
-  pageSize: 6,
-  totalUsersCount: 12,
+  defaultAvatar: DefaultAvatar,
+  pageSize: 18,
+  totalUsersCount: 0,
   currentPage: 1,
   isFetching: true,
 };

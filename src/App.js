@@ -10,7 +10,7 @@ const App = (props) => (
     <Route path="/friends">
       <FriendsPage />
     </Route>
-    <Route path="/account">
+    <Route exact path="/">
       <AccountHubPage />
     </Route>
     <Route path="/profile/:userId?">

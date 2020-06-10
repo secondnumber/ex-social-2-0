@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Users.module.scss';
 import { NavLink } from 'react-router-dom';
+import { usersAPI } from '../../../api/api';
 
 const Users = (props) => {
   let pagesCount = Math.ceil(
@@ -51,7 +52,11 @@ const Users = (props) => {
                 {el.followed ? (
                   <button
                     onClick={(userId) => {
-                      props.deleteFriend(el.id);
+                      usersAPI.deleteUser(el.id).then((response) => {
+                        if (response.resultCode === 0) {
+                          props.deleteFriend(el.id);
+                        }
+                      });
                     }}
                   >
                     Delete Friend -
@@ -59,7 +64,11 @@ const Users = (props) => {
                 ) : (
                   <button
                     onClick={(userId) => {
-                      props.addFriend(el.id);
+                      usersAPI.addUser(el.id).then((response) => {
+                        if (response.resultCode === 0) {
+                          props.addFriend(el.id);
+                        }
+                      });
                     }}
                   >
                     Add Friend +

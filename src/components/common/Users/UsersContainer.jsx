@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  addFriend,
-  deleteFriend,
-  setCurrentPage,
-  setTotalUsersCount,
-  setUsers, toggleIsFetching,
+    addFriend,
+    deleteFriend,
+    setCurrentPage,
+    setTotalUsersCount,
+    setUsers, toggleFollowingProgress, toggleIsFetching,
 } from '../../../redux/reducers/friendsReducer';
 import Users from "./Users";
 import Preloader from '../Preloader/Preloader'
@@ -43,6 +43,7 @@ class UsersContainer extends React.Component {
           deleteFriend={this.props.deleteFriend}
           addFriend={this.props.addFriend}
           onPageChanged={this.onPageChanged}
+          toggleFollowingProgress={this.props.toggleFollowingProgress}
       />}
     </>
   }
@@ -64,6 +65,7 @@ export default connect(
       setCurrentPage,
       setTotalUsersCount,
       toggleIsFetching,
+      toggleFollowingProgress,
     }
 )(UsersContainer);
 

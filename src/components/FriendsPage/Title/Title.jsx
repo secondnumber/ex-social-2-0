@@ -6,7 +6,7 @@ const Title = (props) => {
     <div className={classes.wrapper}>
       <span className={classes.label}>BROWSE MARINA’S</span>
       <span className={classes.title}>Friends</span>
-      <span className={classes.counter}>{props.friends.friendsList.counter}</span>
+      <span className={classes.counter}></span>
     </div>
   );
 };

@@ -1,6 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Friends from './Friends';
+import {
+  addFriend,
+  deleteFriend,
+  setUsers,
+} from '../../../redux/reducers/friendsReducer';
 
 let mapStateToProps = (state) => {
   return {
@@ -9,7 +14,17 @@ let mapStateToProps = (state) => {
 };
 
 let mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    addFriend: (userId) => {
+      dispatch(addFriend(userId));
+    },
+    deleteFriend: (userId) => {
+      dispatch(deleteFriend(userId));
+    },
+    setUsers: (users) => {
+      dispatch(setUsers(users));
+    },
+  };
 };
 
 const FriendsContainer = connect(mapStateToProps, mapDispatchToProps)(Friends);

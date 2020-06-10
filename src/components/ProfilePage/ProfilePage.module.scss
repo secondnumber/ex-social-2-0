@@ -2,7 +2,6 @@
 
 .wrapper {
     width: 100%;
-    height: 100vh;
     display: grid;
     grid-template-columns: 100px 1fr 100px;
     grid-template-rows: 80px 1fr;
@@ -13,3 +12,37 @@
     background-color: $grayLight;
 }
 
+.block {
+    grid-area: ad;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 65vw;
+    margin: 30px auto 0 auto;
+    background-color: $grayLight;
+    border-radius: 15px;
+}
+.grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-column-gap: 15px;
+    grid-template-areas:
+            "left center right"
+}
+
+.left {
+   grid-area: left;
+    background-color: purple;
+}
+
+.center {
+    grid-area: center;
+    background-color: cyan;
+}
+
+.right {
+    grid-area: right;
+    background-color: brown;
+}

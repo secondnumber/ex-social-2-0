@@ -1,14 +1,25 @@
 import React from 'react';
 import LoginPage from './components/LoginPage/LoginPage';
-import ProfilePage from './components/ProfilePage/ProfilePage';
 import FriendsPage from './components/FriendsPage/FriendsPage';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import AccountHubPage from './components/AccountHubPage/AccountHubPage';
+import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
 
 const App = (props) => (
-  <div>
-    <Route path="/friends" render={() => <FriendsPage />} />
-    <Route path="/profile" render={() => <ProfilePage />} />
-  </div>
+  <Switch>
+    <Route exact path="/login">
+      <LoginPage />
+    </Route>
+    <Route path="/friends">
+      <FriendsPage />
+    </Route>
+    <Route exact path="/">
+      <AccountHubPage />
+    </Route>
+    <Route path="/profile/:userId?">
+      <ProfilePageContainer />
+    </Route>
+  </Switch>
 );
 
 export default App;

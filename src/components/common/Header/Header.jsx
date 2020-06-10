@@ -7,10 +7,16 @@ import Search from './Search/Search';
 import Progress from './Progress/Progress';
 import Actions from './Actions/Actions';
 import Settings from './Settings/Settings';
+import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
+    debugger
   let navMenuList = props.headers.navMenuList.map((element) => (
-    <NavMenu key={element.id} navMenuItem={element.name} navMenuLink={element.link}/>
+    <NavMenu
+      key={element.id}
+      navMenuItem={element.name}
+      navMenuLink={element.link}
+    />
   ));
 
   let progress = props.headers.progressCount.map((element) => (
@@ -26,6 +32,13 @@ const Header = (props) => {
       {progress}
       <Actions />
       <Settings />
+      <div>
+        {props.auth.isAuth ? (
+          <NavLink to={'/login'}>Ok</NavLink>
+        ) : (
+          <NavLink to={'/login'}>Login</NavLink>
+        )}
+      </div>
     </div>
   );
 };

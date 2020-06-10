@@ -9,6 +9,8 @@ import bannerBigReducer from './reducers/bannerBigReducer';
 import friendsReducer from './reducers/friendsReducer';
 import innerMenuReducer from './reducers/innerMenuReducer';
 import friendsFilterReducer from './reducers/friendsFilterResucer';
+import profileReducer from './reducers/profileReducer';
+import authReducer from './reducers/authReducer';
 
 let reducers = combineReducers({
   headers: headersReducer,
@@ -21,6 +23,8 @@ let reducers = combineReducers({
   friends: friendsReducer,
   innerMenu: innerMenuReducer,
   friendFilter: friendsFilterReducer,
+  profile: profileReducer,
+  auth: authReducer,
 });
 
 let store = createStore(reducers);

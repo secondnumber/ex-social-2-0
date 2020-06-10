@@ -2,11 +2,23 @@
 
 .wrapper {
   width: 100%;
+  text-align: center;
+  background-color: $grayLight;
+}
+
+.list {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  list-style-type: none;
   background-color: $grayLight;
-  border-radius: 15px;
 }
 
+.item {
+  width: 380px;
+  height: 560px;
+  margin: 10px 0;
+  background-color: $white;
+  border-radius: 15px;
+}

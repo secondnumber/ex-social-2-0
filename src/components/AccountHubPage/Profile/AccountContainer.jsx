@@ -1,5 +1,5 @@
 import React from 'react';
-import Profile from './Profile';
+import Profile from './Account';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {

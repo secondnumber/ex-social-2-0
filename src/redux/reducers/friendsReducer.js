@@ -1,4 +1,5 @@
 import DefaultAvatar from '../../assets/FriendsPage/friendAvatar.png';
+import { usersAPI } from '../../api/api';
 
 const ADD_FRIEND = 'ADD_FRIEND';
 const DELETE_FRIEND = 'DELETE_FRIEND';
@@ -89,5 +90,40 @@ export const toggleFollowingProgress = (isFollowed, userId) => ({
   isFollowed,
   userId,
 });
+
+export const getUsers = (currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(toggleIsFetching(true));
+    usersAPI.getUsers(currentPage, pageSize).then((response) => {
+      dispatch(setUsers(response.items));
+      dispatch(setTotalUsersCount(response.totalCount));
+      dispatch(toggleIsFetching(false));
+    });
+  };
+};
+
+export const addUser = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleFollowingProgress(true, userId));
+    usersAPI.addUser(userId).then((response) => {
+      if (response.resultCode === 0) {
+        dispatch(addFriend(userId));
+      }
+      dispatch(toggleFollowingProgress(false, userId));
+    });
+  };
+};
+
+export const deleteUser = (userId) => {
+  return (dispatch) => {
+    dispatch(toggleFollowingProgress(true, userId));
+    usersAPI.deleteUser(userId).then((response) => {
+      if (response.resultCode === 0) {
+        dispatch(deleteFriend(userId));
+      }
+      dispatch(toggleFollowingProgress(false, userId));
+    });
+  };
+};
 
 export default friendsReducer;

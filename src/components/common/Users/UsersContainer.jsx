@@ -1,37 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-    addFriend,
-    deleteFriend,
+    addFriend, addUser,
+    deleteFriend, deleteUser, getUsers,
     setCurrentPage,
-    setTotalUsersCount,
-    setUsers, toggleFollowingProgress, toggleIsFetching,
 } from '../../../redux/reducers/friendsReducer';
 import Users from "./Users";
 import Preloader from '../Preloader/Preloader'
-import {usersAPI} from "../../../api/api";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.toggleIsFetching(true);
-    usersAPI.getUsers(this.props.friends.currentPage, this.props.friends.pageSize).then((response) => {
-          this.props.setUsers(response.items);
-          this.props.setTotalUsersCount(response.totalCount);
-          this.props.toggleIsFetching(false);
-        });
+      this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.toggleIsFetching(true);
-    this.props.setCurrentPage(pageNumber);
-      usersAPI.getUsers(this.props.friends.pageNumber, this.props.friends.pageSize).then((response) => {
-          this.props.setUsers(response.items);
-          this.props.setTotalUsersCount(response.totalCount);
-          this.props.toggleIsFetching(false);
-        });
-  }
-  toggleIsFetching = (isLoaded) => {
-    this.props.toggleIsFetching(false);
+      this.props.getUsers(pageNumber, this.props.pageSize);
   }
 
   render() {
@@ -40,8 +23,8 @@ class UsersContainer extends React.Component {
           : <Users
           key={this.props.friends.users.id}
           friends={this.props.friends}
-          deleteFriend={this.props.deleteFriend}
-          addFriend={this.props.addFriend}
+          deleteUser={this.props.deleteUser}
+          addUser={this.props.addUser}
           onPageChanged={this.onPageChanged}
           toggleFollowingProgress={this.props.toggleFollowingProgress}
       />}
@@ -59,13 +42,10 @@ let mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
     {
-      addFriend,
-      deleteFriend,
-      setUsers,
       setCurrentPage,
-      setTotalUsersCount,
-      toggleIsFetching,
-      toggleFollowingProgress,
+      getUsers,
+      addUser,
+      deleteUser,
     }
 )(UsersContainer);
 

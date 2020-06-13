@@ -55,14 +55,8 @@ const Users = (props) => {
                     disabled={props.friends.followingInProgress.some(
                       (id) => id === el.id
                     )}
-                    onClick={(userId) => {
-                      props.toggleFollowingProgress(true, el.id);
-                      usersAPI.deleteUser(el.id).then((response) => {
-                        if (response.resultCode === 0) {
-                          props.deleteFriend(el.id);
-                        }
-                        props.toggleFollowingProgress(false, el.id);
-                      });
+                    onClick={() => {
+                      props.deleteUser(el.id);
                     }}
                   >
                     Delete Friend -
@@ -72,14 +66,8 @@ const Users = (props) => {
                     disabled={props.friends.followingInProgress.some(
                       (id) => id === el.id
                     )}
-                    onClick={(userId) => {
-                      props.toggleFollowingProgress(true, el.id);
-                      usersAPI.addUser(el.id).then((response) => {
-                        if (response.resultCode === 0) {
-                          props.addFriend(el.id);
-                        }
-                        props.toggleFollowingProgress(false, el.id);
-                      });
+                    onClick={() => {
+                      props.addUser(el.id);
                     }}
                   >
                     Add Friend +

@@ -17,12 +17,12 @@ const BannerBig = (props) => {
       <div className={classes.cover}></div>
       <div className={classes.block}>
         <img className={classes.avatar} src={props.bannerBig.bannerBigAvatar} />
+        <div className={classes.label}>
+          <p className={classes.name}>{props.bannerBig.bannerBigName}</p>
+          <p className={classes.status}>{props.bannerBig.bannerBigStatus}</p>
+        </div>
         <section className={classes.info}>
           <ul className={classes.stats}>{statsList}</ul>
-          <div className={classes.label}>
-            <p className={classes.name}>{props.bannerBig.bannerBigName}</p>
-            <p className={classes.status}>{props.bannerBig.bannerBigStatus}</p>
-          </div>
           <ul className={classes.social}>
             {socialList}
           </ul>

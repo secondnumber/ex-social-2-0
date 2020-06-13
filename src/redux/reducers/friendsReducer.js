@@ -1,16 +1,21 @@
+import DefaultAvatar from '../../assets/FriendsPage/friendAvatar.png';
+
 const ADD_FRIEND = 'ADD_FRIEND';
 const DELETE_FRIEND = 'DELETE_FRIEND';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 
 let initialState = {
   users: [],
-  pageSize: 6,
-  totalUsersCount: 12,
+  defaultAvatar: DefaultAvatar,
+  pageSize: 18,
+  totalUsersCount: 0,
   currentPage: 1,
   isFetching: true,
+  followingInProgress: false,
 };
 
 const friendsReducer = (state = initialState, action) => {
@@ -51,6 +56,9 @@ const friendsReducer = (state = initialState, action) => {
     case TOGGLE_IS_FETCHING: {
       return { ...state, isFetching: action.isLoaded };
     }
+    case TOGGLE_IS_FOLLOWING_PROGRESS: {
+      return { ...state, followingInProgress: action.isFollowed };
+    }
     default:
       return state;
   }
@@ -62,5 +70,6 @@ export const setUsers = (users) => ({ type: SET_USERS, users });
 export const setCurrentPage = (pageNumber) => ({ type: SET_CURRENT_PAGE, pageNumber });
 export const setTotalUsersCount = (totalUsersCount) => ({ type: SET_TOTAL_USERS_COUNT, totalUsersCount });
 export const toggleIsFetching = (isLoaded) => ({ type: TOGGLE_IS_FETCHING, isLoaded });
+export const toggleFollowingProgress = (isFollowed) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFollowed });
 
 export default friendsReducer;

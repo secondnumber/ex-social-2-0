@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import classes from './Profile.module.scss';
+import classes from './Account.module.scss';
 import ProfileBanner from './ProfileBanner/ProfileBanner';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import SocialStream from './SocialStream/SocialStream';

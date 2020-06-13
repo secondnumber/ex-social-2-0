@@ -1,9 +1,15 @@
-@import '../../../colors.scss';
+@import '../../../colors';
 
 .wrapper {
   width: 100%;
   text-align: center;
   background-color: $grayLight;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .list {

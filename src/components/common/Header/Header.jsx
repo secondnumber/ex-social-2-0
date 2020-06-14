@@ -33,7 +33,7 @@ const Header = (props) => {
       <Settings />
       <div>
         {props.auth.isAuth ? (
-          <NavLink to={'/login'}>{props.auth.login}</NavLink>
+          <NavLink to={'/account'}>{props.auth.login}</NavLink>
         ) : (
           <NavLink to={'/login'}>Login</NavLink>
         )}

@@ -1,5 +1,6 @@
 import DefaultAvatar from '../../assets/FriendsPage/friendAvatar.png';
 import { usersAPI } from '../../api/api';
+import * as axios from "axios";
 
 const ADD_FRIEND = 'ADD_FRIEND';
 const DELETE_FRIEND = 'DELETE_FRIEND';

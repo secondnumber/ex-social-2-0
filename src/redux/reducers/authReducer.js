@@ -28,7 +28,7 @@ export const setAuthUserData = (login) => ({
   login,
 });
 
-export const setAuthThunk = () => {
+export const getAuthUserData = () => {
   return (dispatch) => {
     authAPI.isAuthCurrentUser().then((response) => {
       if (response.resultCode === 0) {

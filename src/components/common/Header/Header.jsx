@@ -10,6 +10,7 @@ import Settings from './Settings/Settings';
 import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
+    debugger
   let navMenuList = props.headers.navMenuList.map((element) => (
     <NavMenu
       key={element.id}
@@ -33,7 +34,7 @@ const Header = (props) => {
       <Settings />
       <div>
         {props.auth.isAuth ? (
-          <NavLink to={'/login'}>Ok</NavLink>
+          <NavLink to={'/login'}>{props.auth.login}</NavLink>
         ) : (
           <NavLink to={'/login'}>Login</NavLink>
         )}

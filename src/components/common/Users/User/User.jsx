@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from '../../../common/Users/User/User.module.scss';
+import classes from './User.module.scss';
 
 const Friend = (props) => {
   return (

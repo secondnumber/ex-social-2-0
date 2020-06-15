@@ -7,10 +7,13 @@ import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer'
 
 const App = (props) => (
   <Switch>
+    <Route exact path="/login">
+      <LoginPage />
+    </Route>
     <Route path="/friends">
       <FriendsPage />
     </Route>
-    <Route path="/account">
+    <Route exact path="/">
       <AccountHubPage />
     </Route>
     <Route path="/profile/:userId?">

@@ -1,11 +1,11 @@
 import React from 'react';
-import classes from './AccountHubPage.module.scss';
+import classes from './AccountPage.module.scss';
 import ProfileContainer from './Profile/AccountContainer';
 import HeaderContainer from '../common/Header/HeaderContainer';
 import LeftMenuContainer from '../common/LeftMenu/LeftMenuContainer';
 import RightMenuContainer from '../common/RightMenu/RightMenuContainer';
 
-const ProfilePage = (props) => (
+const AccountPage = (props) => (
   <div className={classes.wrapper}>
     <HeaderContainer />
     <LeftMenuContainer />
@@ -14,4 +14,4 @@ const ProfilePage = (props) => (
   </div>
 );
 
-export default ProfilePage;
+export default AccountPage;

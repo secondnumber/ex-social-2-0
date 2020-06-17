@@ -1,8 +1,8 @@
 let initialState = {
   navMenuList: [
-    { id: 1, name: 'Account', link: '/account' },
+    { id: 1, name: 'Timeline', link: '/timeline' },
     { id: 2, name: 'Friends', link: '/friends' },
-    { id: 3, name: 'Faqs' },
+    { id: 3, name: 'Account', link: '/account' },
     { id: 4, name: '...' },
   ],
   progressCount: [{ id: 1, experience: 38 }],

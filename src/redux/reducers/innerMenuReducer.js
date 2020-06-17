@@ -10,15 +10,15 @@ import BlogIcon from '../../assets/InnerMenu/icons/blogPostsIcon.png';
 
 let initialState = {
   innerMenuList: [
-    { id: 1, icon: AboutIcon },
-    { id: 2, icon: TimelineIcon },
-    { id: 3, icon: FriendsIcon },
-    { id: 4, icon: GroupsIcon },
-    { id: 5, icon: PhotosIcon },
-    { id: 6, icon: VideosIcon },
-    { id: 7, icon: BadgesIcon },
-    { id: 8, icon: StreamsIcon },
-    { id: 9, icon: BlogIcon },
+    { id: 1, icon: AboutIcon, link: '/about' },
+    { id: 2, icon: TimelineIcon, link: '/timeline' },
+    { id: 3, icon: FriendsIcon, link: '/friends'},
+    { id: 4, icon: GroupsIcon, link: '/groups' },
+    { id: 5, icon: PhotosIcon, link: '/photos' },
+    { id: 6, icon: VideosIcon, link: '/videos' },
+    { id: 7, icon: BadgesIcon, link: '/badges' },
+    { id: 8, icon: StreamsIcon, link: '/streams' },
+    { id: 9, icon: BlogIcon, link: '/blog' },
   ],
 };
 

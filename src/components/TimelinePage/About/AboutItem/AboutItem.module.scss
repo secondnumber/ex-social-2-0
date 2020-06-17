@@ -1,0 +1,24 @@
+@import "../../../../colors";
+
+
+.column {
+  display: flex;
+  padding-bottom: 10px;
+  list-style-type: none;
+}
+
+.option {
+  flex-basis: 30%;
+  display: table-cell;
+  font-weight: 700;
+  color: $gray;
+}
+
+.value {
+  flex-basis: 70%;
+}
+
+.web {
+  font-weight: 700;
+  color: $cyan;
+}

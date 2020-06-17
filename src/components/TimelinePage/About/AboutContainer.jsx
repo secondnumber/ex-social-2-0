@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Title from './Title';
+import About from './About';
 
 let mapStateToProps = (state) => {
   return {
-    friends: state.friends,
+    about: state.about,
   };
 };
 
@@ -12,6 +12,6 @@ let mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-const FriendsContainer = connect(mapStateToProps, mapDispatchToProps)(Title);
+const AboutContainer = connect(mapStateToProps, mapDispatchToProps)(About);
 
-export default FriendsContainer;
+export default AboutContainer;

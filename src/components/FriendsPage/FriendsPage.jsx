@@ -3,10 +3,8 @@ import classes from './FriendsPage.module.scss';
 import HeaderContainer from '../common/Header/HeaderContainer';
 import LeftMenuContainer from '../common/LeftMenu/LeftMenuContainer';
 import RightMenuContainer from '../common/RightMenu/RightMenuContainer';
-import FriendsContainer from './Friends/FriendsContainer';
-import FriendsFilter from './FriendsFilter/FriendsFilter';
 import BannerBigContainer from '../common/BannerBig/BannerBigContainer';
-import TitleContainer from './Title/TitleContainer';
+import TitleContainer from '../common/Title/TitleContainer';
 import InnerMenuContainer from '../common/InnerMenu/InnerMenuContainer';
 import FriendsFilterContainer from './FriendsFilter/FriendsFilterContainer';
 import UsersContainer from '../common/Users/UsersContainer';
@@ -19,7 +17,7 @@ const FriendsPage = (props) => (
     <div className={classes.block}>
       <BannerBigContainer />
       <InnerMenuContainer />
-      <TitleContainer />
+      <TitleContainer name={'Friends'}/>
       <FriendsFilterContainer />
       <UsersContainer />
     </div>

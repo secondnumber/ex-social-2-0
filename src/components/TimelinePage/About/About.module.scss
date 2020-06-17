@@ -1,0 +1,23 @@
+@import "../../../colors";
+
+.wrapper {
+  margin: 10px 0;
+  padding: 20px;
+  background-color: $white;
+  border-radius: 12px;
+}
+
+.title {
+  padding-bottom: 10px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.description {
+  padding-bottom: 10px;
+}
+
+.table {
+display: flex;
+  flex-direction: column;
+}

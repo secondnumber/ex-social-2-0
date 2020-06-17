@@ -1,6 +1,5 @@
 let initialState = {
   title: 'About me',
-  status: 'Hi! My name is Marina but some people may know me as GameHuntress! I have a Twitch channel where I stream, play and review all the newest games.',
   infoList: [
     {
       id: 1,

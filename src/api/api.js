@@ -18,9 +18,17 @@ export const usersAPI = {
     return instance.post(`follow/${userId}`).then((response) => response.data);
   },
   deleteUser(userId) {
-    return instance.delete(`follow/${userId}`).then((response) => response.data);
+    return instance
+      .delete(`follow/${userId}`)
+      .then((response) => response.data);
   },
-  isAuthCurrentUser(userId) {
+  getUser(userId) {
+    return instance.get(`profile/${userId}`).then((response) => response.data);
+  },
+};
+
+export const authAPI = {
+  isAuthCurrentUser() {
     return instance.get(`auth/me`).then((response) => response.data);
   },
 };

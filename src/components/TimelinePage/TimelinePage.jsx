@@ -1,15 +1,14 @@
 import React from 'react';
-import classes from './FriendsPage.module.scss';
+import classes from './TimelinePage.module.scss';
 import HeaderContainer from '../common/Header/HeaderContainer';
 import LeftMenuContainer from '../common/LeftMenu/LeftMenuContainer';
 import RightMenuContainer from '../common/RightMenu/RightMenuContainer';
 import BannerBigContainer from '../common/BannerBig/BannerBigContainer';
-import TitleContainer from '../common/Title/TitleContainer';
 import InnerMenuContainer from '../common/InnerMenu/InnerMenuContainer';
-import FriendsFilterContainer from './FriendsFilter/FriendsFilterContainer';
-import UsersContainer from '../common/Users/UsersContainer';
+import TitleContainer from '../common/Title/TitleContainer';
+import AboutContainer from "./About/AboutContainer";
 
-const FriendsPage = (props) => (
+const TimelinePage = (props) => (
   <div className={classes.wrapper}>
     <HeaderContainer />
     <LeftMenuContainer />
@@ -17,11 +16,16 @@ const FriendsPage = (props) => (
     <div className={classes.block}>
       <BannerBigContainer />
       <InnerMenuContainer />
-      <TitleContainer name={'Friends'}/>
-      <FriendsFilterContainer />
-      <UsersContainer />
+      <TitleContainer name={'Timeline'} />
+      <div className={classes.grid}>
+        <div className={classes.column}>
+            <AboutContainer />
+        </div>
+        <div className={classes.column}>Center</div>
+        <div className={classes.column}>Right</div>
+      </div>
     </div>
   </div>
 );
 
-export default FriendsPage;
+export default TimelinePage;

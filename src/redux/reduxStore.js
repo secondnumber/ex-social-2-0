@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import thunkMiddleware from 'redux-thunk';
 import timelineReducer from './reducers/timelineReducer';
 import messagesReducer from './reducers/messagesReducer';
 import headersReducer from './reducers/headersReducer';
@@ -11,6 +12,7 @@ import innerMenuReducer from './reducers/innerMenuReducer';
 import friendsFilterReducer from './reducers/friendsFilterResucer';
 import profileReducer from './reducers/profileReducer';
 import authReducer from './reducers/authReducer';
+import aboutReducer from './reducers/aboutReducer';
 
 let reducers = combineReducers({
   headers: headersReducer,
@@ -25,9 +27,10 @@ let reducers = combineReducers({
   friendFilter: friendsFilterReducer,
   profile: profileReducer,
   auth: authReducer,
+  about: aboutReducer,
 });
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 window.store = store;
 

@@ -1,10 +1,8 @@
 import React from 'react';
 import classes from './Users.module.scss';
 import { NavLink } from 'react-router-dom';
-import { usersAPI } from '../../../api/api';
 
 const Users = (props) => {
-  debugger;
   let pagesCount = Math.ceil(
     props.friends.totalUsersCount / props.friends.pageSize
   );

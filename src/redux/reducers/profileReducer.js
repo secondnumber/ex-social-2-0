@@ -50,7 +50,7 @@ export const setUserProfile = (userProfile) => ({
 
 export const getUser = (userId) => {
   return (dispatch) => {
-    usersAPI.getUser(userId).then((response) => {
+    usersAPI.getProfile(userId).then((response) => {
       debugger
       dispatch(setUserProfile(response));
     });

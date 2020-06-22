@@ -23,7 +23,7 @@ export const usersAPI = {
       .then((response) => response.data);
   },
   getProfile(userId) {
-    console.warn('Its out of date');
+    console.warn('Its outdated method. You should use profileAPI object.');
     return profileAPI.getProfile(userId);
   },
 };

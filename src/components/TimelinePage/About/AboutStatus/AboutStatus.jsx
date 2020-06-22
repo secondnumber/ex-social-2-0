@@ -16,7 +16,6 @@ class AboutStatus extends React.Component {
         this.setState({
             editMode: false,
         })
-        alert(this.state.status)
         this.props.updateStatus(this.state.status)
         this.props.getStatus(8712);
     }
@@ -25,8 +24,15 @@ class AboutStatus extends React.Component {
             status: e.currentTarget.value,
         })
     }
-  render() {
-        debugger
+        componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+        }
+        }
+
+    render() {
     return (
       <div>
           {!this.state.editMode &&

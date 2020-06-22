@@ -2,17 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TimelinePage from './TimelinePage';
 
-let mapStateToProps = (state) => {
+class TimelinePageContainer extends React.Component {
+  componentDidMount() {}
+  render() {
+    return <TimelinePage {...this.props} />;
+  }
+}
+
+let mapStateToProps = () => {
   return {};
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {};
-};
-
-const TimelinePageContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TimelinePage);
-
-export default TimelinePageContainer;
+export default connect(mapStateToProps)(TimelinePageContainer);

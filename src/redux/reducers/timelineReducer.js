@@ -1,7 +1,11 @@
+import { profileAPI } from '../../api/api';
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
+  status: '',
   postsData: [
     {
       id: 1,
@@ -57,6 +61,8 @@ const timelineReducer = (state = initialState, action) => {
       };
     case UPDATE_NEW_POST_TEXT:
       return { ...state, newPostText: action.newText };
+    case SET_STATUS:
+      return { ...state, status: action.status };
     default:
       return state;
   }
@@ -68,5 +74,24 @@ export const updateNewPostTextActionCreator = (text) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: text,
 });
+
+export const setStatus = (status) => ({
+  type: SET_STATUS,
+  status,
+});
+
+export const getStatus = (userId) => (dispatch) => {
+  profileAPI.getStatus(userId).then((response) => {
+    dispatch(setStatus(response));
+  });
+};
+
+export const updateStatus = (status) => (dispatch) => {
+  profileAPI.updateStatus(status).then((response) => {
+    if (response.resultCode === 0) {
+      dispatch(setStatus(status));
+    }
+  });
+};
 
 export default timelineReducer;

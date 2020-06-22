@@ -18,6 +18,7 @@ class UsersContainer extends React.Component {
   }
 
   render() {
+      debugger
     return <>
       {this.props.friends.isFetching ? <Preloader />
           : <Users

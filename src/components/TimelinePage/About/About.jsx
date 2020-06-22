@@ -10,7 +10,7 @@ const About = (props) => {
   return (
     <div className={classes.wrapper}>
       <h3 className={classes.title}>{props.about.title}</h3>
-      <AboutStatus status={'Hello!'} />
+      <AboutStatus status={props.status} updateStatus={props.updateStatus} getStatus={props.getStatus} />
       <div className={classes.table}>{infoList}</div>
     </div>
   );

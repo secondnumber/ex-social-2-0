@@ -2,8 +2,10 @@ import React from 'react';
 import classes from './AboutStatus.module.scss';
 
 class AboutStatus extends React.Component {
+
     state = {
         editMode: false,
+        status: this.props.status,
     }
     activateEditMode() {
         this.setState({
@@ -14,15 +16,24 @@ class AboutStatus extends React.Component {
         this.setState({
             editMode: false,
         })
+        alert(this.state.status)
+        this.props.updateStatus(this.state.status)
+        this.props.getStatus(8712);
+    }
+    onStatusChange = (e) => {
+        this.setState({
+            status: e.currentTarget.value,
+        })
     }
   render() {
+        debugger
     return (
       <div>
           {!this.state.editMode &&
-            <p onClick={this.activateEditMode.bind(this)} className={classes.text}>{this.props.status}</p>
+            <p onClick={this.activateEditMode.bind(this)} className={classes.text}>{this.props.status || 'No status'}</p>
           }
           {this.state.editMode &&
-            <input autoFocus={true} onBlur={this.deactivateEditMode.bind(this)} className={classes.input} placeholder={this.props.status}/>
+            <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode.bind(this)} className={classes.input} value={this.state.status}/>
           }
       </div>
     );

@@ -2,18 +2,18 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import classes from './LoginPage.module.scss';
 import LoginIntro from './LoginIntro/LoginIntro';
-import LoginForm from './LoginForm/LoginForm';
-import RegisterForm from './RegisterForm/RegisterForm';
+import LoginFormBlock from './LoginFormBlock/LoginFormBlock';
+import RegisterFormBlock from './RegisterFormBlock/RegisterFormBlock';
 
 const LoginPage = () => (
   <Router>
     <div className={classes.wrapper}>
       <LoginIntro />
       <Route path="/register">
-        <RegisterForm />
+        <RegisterFormBlock />
       </Route>
       <Route path="/login">
-        <LoginForm />
+        <LoginFormBlock />
       </Route>
     </div>
   </Router>

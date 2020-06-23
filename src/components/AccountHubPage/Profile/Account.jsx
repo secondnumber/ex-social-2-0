@@ -7,7 +7,7 @@ import SocialStream from './SocialStream/SocialStream';
 import Notifications from './Notifications/Notifications';
 import FriendRequests from './FriendRequests/FriendRequests';
 import AccountInfo from './AccountInfo/AccountInfo';
-import TimelineContainer from './Timeline/TimelineContainer';
+import TimelineContainer from '../../TimelinePage/Timeline/TimelineContainer';
 import DialogsContainer from './Dialogs/DialogsContainer';
 
 const Profile = (props) => {

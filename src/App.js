@@ -11,7 +11,7 @@ const App = (props) => (
     <Route exact path="/login">
       <LoginPage />
     </Route>
-    <Route exact path="/">
+    <Route exact path="/timeline">
       <TimelinePageContainer />
     </Route>
     <Route path="/friends">

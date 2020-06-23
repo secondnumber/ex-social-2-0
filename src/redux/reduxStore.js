@@ -13,6 +13,7 @@ import friendsFilterReducer from './reducers/friendsFilterResucer';
 import profileReducer from './reducers/profileReducer';
 import authReducer from './reducers/authReducer';
 import aboutReducer from './reducers/aboutReducer';
+import { reducer as formReducer } from 'redux-form';
 
 let reducers = combineReducers({
   headers: headersReducer,
@@ -28,6 +29,7 @@ let reducers = combineReducers({
   profile: profileReducer,
   auth: authReducer,
   about: aboutReducer,
+  form: formReducer,
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

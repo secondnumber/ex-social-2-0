@@ -7,6 +7,7 @@ import BannerBigContainer from '../common/BannerBig/BannerBigContainer';
 import InnerMenuContainer from '../common/InnerMenu/InnerMenuContainer';
 import TitleContainer from '../common/Title/TitleContainer';
 import AboutContainer from './About/AboutContainer';
+import TimelineContainer from './Timeline/TimelineContainer';
 
 const TimelinePage = (props) => {
   return (
@@ -22,7 +23,9 @@ const TimelinePage = (props) => {
           <div className={classes.column}>
             <AboutContainer />
           </div>
-          <div className={classes.column}>Center</div>
+          <div className={classes.column}>
+            <TimelineContainer />
+          </div>
           <div className={classes.column}>Right</div>
         </div>
       </div>

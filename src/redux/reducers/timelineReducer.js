@@ -37,7 +37,6 @@ let initialState = {
       shares: 0,
     },
   ],
-  newPostText: 'new',
 };
 
 const timelineReducer = (state = initialState, action) => {

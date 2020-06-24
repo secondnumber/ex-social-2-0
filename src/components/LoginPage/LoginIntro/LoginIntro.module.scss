@@ -44,8 +44,11 @@
     border-radius: 0 15px 15px 0;
 }
 
-.loginButton a,
-.registerButton a{
+.link{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 54px;
+    color: $grayDark;
     text-decoration: none;
 }
 

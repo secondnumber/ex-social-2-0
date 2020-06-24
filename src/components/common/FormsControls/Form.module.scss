@@ -1,0 +1,13 @@
+@import "../../../colors";
+
+.formControl.error textarea {
+  border: 2px solid red;
+}
+
+.formControl.error input {
+  border: 2px solid red;
+}
+
+.formControl.error span {
+  color: red;
+}

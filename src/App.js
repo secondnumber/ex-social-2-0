@@ -8,7 +8,7 @@ import TimelinePageContainer from './components/TimelinePage/TimelinePageContain
 
 const App = (props) => (
   <Switch>
-    <Route exact path="/login">
+    <Route exact path="/">
       <LoginPage />
     </Route>
     <Route exact path="/timeline">

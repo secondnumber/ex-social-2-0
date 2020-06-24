@@ -1,6 +1,10 @@
 import React from 'react';
 import classes from './TimelineForm.module.scss';
 import { reduxForm, Field } from 'redux-form';
+import { maxLengthCreator, required } from "../../../../utils/validators/validators";
+import { Textarea } from "../../../common/FormsControls/Form";
+
+const maxLength10 = maxLengthCreator(10);
 
 class TimelineForm extends React.Component {
     state = {
@@ -16,6 +20,7 @@ class TimelineForm extends React.Component {
             editMode: false
         })
     }
+
   render() {
     return (
         <div className={classes.wrapper}>
@@ -25,9 +30,10 @@ class TimelineForm extends React.Component {
                 <Field
                     autoFocus={true}
                     className={classes.textarea}
-                    component={'textarea'}
+                    component={Textarea}
                     name={'post'}
                     placeholder={'Add new post'}
+                    validate={[required, maxLength10]}
                 />
             <button className={classes.button}>Add</button>
             </form>}

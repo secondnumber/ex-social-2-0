@@ -48,18 +48,13 @@ const timelineReducer = (state = initialState, action) => {
         id: 4,
         author: 'Marina Valentine',
         time: dateString,
-        message: state.newPostText,
+        message: action.message,
         reactions: 0,
         comments: 0,
         shares: 0,
       };
-      return {
-        ...state,
-        postsData: [...state.postsData, newPost],
-        newPostText: '',
-      };
-    case UPDATE_NEW_POST_TEXT:
-      return { ...state, newPostText: action.newText };
+      state.postsData.unshift(newPost);
+      return { ...state };
     case SET_STATUS:
       return { ...state, status: action.status };
     default:
@@ -67,11 +62,9 @@ const timelineReducer = (state = initialState, action) => {
   }
 };
 
-export const addPostActionCreator = () => ({ type: ADD_POST });
-
-export const updateNewPostTextActionCreator = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: text,
+export const addPost = (message) => ({
+  type: ADD_POST,
+  message,
 });
 
 export const setStatus = (status) => ({

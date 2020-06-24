@@ -14,6 +14,20 @@
   cursor: text;
 }
 
+.textarea {
+  box-sizing: border-box;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid $gray;
+  border-radius: 12px;
+  outline: none;
+  resize: vertical;
+}
+
+.textarea:focus {
+  border: 1px solid $cyan;
+  border-radius: 12px;
+}
 
 .button {
   position: absolute;

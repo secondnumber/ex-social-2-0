@@ -1,0 +1,50 @@
+@import "../../../../colors";
+
+.wrapper {
+  position: relative;
+}
+
+.editModeToggle {
+  padding: 5px;
+  width: 100%;
+  background-color: $white;
+  color: $gray;
+  border: 1px solid $gray;
+  border-radius: 12px;
+  cursor: text;
+}
+
+.textarea {
+  box-sizing: border-box;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid $gray;
+  border-radius: 12px;
+  outline: none;
+  resize: vertical;
+}
+
+.textarea:focus {
+  border: 1px solid $cyan;
+  border-radius: 12px;
+}
+
+.button {
+  position: absolute;
+  top: 0px;
+  right: 30px;
+  width: 80px;
+  height: 35px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: $purple;
+  color: $white;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+}
+
+.button:hover {
+  background-color: $cyan;
+  cursor: pointer;
+}

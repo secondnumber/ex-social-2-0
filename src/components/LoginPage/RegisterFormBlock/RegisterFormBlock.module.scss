@@ -36,17 +36,6 @@ display: flex;
 list-style-type: none;
 }
 
-input[type=text],
-input[type=password] {
-    width: 315px;
-    height: 52px;
-    padding: 0 18px;
-    margin-bottom: 20px;
-    font-size: 12px;
-    border: 1px solid $gray;
-    border-radius: 12px;
-}
-
 .remember {
     display: inline-block;
 }

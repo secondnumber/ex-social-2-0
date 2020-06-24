@@ -15,9 +15,11 @@ const Timeline = (props) => {
       shares={el.shares}
     />
   ));
+
   let addNewMessage = (value) => {
-    console.log(value.post);
+    props.addPost(value.post);
   };
+
   return (
     <div className={classes.wrapper}>
       <TimelineForm onSubmit={addNewMessage} />

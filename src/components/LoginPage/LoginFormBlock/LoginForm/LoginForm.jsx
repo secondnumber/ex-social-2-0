@@ -7,7 +7,7 @@ import {
 } from '../../../../utils/validators/validators';
 import { Input } from '../../../common/FormsControls/Form';
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength20 = maxLengthCreator(20);
 
 const LoginForm = (props) => (
   <form onSubmit={props.handleSubmit} className={classes.form}>
@@ -16,14 +16,14 @@ const LoginForm = (props) => (
       name={'login'}
       type={'text'}
       placeholder={'Username or Email'}
-      validate={[required, maxLength10]}
+      validate={[required, maxLength20]}
     />
     <Field
       component={Input}
       name={'password'}
       type={'password'}
       placeholder={'Password'}
-      validate={[required, maxLength10]}
+      validate={[required, maxLength20]}
     />
     <label>
       <Field component={'input'} name={'rememberMe'} type="checkbox" />
@@ -35,16 +35,16 @@ const LoginForm = (props) => (
     <button className={classes.button}>Login to your Account!</button>
     <p>Login with your Social Account</p>
     <ul className={classes.socialList}>
-      <li className={classes.socialItem}>
+      <li>
         <a>Facebook</a>
       </li>
-      <li className={classes.socialItem}>
+      <li>
         <a>Twitter</a>
       </li>
-      <li className={classes.socialItem}>
+      <li>
         <a>Google</a>
       </li>
-      <li className={classes.socialItem}>
+      <li>
         <a>Youtube</a>
       </li>
     </ul>

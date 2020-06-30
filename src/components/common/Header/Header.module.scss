@@ -12,3 +12,12 @@
     background-color: $indigo;
 }
 
+.login {
+    font-size: 16px;
+    text-decoration: none;
+    color: $white;
+}
+
+.login:hover {
+    color: $purpleLight;
+}

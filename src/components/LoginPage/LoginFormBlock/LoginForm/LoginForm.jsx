@@ -7,23 +7,23 @@ import {
 } from '../../../../utils/validators/validators';
 import { Input } from '../../../common/FormsControls/Form';
 
-const maxLength20 = maxLengthCreator(20);
+const maxLength30 = maxLengthCreator(30);
 
 const LoginForm = (props) => (
   <form onSubmit={props.handleSubmit} className={classes.form}>
     <Field
       component={Input}
-      name={'login'}
+      name={'email'}
       type={'text'}
-      placeholder={'Username or Email'}
-      validate={[required, maxLength20]}
+      placeholder={'Email'}
+      validate={[required, maxLength30]}
     />
     <Field
       component={Input}
       name={'password'}
       type={'password'}
       placeholder={'Password'}
-      validate={[required, maxLength20]}
+      validate={[required, maxLength30]}
     />
     <label>
       <Field component={'input'} name={'rememberMe'} type="checkbox" />
@@ -32,7 +32,9 @@ const LoginForm = (props) => (
     <p className={classes.forgot}>
       <a>Forgot Password?</a>
     </p>
-    <button className={classes.button}>Login to your Account!</button>
+    <button className={classes.button}>
+      Login to your Account!
+    </button>
     <p>Login with your Social Account</p>
     <ul className={classes.socialList}>
       <li>

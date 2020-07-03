@@ -8,16 +8,16 @@ import TimelinePageContainer from './components/TimelinePage/TimelinePageContain
 
 const App = (props) => (
   <Switch>
-    <Route exact path="/">
+    <Route path="/login">
       <LoginPage />
     </Route>
-    <Route exact path="/timeline">
+    <Route path="/timeline">
       <TimelinePageContainer />
     </Route>
     <Route path="/friends">
       <FriendsPage />
     </Route>
-    <Route exact path="/account">
+    <Route path="/account">
       <AccountPageContainer />
     </Route>
     <Route path="/profile/:userId?">

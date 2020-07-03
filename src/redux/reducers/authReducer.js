@@ -1,4 +1,5 @@
 import { authAPI } from '../../api/api';
+import { stopSubmit } from 'redux-form';
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
@@ -16,7 +17,6 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
-        isAuth: action.isAuth,
       };
     default:
       return state;
@@ -25,8 +25,7 @@ const authReducer = (state = initialState, action) => {
 
 export const setAuthUserData = (id, email, login, isAuth) => ({
   type: SET_USER_DATA,
-  payload: { id, email, login },
-  isAuth,
+  payload: { id, email, login, isAuth },
 });
 
 export const getAuthUserData = () => (dispatch) => {
@@ -43,6 +42,10 @@ export const login = (email, password, rememberMe) => (dispatch) => {
   authAPI.loginUser(email, password, rememberMe).then((response) => {
     if (response.resultCode === 0) {
       dispatch(getAuthUserData());
+    } else {
+      let message = response.messages.length > 0 ? response.messages[0] : 'Email or Password is wrong';
+      let action = stopSubmit('login', { _error: message });
+      dispatch(action);
     }
   });
 };

@@ -9,10 +9,13 @@ const LoginPage = () => (
   <Router>
     <div className={classes.wrapper}>
       <LoginIntro />
-      <Route path="/register">
+      <Route exact path="/register">
         <RegisterFormBlock />
       </Route>
       <Route exact path="/login">
+        <LoginFormBlock />
+      </Route>
+      <Route exact path="/">
         <LoginFormBlock />
       </Route>
     </div>

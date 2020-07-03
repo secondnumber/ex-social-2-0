@@ -13,7 +13,7 @@ const LoginIntro = () => (
       and play with our quests and badges gamification system!
     </p>
     <p className={classes.loginButton}>
-      <NavLink to="/" className={classes.link}>Login</NavLink>
+      <NavLink to="/login" className={classes.link}>Login</NavLink>
     </p>
     <p className={classes.registerButton}>
       <NavLink to="/register" className={classes.link}>Register</NavLink>

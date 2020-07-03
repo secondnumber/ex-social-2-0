@@ -12,7 +12,7 @@ const LoginPage = () => (
       <Route path="/register">
         <RegisterFormBlock />
       </Route>
-      <Route exact path="/">
+      <Route exact path="/login">
         <LoginFormBlock />
       </Route>
     </div>

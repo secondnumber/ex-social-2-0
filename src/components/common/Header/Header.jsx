@@ -33,11 +33,14 @@ const Header = (props) => {
       <Settings />
       <div>
         {props.auth.isAuth ? (
-          <NavLink to={'/account'} className={classes.login}>
-            <span onClick={props.logout}>{props.auth.login}</span>
-          </NavLink>
+          <>
+            <NavLink to={'/account'} className={classes.login}>
+              {props.auth.login}
+            </NavLink>
+            <span onClick={props.logout}>Logout</span>
+          </>
         ) : (
-          <NavLink to={'/'}>Login</NavLink>
+          <NavLink to={'/login'}>Login</NavLink>
         )}
       </div>
     </div>

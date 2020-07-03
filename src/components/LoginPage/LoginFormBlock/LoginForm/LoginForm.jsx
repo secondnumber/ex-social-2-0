@@ -25,6 +25,10 @@ const LoginForm = (props) => (
       placeholder={'Password'}
       validate={[required, maxLength30]}
     />
+    {props.error && (
+      <div className={classes.formSummaryError}>{props.error}</div>
+    )}
+    {!props.error && <div className={classes.formFreePlace}></div>}
     <label>
       <Field component={'input'} name={'rememberMe'} type="checkbox" />
       Remember Me
@@ -32,9 +36,7 @@ const LoginForm = (props) => (
     <p className={classes.forgot}>
       <a>Forgot Password?</a>
     </p>
-    <button className={classes.button}>
-      Login to your Account!
-    </button>
+    <button className={classes.button}>Login to your Account!</button>
     <p>Login with your Social Account</p>
     <ul className={classes.socialList}>
       <li>

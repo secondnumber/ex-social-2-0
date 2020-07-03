@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TimelinePage from './TimelinePage';
+import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 class TimelinePageContainer extends React.Component {
   componentDidMount() {}
@@ -13,4 +16,7 @@ let mapStateToProps = () => {
   return {};
 };
 
-export default connect(mapStateToProps)(TimelinePageContainer);
+export default compose(
+  connect(mapStateToProps),
+  withRouter, withAuthRedirect
+)(TimelinePageContainer);

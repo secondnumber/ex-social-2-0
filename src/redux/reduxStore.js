@@ -14,6 +14,7 @@ import profileReducer from './reducers/profileReducer';
 import authReducer from './reducers/authReducer';
 import aboutReducer from './reducers/aboutReducer';
 import { reducer as formReducer } from 'redux-form';
+import appReducer from './reducers/appReducer';
 
 let reducers = combineReducers({
   headers: headersReducer,
@@ -29,6 +30,7 @@ let reducers = combineReducers({
   profile: profileReducer,
   auth: authReducer,
   about: aboutReducer,
+  app: appReducer,
   form: formReducer,
 });
 

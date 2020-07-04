@@ -7,7 +7,7 @@ import {
 } from '../../../redux/reducers/usersReducer';
 import Users from "./Users";
 import Preloader from '../Preloader/Preloader'
-import {getUsers} from "../../../redux/usersSelect";
+import {getUsersSelector} from "../../../redux/usersSelect";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -19,6 +19,7 @@ class UsersContainer extends React.Component {
   }
 
   render() {
+      console.log('Render');
     return <>
       {this.props.users.isFetching ? <Preloader />
           : <Users
@@ -34,8 +35,9 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
+    console.log('MSTP');
   return {
-      users: getUsers(state),
+      users: getUsersSelector(state),
   };
 };
 

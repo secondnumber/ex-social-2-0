@@ -11,7 +11,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 
 let initialState = {
-  users: [],
+  usersList: [],
   defaultAvatar: DefaultAvatar,
   pageSize: 18,
   totalUsersCount: 0,
@@ -20,13 +20,13 @@ let initialState = {
   followingInProgress: [],
 };
 
-const friendsReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FRIEND: {
       console.log('add' + action.userId);
       return {
         ...state,
-        users: state.users.map((user) => {
+        users: state.usersList.map((user) => {
           if (user.id === action.userId) {
             return { ...user, followed: true };
           }
@@ -38,7 +38,7 @@ const friendsReducer = (state = initialState, action) => {
       console.log('delete' + action.userId);
       return {
         ...state,
-        users: state.users.map((user) => {
+        users: state.usersList.map((user) => {
           if (user.id === action.userId) {
             return { ...user, followed: false };
           }
@@ -47,7 +47,7 @@ const friendsReducer = (state = initialState, action) => {
       };
     }
     case SET_USERS: {
-      return { ...state, users: action.users };
+      return { ...state, usersList: action.users };
     }
     case SET_CURRENT_PAGE: {
       return { ...state, currentPage: action.pageNumber };
@@ -63,7 +63,7 @@ const friendsReducer = (state = initialState, action) => {
         ...state,
         followingInProgress: action.isFollowed
           ? [...state.followingInProgress, action.userId]
-          : state.followingInProgress.filter((id) => id != action.userId),
+          : state.followingInProgress.filter((id) => id !== action.userId),
       };
     }
     default:
@@ -92,7 +92,7 @@ export const toggleFollowingProgress = (isFollowed, userId) => ({
   userId,
 });
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
     usersAPI.getUsers(currentPage, pageSize).then((response) => {
@@ -107,7 +107,7 @@ export const addUser = (userId) => {
   return (dispatch) => {
     dispatch(toggleFollowingProgress(true, userId));
     usersAPI.addUser(userId).then((response) => {
-      if (response.resultCode === 0) {
+      if (response.data.resultCode === 0) {
         dispatch(addFriend(userId));
       }
       dispatch(toggleFollowingProgress(false, userId));
@@ -119,7 +119,7 @@ export const deleteUser = (userId) => {
   return (dispatch) => {
     dispatch(toggleFollowingProgress(true, userId));
     usersAPI.deleteUser(userId).then((response) => {
-      if (response.resultCode === 0) {
+      if (response.data.resultCode === 0) {
         dispatch(deleteFriend(userId));
       }
       dispatch(toggleFollowingProgress(false, userId));
@@ -127,4 +127,4 @@ export const deleteUser = (userId) => {
   };
 };
 
-export default friendsReducer;
+export default usersReducer;

@@ -5,7 +5,7 @@ import {
   addFriend,
   deleteFriend,
   setUsers,
-} from '../../../redux/reducers/friendsReducer';
+} from '../../../redux/reducers/usersReducer';
 
 let mapStateToProps = (state) => {
   return {

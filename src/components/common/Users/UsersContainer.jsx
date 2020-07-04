@@ -1,28 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-    addFriend, addUser,
-    deleteFriend, deleteUser, getUsers,
-    setCurrentPage,
-} from '../../../redux/reducers/friendsReducer';
+    addUser,
+    deleteUser, requestUsers,
+    setCurrentPage, toggleFollowingProgress,
+} from '../../../redux/reducers/usersReducer';
 import Users from "./Users";
 import Preloader from '../Preloader/Preloader'
+import {getUsers} from "../../../redux/usersSelect";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-      this.props.getUsers(this.props.currentPage, this.props.pageSize);
+      this.props.requestUsers(this.props.currentPage, this.props.pageSize);
   }
 
   onPageChanged = (pageNumber) => {
-      this.props.getUsers(pageNumber, this.props.pageSize);
+      this.props.requestUsers(pageNumber, this.props.pageSize);
   }
 
   render() {
     return <>
-      {this.props.friends.isFetching ? <Preloader />
+      {this.props.users.isFetching ? <Preloader />
           : <Users
-          key={this.props.friends.users.id}
-          friends={this.props.friends}
+          key={this.props.users.usersList.id}
+          users={this.props.users}
           deleteUser={this.props.deleteUser}
           addUser={this.props.addUser}
           onPageChanged={this.onPageChanged}
@@ -34,7 +35,7 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    friends: state.friends,
+      users: getUsers(state),
   };
 };
 
@@ -43,9 +44,10 @@ export default connect(
   mapStateToProps,
     {
       setCurrentPage,
-      getUsers,
+      requestUsers,
       addUser,
       deleteUser,
+        toggleFollowingProgress
     }
 )(UsersContainer);
 

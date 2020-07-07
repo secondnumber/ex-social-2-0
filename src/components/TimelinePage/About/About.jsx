@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './About.module.scss';
 import AboutItem from './AboutItem/AboutItem';
-import AboutStatus from './AboutStatus/AboutStatus';
+import AboutStatusWithHooks from './AboutStatus/AboutStatusWithHooks';
 
 const About = (props) => {
   let infoList = props.about.infoList.map((el) => (
@@ -10,7 +10,11 @@ const About = (props) => {
   return (
     <div className={classes.wrapper}>
       <h3 className={classes.title}>{props.about.title}</h3>
-      <AboutStatus status={props.status} updateStatus={props.updateStatus} getStatus={props.getStatus} />
+      <AboutStatusWithHooks
+        status={props.status}
+        updateStatus={props.updateStatus}
+        getStatus={props.getStatus}
+      />
       <div className={classes.table}>{infoList}</div>
     </div>
   );

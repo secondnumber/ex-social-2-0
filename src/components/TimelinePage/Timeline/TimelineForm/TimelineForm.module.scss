@@ -2,11 +2,14 @@
 
 .wrapper {
   position: relative;
+  height: 35px;
+  padding-bottom: 20px;
 }
 
 .editModeToggle {
-  padding: 5px;
-  width: 100%;
+  box-sizing: border-box;
+  height: 35px;
+  padding: 8px;
   background-color: $white;
   color: $gray;
   border: 1px solid $gray;
@@ -16,7 +19,7 @@
 
 .textarea {
   box-sizing: border-box;
-  padding: 5px;
+  padding: 8px;
   width: 100%;
   border: 1px solid $gray;
   border-radius: 12px;
@@ -26,8 +29,12 @@
 
 .textarea:focus {
   border: 1px solid $cyan;
-  border-radius: 12px;
 }
+
+.textarea:focus::placeholder {
+  color: transparent;
+}
+
 
 .button {
   position: absolute;

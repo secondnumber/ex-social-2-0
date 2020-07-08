@@ -1,4 +1,5 @@
 import { profileAPI } from '../../api/api';
+import avatarSmall from '../../assets/TimelinePage/avatar.png';
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';

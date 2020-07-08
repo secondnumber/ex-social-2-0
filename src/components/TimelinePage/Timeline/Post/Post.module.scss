@@ -2,8 +2,17 @@
 
 .item {;
   margin: 20px 0;
+  padding-top: 20px;
   background-color: $white;
   border-radius: 12px;
+  display: grid;
+  grid-template-columns: 20px 1fr 1fr 1fr 1fr 1fr 20px;
+  grid-template-rows: 60px 1fr 50px 60px;
+  grid-template-areas:
+      ". avatar avatar avatar . toggle ."
+      ". text text text text text ."
+      ". likes . . comments shares ."
+      "buttons buttons buttons buttons buttons buttons buttons";
 }
 
 .avatar {
@@ -12,19 +21,36 @@
   align-items: center;
 }
 
+.author {
+  font-weight: 700;
+}
+
 .image {
-  height: 50px;
-  width: 50px;
+  height: 66px;
+  width: 60px;
   padding-right: 10px;
 }
 
 .toggle {
-  grid-area: button;
+  grid-area: toggle;
+  height: 25px;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("../../../../assets/TimelinePage/buttons/dotsGray.svg");
+  outline: none;
+}
+
+.toggle:hover {
+  background-image: url("../../../../assets/TimelinePage/buttons/dotsBlue.svg");
+  cursor: pointer;
 }
 
 .text {
   grid-area: text;
   padding: 20px 0;
+  line-height: 150%;
 }
 
 .likes {
@@ -39,19 +65,37 @@
   grid-area: shares;
 }
 
-.like {
-  grid-area: like;
-}
-
-.comment {
-  grid-area: comment;
-}
-
-.share {
-  grid-area: share;
+.buttons {
+  grid-area: buttons;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $grayUltraLight;
+  border-radius: 0 0 12px 12px;
 }
 
 .button {
-  
+  width: 150px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
+  border-radius: 12px;
+  color: $gray;
+  fill: $gray;
+}
+
+.button:hover {
+  background-color: $white;
+  box-shadow: 3px 5px 20px 0 rgba(94,92,154,.1);
+  cursor: pointer;
+  fill: $cyan;
+}
+
+.label {
+  padding-left: 10px;
 }
 

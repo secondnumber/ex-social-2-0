@@ -10,7 +10,7 @@ const Post = (props) => (
         <span>{props.time}</span>
       </p>
     </div>
-    <button className={classes.button}>...</button>
+    <button className={classes.toggle}>...</button>
     <p className={classes.text}>{props.message}</p>
     <span className={classes.likes}>{props.reactions} Likes</span>
     <span className={classes.comments}>{props.comments} Comments</span>

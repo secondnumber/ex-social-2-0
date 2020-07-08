@@ -1,4 +1,5 @@
 import { profileAPI } from '../../api/api';
+import avatarSmall from '../../assets/Avatar/avatarSmall.png';
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
@@ -10,6 +11,7 @@ let initialState = {
     {
       id: 1,
       author: 'Marina Valentine',
+      avatar: avatarSmall,
       time: '29 minutes ago',
       message:
         'Hi to all! Remembercomments that today I\'ll be livestreaming along with @NekoBebop the new character of the brand new Xenowatch patch "Anya Darkness". See you there!',
@@ -20,6 +22,7 @@ let initialState = {
     {
       id: 2,
       author: 'Marina Valentine',
+      avatar: avatarSmall,
       time: '17 hours ago',
       message: 'This is a dream come true, thanks to all for the support!!!',
       reactions: 21,
@@ -29,6 +32,7 @@ let initialState = {
     {
       id: 3,
       author: 'Marina Valentine',
+      avatar: avatarSmall,
       time: '2 days ago',
       message:
         "Here's a sneak peek of the official box cover art for Machine Wasteland II! Remember that I'll be having a stream showing a preview tommorrow at 9PM PCT!",
@@ -47,6 +51,7 @@ const timelineReducer = (state = initialState, action) => {
       let newPost = {
         id: 4,
         author: 'Marina Valentine',
+        avatar: avatarSmall,
         time: dateString,
         message: action.message,
         reactions: 0,

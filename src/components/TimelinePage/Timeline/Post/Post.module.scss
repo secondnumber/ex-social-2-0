@@ -2,6 +2,60 @@
 
 .item {;
   margin: 20px 0;
+  padding: 20px;
   background-color: $white;
   border-radius: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 60px 1fr 50px 60px;
+  grid-template-areas:
+      "avatar avatar avatar . . button"
+      "text text text text text text"
+      "likes . . . comments shares"
+      "like like comment comment share share";
+}
+
+.avatar {
+  grid-area: avatar;
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  height: 60px;
+  width: 60px;
+  padding-right: 10px;
+}
+
+.button {
+  grid-area: button;
+}
+
+.text {
+  grid-area: text;
+  padding: 20px 0;
+}
+
+.likes {
+  grid-area: likes;
+}
+
+.comments {
+  grid-area: comments;
+}
+
+.shares {
+  grid-area: shares;
+}
+
+.like {
+  grid-area: like;
+}
+
+.comment {
+  grid-area: comment;
+}
+
+.share {
+  grid-area: share;
 }

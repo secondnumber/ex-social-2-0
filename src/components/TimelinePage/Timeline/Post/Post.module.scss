@@ -5,3 +5,53 @@
   background-color: $white;
   border-radius: 12px;
 }
+
+.avatar {
+  grid-area: avatar;
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  height: 60px;
+  width: 60px;
+  padding-right: 10px;
+}
+
+.toggle {
+  grid-area: button;
+}
+
+.text {
+  grid-area: text;
+  padding: 20px 0;
+}
+
+.likes {
+  grid-area: likes;
+}
+
+.comments {
+  grid-area: comments;
+}
+
+.shares {
+  grid-area: shares;
+}
+
+.like {
+  grid-area: like;
+}
+
+.comment {
+  grid-area: comment;
+}
+
+.share {
+  grid-area: share;
+}
+
+.button {
+  
+}
+

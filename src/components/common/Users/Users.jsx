@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
   let pagesCount = Math.ceil(
-    props.friends.totalUsersCount / props.friends.pageSize
+    props.users.totalUsersCount / props.users.pageSize
   );
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -18,11 +18,11 @@ const Users = (props) => {
             return (
               <span
                 className={
-                  props.friends.currentPage === page
+                  props.users.currentPage === page
                     ? classes.selectedPage
                     : classes.pageNumber
                 }
-                onClick={(event) => {
+                onClick={() => {
                   props.onPageChanged(page);
                 }}
               >
@@ -33,7 +33,7 @@ const Users = (props) => {
         })}
       </div>
       <ul className={classes.list}>
-        {props.friends.users.map((el) => {
+        {props.users.usersList.map((el) => {
           return (
             <li className={classes.item}>
               <NavLink to={'/profile/' + el.id}>
@@ -41,7 +41,7 @@ const Users = (props) => {
                   src={
                     el.photos.small != null
                       ? el.photos.small
-                      : props.friends.defaultAvatar
+                      : props.users.defaultAvatar
                   }
                   alt=""
                 />
@@ -50,7 +50,7 @@ const Users = (props) => {
               <div>
                 {el.followed ? (
                   <button
-                    disabled={props.friends.followingInProgress.some(
+                    disabled={props.users.followingInProgress.some(
                       (id) => id === el.id
                     )}
                     onClick={() => {
@@ -61,7 +61,7 @@ const Users = (props) => {
                   </button>
                 ) : (
                   <button
-                    disabled={props.friends.followingInProgress.some(
+                    disabled={props.users.followingInProgress.some(
                       (id) => id === el.id
                     )}
                     onClick={() => {

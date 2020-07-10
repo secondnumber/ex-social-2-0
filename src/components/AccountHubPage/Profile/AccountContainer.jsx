@@ -1,5 +1,5 @@
 import React from 'react';
-import Profile from './Account';
+import Account from './Account';
 import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
@@ -8,6 +8,6 @@ let mapStateToProps = (state) => {
   };
 };
 
-const ProfileContainer = connect(mapStateToProps)(Profile);
+const AccountContainer = connect(mapStateToProps)(Account);
 
-export default ProfileContainer;
+export default AccountContainer;

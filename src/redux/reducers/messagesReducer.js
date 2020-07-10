@@ -15,7 +15,7 @@ let initialState = {
     { id: 2, message: 'Hello' },
     { id: 3, message: 'How are you?' },
   ],
-  newMessageBody: 'newMsg',
+  newMessageBody: '',
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -34,9 +34,9 @@ const messagesReducer = (state = initialState, action) => {
   }
 };
 
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
+export const sendMessage = () => ({ type: SEND_MESSAGE });
 
-export const updateNewMessageBodyCreator = (text) => ({
+export const updateNewMessageBody = (text) => ({
   type: UPDATE_NEW_MESSAGE_BODY,
   newBody: text,
 });

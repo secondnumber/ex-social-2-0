@@ -92,37 +92,34 @@ export const toggleFollowingProgress = (isFollowed, userId) => ({
 });
 
 export const requestUsers = (currentPage, pageSize) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(toggleIsFetching(true));
-    usersAPI.getUsers(currentPage, pageSize).then((response) => {
-      dispatch(setUsers(response.items));
-      dispatch(setTotalUsersCount(response.totalCount));
-      dispatch(toggleIsFetching(false));
-    });
+    const response = await usersAPI.getUsers(currentPage, pageSize);
+    dispatch(setUsers(response.items));
+    dispatch(setTotalUsersCount(response.totalCount));
+    dispatch(toggleIsFetching(false));
   };
 };
 
 export const addUser = (userId) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(toggleFollowingProgress(true, userId));
-    usersAPI.addUser(userId).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(addFriend(userId));
-      }
-      dispatch(toggleFollowingProgress(false, userId));
-    });
+    const response = await usersAPI.addUser(userId);
+    if (response.data.resultCode === 0) {
+      dispatch(addFriend(userId));
+    }
+    dispatch(toggleFollowingProgress(false, userId));
   };
 };
 
 export const deleteUser = (userId) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(toggleFollowingProgress(true, userId));
-    usersAPI.deleteUser(userId).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(deleteFriend(userId));
-      }
-      dispatch(toggleFollowingProgress(false, userId));
-    });
+    const response = await usersAPI.deleteUser(userId);
+    if (response.data.resultCode === 0) {
+      dispatch(deleteFriend(userId));
+    }
+    dispatch(toggleFollowingProgress(false, userId));
   };
 };
 

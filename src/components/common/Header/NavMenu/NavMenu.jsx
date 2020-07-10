@@ -1,12 +1,13 @@
 import React from 'react';
 import classes from './NavMenu.module.scss';
+import { NavLink } from 'react-router-dom';
 
 const NavMenu = (props) => (
   <ul className={classes.wrapper}>
     <li>
-      <a className={classes.item} href={props.navMenuLink}>
-          {props.navMenuItem}
-      </a>
+      <NavLink className={classes.item} to={props.navMenuLink}>
+        {props.navMenuItem}
+      </NavLink>
     </li>
   </ul>
 );

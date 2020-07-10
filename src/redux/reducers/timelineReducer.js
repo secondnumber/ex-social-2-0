@@ -1,8 +1,8 @@
 import { profileAPI } from '../../api/api';
 import avatarSmall from '../../assets/TimelinePage/avatar.png';
 
-const ADD_POST = 'ADD-POST';
-const SET_STATUS = 'SET_STATUS';
+const ADD_POST = 'timeline/ADD-POST';
+const SET_STATUS = 'timeline/SET_STATUS';
 
 let initialState = {
   status: '',

@@ -1,6 +1,6 @@
 import { usersAPI } from '../../api/api';
 
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
 
 let initialState = {
   userProfile: null,

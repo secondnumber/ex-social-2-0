@@ -1,14 +1,13 @@
 import DefaultAvatar from '../../assets/FriendsPage/friendAvatar.png';
 import { usersAPI } from '../../api/api';
-import * as axios from "axios";
 
-const ADD_FRIEND = 'ADD_FRIEND';
-const DELETE_FRIEND = 'DELETE_FRIEND';
-const SET_USERS = 'SET_USERS';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
+const ADD_FRIEND = 'users/ADD_FRIEND';
+const DELETE_FRIEND = 'users/DELETE_FRIEND';
+const SET_USERS = 'users/SET_USERS';
+const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'users/SET_TOTAL_USERS_COUNT';
+const TOGGLE_IS_FETCHING = 'users/TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'users/TOGGLE_IS_FOLLOWING_PROGRESS';
 
 let initialState = {
   usersList: [],

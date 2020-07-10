@@ -6,7 +6,7 @@ import headersReducer from './reducers/headersReducer';
 import accountReducer from './reducers/accountReducer';
 import leftMenuReducer from './reducers/leftMenuReducer';
 import rightMenuReducer from './reducers/rightMenuReducer';
-import bannerBigReducer from './reducers/bannerBigReducer';
+import bannerReducer from './reducers/bannerReducer';
 import usersReducer from './reducers/usersReducer';
 import innerMenuReducer from './reducers/innerMenuReducer';
 import friendsFilterReducer from './reducers/friendsFilterResucer';
@@ -23,7 +23,7 @@ let reducers = combineReducers({
   rightMenu: rightMenuReducer,
   messages: messagesReducer,
   timeline: timelineReducer,
-  bannerBig: bannerBigReducer,
+  bannerBig: bannerReducer,
   users: usersReducer,
   innerMenu: innerMenuReducer,
   friendFilter: friendsFilterReducer,

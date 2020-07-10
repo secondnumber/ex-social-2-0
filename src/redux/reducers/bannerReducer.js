@@ -28,8 +28,8 @@ let initialState = {
   ],
 };
 
-const bannerBigReducer = (state = initialState, action) => {
+const bannerReducer = (state = initialState, action) => {
   return state;
 };
 
-export default bannerBigReducer;
+export default bannerReducer;

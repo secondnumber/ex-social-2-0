@@ -28,34 +28,33 @@ export const setAuthUserData = (id, email, login, isAuth) => ({
   payload: { id, email, login, isAuth },
 });
 
-export const getAuthUserData = () => (dispatch) => {
-  return authAPI.isAuthCurrentUser().then((response) => {
-    if (response.resultCode === 0) {
-      let { id, email, login } = response.data;
-      dispatch(setAuthUserData(id, email, login, true));
-      console.log(id, email, login);
-    }
-  });
+export const getAuthUserData = () => async (dispatch) => {
+  const response = await authAPI.isAuthCurrentUser();
+  if (response.resultCode === 0) {
+    let { id, email, login } = response.data;
+    dispatch(setAuthUserData(id, email, login, true));
+  }
 };
 
-export const login = (email, password, rememberMe) => (dispatch) => {
-  authAPI.loginUser(email, password, rememberMe).then((response) => {
-    if (response.resultCode === 0) {
-      dispatch(getAuthUserData());
-    } else {
-      let message = response.messages.length > 0 ? response.messages[0] : 'Email or Password is wrong';
-      let action = stopSubmit('login', { _error: message });
-      dispatch(action);
-    }
-  });
+export const login = (email, password, rememberMe) => async (dispatch) => {
+  const response = await authAPI.loginUser(email, password, rememberMe);
+  if (response.resultCode === 0) {
+    dispatch(getAuthUserData());
+  } else {
+    let message =
+      response.messages.length > 0
+        ? response.messages[0]
+        : 'Email or Password is wrong';
+    let action = stopSubmit('login', { _error: message });
+    dispatch(action);
+  }
 };
 
-export const logout = () => (dispatch) => {
-  authAPI.logoutUser().then((response) => {
-    if (response.resultCode === 0) {
-      dispatch(setAuthUserData(null, null, null, false));
-    }
-  });
+export const logout = () => async (dispatch) => {
+  const response = await authAPI.logoutUser();
+  if (response.resultCode === 0) {
+    dispatch(setAuthUserData(null, null, null, false));
+  }
 };
 
 export default authReducer;

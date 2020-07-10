@@ -1,11 +1,16 @@
 import React from 'react';
-import LoadImage from '../../../assets/Common/Preloader.svg';
-import classes from './Preloader.module.scss';
+import { connect } from 'react-redux';
 
-const Preloader = (props) => (
-  <div>
-    <img src={LoadImage} />
-  </div>
-);
+class Preloader extends React.Component {
+  render() {
+    return <img src={this.props.loaderImage} alt={'Preloader'} />;
+  }
+}
 
-export default Preloader;
+let mapStateToProps = (state) => {
+  return {
+    loaderImage: state.app.loaderImage,
+  };
+};
+
+export default connect(mapStateToProps)(Preloader);

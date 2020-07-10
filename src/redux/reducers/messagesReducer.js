@@ -1,4 +1,5 @@
 const SEND_MESSAGE = 'SEND-MESSAGE';
+const DELETE_MESSAGE = 'DELETE_MESSAGE';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 
 let initialState = {
@@ -27,14 +28,21 @@ const messagesReducer = (state = initialState, action) => {
         messagesData: [...state.messagesData, { id: 6, message: body }],
         newMessageBody: '',
       };
+    case DELETE_MESSAGE:
+      return {
+        ...state,
+        messagesData: state.messagesData.filter((el) => el.id !== action.id),
+      };
     case UPDATE_NEW_MESSAGE_BODY:
-      return { ...state, newMessageBody: action.newBody};
+      return { ...state, newMessageBody: action.newBody };
     default:
       return state;
   }
 };
 
-export const sendMessage = () => ({ type: SEND_MESSAGE });
+export const sendMessage = () => ({ type: SEND_MESSAGE});
+
+export const deleteMessage = (id) => ({ type: DELETE_MESSAGE, id });
 
 export const updateNewMessageBody = (text) => ({
   type: UPDATE_NEW_MESSAGE_BODY,

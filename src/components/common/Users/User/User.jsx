@@ -1,27 +1,34 @@
 import React from 'react';
 import classes from './User.module.scss';
+import { NavLink } from 'react-router-dom';
 
-const Friend = (props) => {
+const User = ({ user, users, addUser, deleteUser, defaultAvatar, followingInProgress }) => {
   return (
     <li className={classes.item}>
-      <img
-        src={props.avatar != null ? props.avatar : props.defaultAvatar}
-        alt=""
-      />
-      <div>{props.name}</div>
+      <NavLink to={'/profile/' + user.id}>
+        <img
+          src={
+            user.photos.small != null ? user.photos.small : defaultAvatar
+          }
+          alt=""
+        />
+        <div>{user.name}</div>
+      </NavLink>
       <div>
-        {props.followed ? (
+        {user.followed ? (
           <button
-            onClick={(userId) => {
-              props.deleteFriend(props.id);
+            disabled={followingInProgress.some((id) => id === user.id)}
+            onClick={() => {
+              deleteUser(user.id);
             }}
           >
             Delete Friend -
           </button>
         ) : (
           <button
-            onClick={(userId) => {
-              props.addFriend(props.id);
+            disabled={followingInProgress.some((id) => id === user.id)}
+            onClick={() => {
+              addUser(user.id);
             }}
           >
             Add Friend +
@@ -32,4 +39,4 @@ const Friend = (props) => {
   );
 };
 
-export default Friend;
+export default User;

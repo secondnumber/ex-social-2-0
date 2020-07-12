@@ -1,15 +1,19 @@
 @import "../../../colors";
 
+.wrapper {
+  height: 80px;
+}
+
 .formControl.error textarea {
-  border: 1px solid red;
+  border: 1px solid crimson;
 }
 
 .formControl.error input {
-  border: 1px solid red;
+  border: 1px solid crimson;
 }
 
 .formControl.error span {
-  color: red;
+  color: crimson;
 }
 
 .formSummaryError {

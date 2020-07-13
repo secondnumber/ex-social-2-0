@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import FriendsFilter from './FriendsFilter';
+import UsersFilter from './UsersFilter';
 
 let mapStateToProps = (state) => {
   return {
@@ -12,6 +12,6 @@ let mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-const FriendsFilterContainer = connect(mapStateToProps, mapDispatchToProps)(FriendsFilter);
+const UsersFilterContainer = connect(mapStateToProps, mapDispatchToProps)(UsersFilter);
 
-export default FriendsFilterContainer;
+export default UsersFilterContainer;

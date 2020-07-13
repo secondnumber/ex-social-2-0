@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import FriendsPage from './FriendsPage';
+import UsersPage from './UsersPage';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { withRouter } from 'react-router-dom';
@@ -11,10 +11,10 @@ let mapStateToProps = (state) => {
   };
 };
 
-const FriendsPageContainer = connect(mapStateToProps)(FriendsPage);
+const UsersPageContainer = connect(mapStateToProps)(UsersPage);
 
 export default compose(
   connect(mapStateToProps),
   withRouter,
   withAuthRedirect
-)(FriendsPageContainer);
+)(UsersPageContainer);

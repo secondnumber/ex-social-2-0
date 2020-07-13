@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './FriendsSearch.module.scss';
+import classes from './UsersSearch.module.scss';
 
-const FriendsSearch = (props) => {
+const UsersSearch = (props) => {
   return (
     <div className={classes.wrapper}>
       <label className={classes.label} htmlFor="friends-search">
@@ -18,4 +18,4 @@ const FriendsSearch = (props) => {
   );
 };
 
-export default FriendsSearch;
+export default UsersSearch;

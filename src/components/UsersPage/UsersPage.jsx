@@ -1,15 +1,15 @@
 import React from 'react';
-import classes from './FriendsPage.module.scss';
+import classes from './UsersPage.module.scss';
 import HeaderContainer from '../common/Header/HeaderContainer';
 import LeftMenuContainer from '../common/LeftMenu/LeftMenuContainer';
 import RightMenuContainer from '../common/RightMenu/RightMenuContainer';
 import BannerBigContainer from '../common/BannerBig/BannerBigContainer';
 import TitleContainer from '../common/Title/TitleContainer';
 import InnerMenuContainer from '../common/InnerMenu/InnerMenuContainer';
-import FriendsFilterContainer from './FriendsFilter/FriendsFilterContainer';
-import UsersContainer from '../common/Users/UsersContainer';
+import UsersFilterContainer from './UsersUtils/UsersFilterContainer';
+import UsersContainer from './Users/UsersContainer';
 
-const FriendsPage = (props) => (
+const UsersPage = (props) => (
   <div className={classes.wrapper}>
     <HeaderContainer />
     <LeftMenuContainer />
@@ -18,10 +18,10 @@ const FriendsPage = (props) => (
       <BannerBigContainer />
       <InnerMenuContainer />
       <TitleContainer name={'Friends'}/>
-      <FriendsFilterContainer />
+      <UsersFilterContainer />
       <UsersContainer />
     </div>
   </div>
 );
 
-export default FriendsPage;
+export default UsersPage;

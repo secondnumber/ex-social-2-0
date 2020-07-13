@@ -13,7 +13,7 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = 'users/TOGGLE_IS_FOLLOWING_PROGRESS';
 let initialState = {
   usersList: [],
   defaultAvatar: DefaultAvatar,
-  pageSize: 18,
+  pageSize: 9,
   totalUsersCount: 0,
   currentPage: 1,
   isFollowed: true,

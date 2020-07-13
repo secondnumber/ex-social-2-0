@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { initializeApp } from './redux/reducers/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
-import FriendsPageContainer from './components/FriendsPage/FriendsPageContainer';
+import FriendsPageContainer from './components/UsersPage/UsersPageContainer';
 
 class App extends Component {
   componentDidMount() {

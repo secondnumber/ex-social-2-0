@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './FriendsSort.module.scss';
+import classes from './UsersSort.module.scss';
 
-const FriendsSort = (props) => {
+const UsersSort = (props) => {
   return (
     <li>
       <a href={props.link} className={classes.item}>
@@ -11,4 +11,4 @@ const FriendsSort = (props) => {
   );
 };
 
-export default FriendsSort;
+export default UsersSort;

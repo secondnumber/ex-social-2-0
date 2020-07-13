@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Users.module.scss';
-import Paginator from '../Paginator/Paginator';
+import Paginator from '../../common/Paginator/Paginator';
 import User from './User/User';
 
 const Users = ({ users, onPageChanged, ...props }) => {

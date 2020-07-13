@@ -6,7 +6,7 @@ import {
     setCurrentPage, toggleFollowingProgress,
 } from '../../../redux/reducers/usersReducer';
 import Users from "./Users";
-import Preloader from '../Preloader/Preloader'
+import Preloader from '../../common/Preloader/Preloader'
 import {getUsersSelector} from "../../../redux/usersSelect";
 
 class UsersContainer extends React.Component {

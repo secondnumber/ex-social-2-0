@@ -35,7 +35,6 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-    console.log('MSTP');
   return {
       users: getUsersSelector(state),
   };

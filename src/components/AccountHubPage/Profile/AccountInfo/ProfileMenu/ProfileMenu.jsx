@@ -18,7 +18,7 @@ const ProfileMenu = (props) => {
         <NavLink
           className={classes.link}
           activeClassName={classes.active}
-          to="/profile_info"
+          to="/account/profile_info"
         >
           Profile Info
         </NavLink>
@@ -27,7 +27,7 @@ const ProfileMenu = (props) => {
         <NavLink
           className={classes.link}
           activeClassName={classes.active}
-          to="/social_and_stream"
+          to="/account/social_and_stream"
         >
           Social and Stream
         </NavLink>
@@ -36,7 +36,7 @@ const ProfileMenu = (props) => {
         <NavLink
           className={classes.link}
           activeClassName={classes.active}
-          to="/notifications"
+          to="/account/notifications"
         >
           Notifications
         </NavLink>
@@ -45,7 +45,7 @@ const ProfileMenu = (props) => {
         <NavLink
           className={classes.link}
           activeClassName={classes.active}
-          to="/dialogs"
+          to="/account/messages"
         >
           Messages
         </NavLink>
@@ -54,7 +54,7 @@ const ProfileMenu = (props) => {
         <NavLink
           className={classes.link}
           activeClassName={classes.active}
-          to="/friend_requests"
+          to="/account/friend_requests"
         >
           Friend Requests
         </NavLink>

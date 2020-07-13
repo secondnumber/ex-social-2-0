@@ -8,6 +8,7 @@ const Timeline = (props) => {
     <Post
       key={el.id}
       author={el.author}
+      avatar={el.avatarImg}
       time={el.time}
       message={el.message}
       reactions={el.reactions}

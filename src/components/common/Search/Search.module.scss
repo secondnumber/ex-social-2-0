@@ -1,0 +1,32 @@
+@import '../../../colors';
+
+.wrapper {
+    display: flex;
+    list-style-type: none;
+}
+
+.input {
+    width: 350px;
+    height: 40px;
+    margin: 15px 0px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    background-color: $purple;
+    color: $white;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+}
+
+.input:focus {
+  border: 1px solid $purpleLight;
+}
+
+.input::placeholder {
+    color: $white;
+}
+
+.input:focus::placeholder {
+  color: transparent;
+  transition: color 0.2s ease-out;
+}

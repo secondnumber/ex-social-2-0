@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import classes from './Account.module.scss';
 import ProfileBanner from './ProfileBanner/ProfileBanner';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
@@ -22,16 +22,30 @@ const Profile = (props) => {
   ));
 
   return (
-    <div className={classes.wrapper}>
-      <ProfileBanner />
-      <ul className={classes.list}>{accountInfoList}</ul>
-      <Route path="/timeline" render={() => <TimelineContainer />} />
-      <Route path="/profile_info" render={() => <ProfileInfo />} />
-      <Route path="/social_and_stream" render={() => <SocialStream />} />
-      <Route path="/notifications" render={() => <Notifications />} />
-      <Route path="/dialogs" render={() => <DialogsContainer />} />
-      <Route path="/friend_requests" render={() => <FriendRequests />} />
-    </div>
+    <Switch>
+      <div className={classes.wrapper}>
+        <ProfileBanner />
+        <ul className={classes.list}>{accountInfoList}</ul>
+        <Route path="/timeline">
+          <TimelineContainer />
+        </Route>
+        <Route path="/account/profile_info">
+          <ProfileInfo />
+        </Route>
+        <Route path="/account/social_and_stream">
+          <SocialStream />
+        </Route>
+        <Route path="/account/notifications">
+          <Notifications />
+        </Route>
+        <Route path="/account/messages">
+          <DialogsContainer />
+        </Route>
+        <Route path="/account/friend_requests">
+          <FriendRequests />
+        </Route>
+      </div>
+    </Switch>
   );
 };
 

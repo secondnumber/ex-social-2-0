@@ -1,14 +1,14 @@
 import DefaultAvatar from '../../assets/FriendsPage/friendAvatar.png';
 import { usersAPI } from '../../api/api';
-import * as axios from "axios";
+import { updateObjectsInArray } from '../../utils/objectsHelper';
 
-const ADD_FRIEND = 'ADD_FRIEND';
-const DELETE_FRIEND = 'DELETE_FRIEND';
-const SET_USERS = 'SET_USERS';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
+const ADD_FRIEND = 'users/ADD_FRIEND';
+const DELETE_FRIEND = 'users/DELETE_FRIEND';
+const SET_USERS = 'users/SET_USERS';
+const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'users/SET_TOTAL_USERS_COUNT';
+const TOGGLE_IS_FETCHING = 'users/TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'users/TOGGLE_IS_FOLLOWING_PROGRESS';
 
 let initialState = {
   usersList: [],
@@ -20,29 +20,22 @@ let initialState = {
   followingInProgress: [],
 };
 
-const usersReducer = (state = initialState, action) => {
+let usersReducer;
+usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FRIEND: {
-      console.log('add' + action.userId);
       return {
         ...state,
-        users: state.usersList.map((user) => {
-          if (user.id === action.userId) {
-            return { ...user, followed: true };
-          }
-          return user;
+        users: updateObjectsInArray(state.usersList, action.userId, 'id', {
+          followed: true,
         }),
       };
     }
     case DELETE_FRIEND: {
-      console.log('delete' + action.userId);
       return {
         ...state,
-        users: state.usersList.map((user) => {
-          if (user.id === action.userId) {
-            return { ...user, followed: false };
-          }
-          return user;
+        users: updateObjectsInArray(state.usersList, action.userId, 'id', {
+          followed: false,
         }),
       };
     }
@@ -71,6 +64,20 @@ const usersReducer = (state = initialState, action) => {
   }
 };
 
+const followUnfollowFlow = async (
+  dispatch,
+  userId,
+  apiMethod,
+  actionCreator
+) => {
+  dispatch(toggleFollowingProgress(true, userId));
+  const response = await apiMethod(userId);
+  if (response.data.resultCode === 0) {
+    dispatch(actionCreator(userId));
+  }
+  dispatch(toggleFollowingProgress(false, userId));
+};
+
 export const addFriend = (userId) => ({ type: ADD_FRIEND, userId });
 export const deleteFriend = (userId) => ({ type: DELETE_FRIEND, userId });
 export const setUsers = (users) => ({ type: SET_USERS, users });
@@ -93,37 +100,28 @@ export const toggleFollowingProgress = (isFollowed, userId) => ({
 });
 
 export const requestUsers = (currentPage, pageSize) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(toggleIsFetching(true));
-    usersAPI.getUsers(currentPage, pageSize).then((response) => {
-      dispatch(setUsers(response.items));
-      dispatch(setTotalUsersCount(response.totalCount));
-      dispatch(toggleIsFetching(false));
-    });
+    const response = await usersAPI.getUsers(currentPage, pageSize);
+    dispatch(setUsers(response.items));
+    dispatch(setTotalUsersCount(response.totalCount));
+    dispatch(toggleIsFetching(false));
   };
 };
 
 export const addUser = (userId) => {
-  return (dispatch) => {
-    dispatch(toggleFollowingProgress(true, userId));
-    usersAPI.addUser(userId).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(addFriend(userId));
-      }
-      dispatch(toggleFollowingProgress(false, userId));
-    });
+  return async (dispatch) => {
+    let apiMethod = usersAPI.addUser.bind(usersAPI);
+    let actionCreator = addFriend;
+    followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);
   };
 };
 
 export const deleteUser = (userId) => {
-  return (dispatch) => {
-    dispatch(toggleFollowingProgress(true, userId));
-    usersAPI.deleteUser(userId).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(deleteFriend(userId));
-      }
-      dispatch(toggleFollowingProgress(false, userId));
-    });
+  return async (dispatch) => {
+    let apiMethod = usersAPI.deleteUser.bind(usersAPI);
+    let actionCreator = deleteFriend;
+    followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);
   };
 };
 

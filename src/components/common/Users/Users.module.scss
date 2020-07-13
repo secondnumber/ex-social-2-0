@@ -5,13 +5,6 @@
   text-align: center;
   background-color: $grayLight;
 }
-
-.pages {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 .list {
   display: flex;
   justify-content: space-between;
@@ -27,15 +20,4 @@
   margin: 10px 0;
   background-color: $white;
   border-radius: 15px;
-}
-
-.pageNumber {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.selectedPage {
-  padding: 10px;
-  color: $purple;
-  cursor: pointer;
 }

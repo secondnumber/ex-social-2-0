@@ -1,5 +1,6 @@
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
+const SEND_MESSAGE = 'messages/SEND-MESSAGE';
+const DELETE_MESSAGE = 'messages/DELETE_MESSAGE';
+const UPDATE_NEW_MESSAGE_BODY = 'messages/UPDATE-NEW-MESSAGE-BODY';
 
 let initialState = {
   friendsData: [
@@ -15,7 +16,7 @@ let initialState = {
     { id: 2, message: 'Hello' },
     { id: 3, message: 'How are you?' },
   ],
-  newMessageBody: 'newMsg',
+  newMessageBody: '',
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -27,16 +28,23 @@ const messagesReducer = (state = initialState, action) => {
         messagesData: [...state.messagesData, { id: 6, message: body }],
         newMessageBody: '',
       };
+    case DELETE_MESSAGE:
+      return {
+        ...state,
+        messagesData: state.messagesData.filter((el) => el.id !== action.id),
+      };
     case UPDATE_NEW_MESSAGE_BODY:
-      return { ...state, newMessageBody: action.newBody};
+      return { ...state, newMessageBody: action.newBody };
     default:
       return state;
   }
 };
 
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
+export const sendMessage = () => ({ type: SEND_MESSAGE});
 
-export const updateNewMessageBodyCreator = (text) => ({
+export const deleteMessage = (id) => ({ type: DELETE_MESSAGE, id });
+
+export const updateNewMessageBody = (text) => ({
   type: UPDATE_NEW_MESSAGE_BODY,
   newBody: text,
 });

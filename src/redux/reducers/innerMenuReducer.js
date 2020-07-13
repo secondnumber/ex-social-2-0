@@ -15,7 +15,7 @@ let initialState = {
     { id: 3, icon: FriendsIcon, link: '/friends'},
     { id: 4, icon: GroupsIcon, link: '/groups' },
     { id: 5, icon: PhotosIcon, link: '/photos' },
-    { id: 6, icon: VideosIcon, link: '/videos' },
+    { id: 6, icon: VideosIcon, link: '/movies' },
     { id: 7, icon: BadgesIcon, link: '/badges' },
     { id: 8, icon: StreamsIcon, link: '/streams' },
     { id: 9, icon: BlogIcon, link: '/blog' },

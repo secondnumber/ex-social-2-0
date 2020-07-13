@@ -10,6 +10,7 @@ import { compose } from 'redux';
 import { initializeApp } from './redux/reducers/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
 import FriendsPageContainer from './components/UsersPage/UsersPageContainer';
+import MoviesPageContainer from './components/MoviesPage/MoviesPageContainer';
 
 class App extends Component {
   componentDidMount() {
@@ -33,6 +34,9 @@ class App extends Component {
         </Route>
         <Route path="/timeline">
           <TimelinePageContainer />
+        </Route>
+        <Route path="/movies">
+          <MoviesPageContainer />
         </Route>
         <Route path="/friends">
           <FriendsPageContainer />

@@ -1,16 +1,22 @@
 @import "../../../colors";
 
-.itemFavourite {
-  width: 180px;
-  height: 300px;
-  margin-right: 20px;
+.list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.item {
+  width: 203px;
+  height: 305px;
+  margin: 0 20px 20px 0;
   background-color: $white;
   border-radius: 12px;
 }
 
-.itemAll {
-  width: 400px;
-  height: 280px;
-  background-color: $white;
+.poster {
+  width: 100%;
   border-radius: 12px;
 }

@@ -1,4 +1,4 @@
-import { profileAPI } from '../../api/api';
+import { profileAPI } from '../../api/usersApi';
 import avatarSmall from '../../assets/TimelinePage/avatar.png';
 
 const ADD_POST = 'timeline/ADD-POST';

@@ -28,7 +28,7 @@ const MoviesPage = (props) => {
           <MoviesFilterContainer />
         </div>
         <div className={classes.content}>
-          <MoviesAllContainer />
+          <MoviesAllContainer movies={props.movies} getMovie={props.getMovie}/>
         </div>
       </div>
     </div>

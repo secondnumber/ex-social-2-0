@@ -25,14 +25,14 @@ const MoviesFilter = (props) => {
         </select>
       </div>
       <div className={classes.select}>
-        <label className={classes.label} htmlFor="view">
-          View
+        <label className={classes.label} htmlFor="search">
+          Search
         </label>
-        <select id="view" name="view">
-          <option value="0">All Films</option>
-          <option value="1">Drama</option>
-          <option value="2">Family films</option>
-        </select>
+        <input
+          id="search"
+          name="search"
+          type="text"
+        />
       </div>
       <button className={classes.button}>Show films</button>
     </form>

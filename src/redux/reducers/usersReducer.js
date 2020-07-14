@@ -1,5 +1,5 @@
 import DefaultAvatar from '../../assets/FriendsPage/friendAvatar.png';
-import { usersAPI } from '../../api/api';
+import { usersAPI } from '../../api/usersApi';
 import { updateObjectsInArray } from '../../utils/objectsHelper';
 
 const ADD_FRIEND = 'users/ADD_FRIEND';

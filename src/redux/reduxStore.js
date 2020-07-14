@@ -15,6 +15,7 @@ import authReducer from './reducers/authReducer';
 import aboutReducer from './reducers/aboutReducer';
 import { reducer as formReducer } from 'redux-form';
 import appReducer from './reducers/appReducer';
+import moviesReducer from './reducers/moviesReducer';
 
 let reducers = combineReducers({
   headers: headersReducer,
@@ -31,6 +32,7 @@ let reducers = combineReducers({
   auth: authReducer,
   about: aboutReducer,
   app: appReducer,
+  movies: moviesReducer,
   form: formReducer,
 });
 

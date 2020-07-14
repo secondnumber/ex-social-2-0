@@ -4,6 +4,7 @@ import MoviesPage from './MoviesPage';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { getMovie } from '../../redux/reducers/moviesReducer';
 
 class MoviesPageContainer extends React.Component {
   componentDidMount() {}
@@ -12,12 +13,14 @@ class MoviesPageContainer extends React.Component {
   }
 }
 
-let mapStateToProps = () => {
-  return {};
+let mapStateToProps = (state) => {
+  return {
+    movies: state.movies,
+  };
 };
 
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps, { getMovie }),
   withRouter,
   withAuthRedirect
 )(MoviesPageContainer);

@@ -26,6 +26,8 @@ const MoviesPage = (props) => {
         <TitleContainer name={'All movies'} />
         <div className={classes.content}>
           <MoviesFilterContainer />
+        </div>
+        <div className={classes.content}>
           <MoviesAllContainer />
         </div>
       </div>

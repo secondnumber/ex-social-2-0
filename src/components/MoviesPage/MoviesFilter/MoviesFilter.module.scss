@@ -2,5 +2,63 @@
 
 .wrapper {
   width: 100%;
+  height: 80px;
   background-color: $white;
+}
+
+.form {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $white;
+  border-radius: 12px;
+}
+
+.select {
+  position: relative;
+  flex-basis: 20%;
+}
+
+.select select {
+  width: 100%;
+  min-width: 200px;
+  height: 45px;
+  padding-left: 10px;
+  border: 1px solid $gray;
+  border-radius: 10px;
+  outline: none;
+  appearance: none;
+  background-image: url("../../../assets/Common/downArrow.svg");
+  background-repeat: no-repeat;
+  background-position: center right 10px;
+}
+
+.select select:focus {
+  border: 1px solid $indigo;
+}
+
+.label {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  background-color: $white;
+  color: $gray;
+}
+
+.button {
+    width: 150px;
+    height: 45px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: $indigo;
+    color: $white;
+    outline: none;
+}
+
+.button:hover {
+  background-color: $purpleLight;
+  cursor: pointer;
 }

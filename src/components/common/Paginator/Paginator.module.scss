@@ -19,6 +19,18 @@
 
 .selectedPage {
   padding: 10px;
+  font-weight: 700;
   color: $purple;
+}
+
+.arrow {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  fill: $gray;
+}
+
+.arrow:hover {
+  fill: $indigo;
   cursor: pointer;
 }

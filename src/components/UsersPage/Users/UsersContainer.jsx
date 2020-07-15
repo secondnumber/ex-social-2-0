@@ -48,7 +48,7 @@ export default connect(
       requestUsers,
       addUser,
       deleteUser,
-        toggleFollowingProgress
+      toggleFollowingProgress,
     }
 )(UsersContainer);
 

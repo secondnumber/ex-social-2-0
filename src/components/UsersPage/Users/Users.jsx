@@ -7,7 +7,7 @@ const Users = ({ users, onPageChanged, ...props }) => {
   return (
     <div className={classes.wrapper}>
       <Paginator
-        totalUsersCount={users.totalUsersCount}
+        totalItemsCount={users.totalUsersCount}
         pageSize={users.pageSize}
         currentPage={users.currentPage}
         onPageChanged={onPageChanged}

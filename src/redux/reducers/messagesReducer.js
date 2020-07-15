@@ -1,6 +1,6 @@
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const DELETE_MESSAGE = 'DELETE_MESSAGE';
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
+const SEND_MESSAGE = 'messages/SEND-MESSAGE';
+const DELETE_MESSAGE = 'messages/DELETE_MESSAGE';
+const UPDATE_NEW_MESSAGE_BODY = 'messages/UPDATE-NEW-MESSAGE-BODY';
 
 let initialState = {
   friendsData: [

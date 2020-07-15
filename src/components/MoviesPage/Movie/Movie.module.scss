@@ -1,0 +1,22 @@
+@import "../../../colors";
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.item {
+  width: 203px;
+  height: 305px;
+  margin: 0 20px 20px 0;
+  background-color: $white;
+  border-radius: 12px;
+}
+
+.poster {
+  width: 100%;
+  border-radius: 12px;
+}

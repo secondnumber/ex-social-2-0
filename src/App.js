@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import classes from './App.module.scss';
 import LoginPage from './components/LoginPage/LoginPage';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  withRouter,
+  BrowserRouter as Router,
+} from 'react-router-dom';
 import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
 import AccountPageContainer from './components/AccountHubPage/AccountPageContainer';
 import TimelinePageContainer from './components/TimelinePage/TimelinePageContainer';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import { compose } from 'redux';
 import { initializeApp } from './redux/reducers/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
 import FriendsPageContainer from './components/UsersPage/UsersPageContainer';
 import MoviesPageContainer from './components/MoviesPage/MoviesPageContainer';
+import store from './redux/reduxStore';
 
 class App extends Component {
   componentDidMount() {
@@ -56,7 +62,19 @@ let mapStateToProps = (state) => ({
   initialized: state.app.initialized,
 });
 
-export default compose(
+const AppContainer = compose(
   connect(mapStateToProps, { initializeApp }),
   withRouter
 )(App);
+
+const MainApp = (props) => {
+  return (
+    <Provider store={store}>
+      <Router>
+        <AppContainer />
+      </Router>
+    </Provider>
+  );
+};
+
+export default MainApp;

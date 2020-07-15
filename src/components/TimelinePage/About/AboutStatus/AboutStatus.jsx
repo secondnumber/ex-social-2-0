@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './AboutStatus.module.scss';
 
 class AboutStatus extends React.Component {
-
     state = {
         editMode: false,
         status: this.props.status,

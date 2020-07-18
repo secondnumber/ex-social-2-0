@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component, Suspense} from 'react';
 import classes from './App.module.scss';
 import LoginPage from './components/LoginPage/LoginPage';
 import {
@@ -15,8 +15,8 @@ import { compose } from 'redux';
 import { initializeApp } from './redux/reducers/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
 import FriendsPageContainer from './components/UsersPage/UsersPageContainer';
-import MoviesPageContainer from './components/MoviesPage/MoviesPageContainer';
 import store from './redux/reduxStore';
+const MoviesPageContainer = React.lazy(() => import('./components/MoviesPage/MoviesPageContainer'));
 
 class App extends Component {
   componentDidMount() {
@@ -42,7 +42,9 @@ class App extends Component {
           <TimelinePageContainer />
         </Route>
         <Route path="/movies">
+            <Suspense fallback={<Preloader />}>
           <MoviesPageContainer />
+            </Suspense>
         </Route>
         <Route path="/friends">
           <FriendsPageContainer />

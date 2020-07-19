@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
   withRouter,
-  BrowserRouter as Router,
+  HashRouter as Router,
 } from 'react-router-dom';
 import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
 import AccountPageContainer from './components/AccountHubPage/AccountPageContainer';
@@ -38,6 +38,9 @@ class App extends Component {
         <Route path="/login">
           <LoginPage />
         </Route>
+          <Route path="/register">
+              <LoginPage />
+          </Route>
         <Route path="/timeline">
           <TimelinePageContainer />
         </Route>
@@ -72,7 +75,7 @@ const AppContainer = compose(
 const MainApp = (props) => {
   return (
     <Provider store={store}>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <AppContainer />
       </Router>
     </Provider>

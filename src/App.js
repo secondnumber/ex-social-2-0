@@ -72,7 +72,7 @@ const AppContainer = compose(
 const MainApp = (props) => {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <AppContainer />
       </Router>
     </Provider>

@@ -28,7 +28,7 @@ const ProfilePage = ({ profile, isOwner, defaultAvatar, savePhoto }) => {
                 isOwner={isOwner}
                 avatars={profile.photos}
                 defaultAvatar={defaultAvatar}
-                name={profile.fullName}
+                profile={profile}
               />
             </div>
             <div className={classes.center}>

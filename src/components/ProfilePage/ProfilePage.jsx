@@ -9,7 +9,7 @@ import ProfileAbout from './ProfileAbout/ProfileAbout';
 import ProfilePosts from './ProfilePosts/ProfilePosts';
 import Preloader from '../common/Preloader/Preloader';
 
-const ProfilePage = (props) => {
+const ProfilePage = ({ profile, isOwner, defaultAvatar, savePhoto }) => {
   return (
     <div className={classes.wrapper}>
       <HeaderContainer />
@@ -18,20 +18,23 @@ const ProfilePage = (props) => {
       <div className={classes.block}>
         <BannerBigContainer />
         <InnerMenuContainer />
-        {!props.profile ? (
+        {!profile ? (
           <Preloader />
         ) : (
           <div className={classes.grid}>
-            <div className={classes.left}>
-              <ProfileAbout />
+            <div className={classes.info}>
+              <ProfileAbout
+                savePhoto={savePhoto}
+                isOwner={isOwner}
+                avatars={profile.photos}
+                defaultAvatar={defaultAvatar}
+                name={profile.fullName}
+              />
             </div>
             <div className={classes.center}>
               <ProfilePosts />
             </div>
-            <div className={classes.right}>
-                <p>{props.profile.fullName}</p>
-              <img src={props.profile.photos.large} />
-            </div>
+            <div className={classes.right}></div>
           </div>
         )}
       </div>

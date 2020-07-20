@@ -1,0 +1,36 @@
+@import '../../../colors';
+
+.wrapper {
+  width: 100%;
+  text-align: center;
+  background-color: $grayLight;
+}
+
+.pages {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pageNumber {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.selectedPage {
+  padding: 10px;
+  font-weight: 700;
+  color: $purple;
+}
+
+.arrow {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  fill: $gray;
+}
+
+.arrow:hover {
+  fill: $indigo;
+  cursor: pointer;
+}

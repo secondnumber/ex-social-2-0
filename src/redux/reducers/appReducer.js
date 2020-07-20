@@ -1,8 +1,8 @@
-import { authAPI } from '../../api/api';
+import { authAPI } from '../../api/usersApi';
 import { getAuthUserData } from './authReducer';
 import LoaderImage from '../../assets/Common/Preloader.svg';
 
-const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
+const INITIALIZED_SUCCESS = 'app/INITIALIZED_SUCCESS';
 
 let initialState = {
   initialized: false,

@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 import { login } from '../../../redux/reducers/authReducer';
 import { Redirect, Switch, withRouter } from 'react-router-dom';
 
-const LoginFormBlock = (props) => {
+const LoginFormBlock = ({ login, auth, isAuth }) => {
   const onSubmit = (formData) => {
-    props.login(formData.email, formData.password, formData.rememberMe);
+    login(formData.email, formData.password, formData.rememberMe);
   };
 
-  if (props.isAuth) {
+  if (isAuth) {
     return (
       <Switch>
         <Redirect to={{ pathname: '/timeline' }} />
@@ -24,7 +24,7 @@ const LoginFormBlock = (props) => {
       <div className={classes.box}>
         <img className={classes.image} src={Rocket} alt="" />
         <p className={classes.header}>Account Login</p>
-        <LoginForm onSubmit={onSubmit} auth={props.auth} />
+        <LoginForm onSubmit={onSubmit} auth={auth} />
       </div>
     </div>
   );

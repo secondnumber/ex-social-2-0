@@ -5,30 +5,19 @@ import {
   maxLengthCreator,
   required,
 } from '../../../../utils/validators/validators';
-import { Input } from '../../../common/FormsControls/Form';
+import { createField, Input } from '../../../common/FormsControls/Form';
 
 const maxLength30 = maxLengthCreator(30);
 
-const LoginForm = (props) => (
-  <form onSubmit={props.handleSubmit} className={classes.form}>
-    <Field
-      component={Input}
-      name={'email'}
-      type={'text'}
-      placeholder={'Email'}
-      validate={[required, maxLength30]}
-    />
-    <Field
-      component={Input}
-      name={'password'}
-      type={'password'}
-      placeholder={'Password'}
-      validate={[required, maxLength30]}
-    />
-    {props.error && (
-      <div className={classes.formSummaryError}>{props.error}</div>
-    )}
-    {!props.error && <div className={classes.formFreePlace}></div>}
+const LoginForm = ({ handleSubmit, error }) => (
+  <form onSubmit={handleSubmit} className={classes.form}>
+    {createField(Input, 'email', 'text', 'Email', [required, maxLength30])}
+    {createField(Input, 'password', 'password', 'Password', [
+      required,
+      maxLength30,
+    ])}
+    {error && <div className={classes.formSummaryError}>{error}</div>}
+    {!error && <div className={classes.formFreePlace}></div>}
     <label>
       <Field component={'input'} name={'rememberMe'} type="checkbox" />
       Remember Me

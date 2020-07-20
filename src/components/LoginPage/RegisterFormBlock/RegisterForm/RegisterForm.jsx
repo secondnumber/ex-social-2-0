@@ -5,40 +5,25 @@ import {
   maxLengthCreator,
   required,
 } from '../../../../utils/validators/validators';
-import { Input } from '../../../common/FormsControls/Form';
+import { createField, Input } from '../../../common/FormsControls/Form';
 
-const maxLength10 = maxLengthCreator(10);
+const maxLength30 = maxLengthCreator(30);
 
-const RegisterForm = (props) => (
-  <form onSubmit={props.handleSubmit} className={classes.form}>
-    <Field
-      component={Input}
-      name={'email'}
-      type={'text'}
-      placeholder={'Email'}
-      validate={[required, maxLength10]}
-    />
-    <Field
-      component={Input}
-      name={'username'}
-      type={'text'}
-      placeholder={'Username'}
-      validate={[required, maxLength10]}
-    />
-    <Field
-      component={Input}
-      name={'password'}
-      type={'password'}
-      placeholder={'Password'}
-      validate={[required, maxLength10]}
-    />
-    <Field
-      component={Input}
-      name={'repeatPassword'}
-      type={'password'}
-      placeholder={'Repeat Password'}
-      validate={[required, maxLength10]}
-    />
+const RegisterForm = ({ handleSubmit }) => (
+  <form onSubmit={handleSubmit} className={classes.form}>
+    {createField(Input, 'email', 'text', 'Email', [required, maxLength30])}
+    {createField(Input, 'username', 'text', 'Username', [
+      required,
+      maxLength30,
+    ])}
+    {createField(Input, 'password', 'password', 'Password', [
+      required,
+      maxLength30,
+    ])}
+    {createField(Input, 'repeatPassword', 'password', 'Repeat Password', [
+      required,
+      maxLength30,
+    ])}
     <label htmlFor="send">
       <Field
         component={'input'}

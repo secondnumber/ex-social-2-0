@@ -32,17 +32,20 @@
             "left center right"
 }
 
-.left {
-   grid-area: left;
-    background-color: purple;
+.info {
+    grid-area: left;
+    background-color: $white;
+    border-radius: 12px;
 }
 
 .center {
     grid-area: center;
     background-color: cyan;
+    border-radius: 12px;
 }
 
 .right {
     grid-area: right;
     background-color: brown;
+    border-radius: 12px;
 }

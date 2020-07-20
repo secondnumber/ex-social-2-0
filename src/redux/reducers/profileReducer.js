@@ -1,15 +1,25 @@
-import { usersAPI } from '../../api/api';
+import DefaultAvatar from '../../assets/FriendsPage/avatar.png';
+import { profileAPI, usersAPI } from '../../api/usersApi';
 
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
+const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS';
 
 let initialState = {
+  defaultAvatar: DefaultAvatar,
   userProfile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_USER_PROFILE:
+    case SET_USER_PROFILE: {
       return { ...state, userProfile: action.userProfile };
+    }
+    case SAVE_PHOTO_SUCCESS: {
+      return {
+        ...state,
+        userProfile: { ...state.userProfile, photos: action.photos },
+      };
+    }
     default:
       return state;
   }
@@ -20,12 +30,25 @@ export const setUserProfile = (userProfile) => ({
   userProfile,
 });
 
+export const savePhotoSuccess = (photos) => ({
+  type: SAVE_PHOTO_SUCCESS,
+  photos,
+});
+
 export const getUser = (userId) => {
-  return (dispatch) => {
-    usersAPI.getProfile(userId).then((response) => {
-      debugger
-      dispatch(setUserProfile(response));
-    });
+  return async (dispatch) => {
+    const response = await usersAPI.getProfile(userId);
+    dispatch(setUserProfile(response));
+  };
+};
+
+export const savePhoto = (file) => {
+  return async (dispatch) => {
+    const response = await profileAPI.savePhoto(file);
+    console.log(response);
+    if (response.resultCode === 0) {
+      dispatch(savePhotoSuccess(response.data.photos));
+    }
   };
 };
 

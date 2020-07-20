@@ -1,15 +1,22 @@
-import React, { Component } from 'react';
+import React, {Component, Suspense} from 'react';
 import classes from './App.module.scss';
 import LoginPage from './components/LoginPage/LoginPage';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  withRouter,
+  HashRouter as Router,
+} from 'react-router-dom';
 import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
 import AccountPageContainer from './components/AccountHubPage/AccountPageContainer';
 import TimelinePageContainer from './components/TimelinePage/TimelinePageContainer';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import { compose } from 'redux';
 import { initializeApp } from './redux/reducers/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
-import FriendsPageContainer from './components/FriendsPage/FriendsPageContainer';
+import UsersPageContainer from './components/UsersPage/UsersPageContainer';
+import store from './redux/reduxStore';
+const MoviesPageContainer = React.lazy(() => import('./components/MoviesPage/MoviesPageContainer'));
 
 class App extends Component {
   componentDidMount() {
@@ -31,11 +38,19 @@ class App extends Component {
         <Route path="/login">
           <LoginPage />
         </Route>
+          <Route path="/register">
+              <LoginPage />
+          </Route>
         <Route path="/timeline">
           <TimelinePageContainer />
         </Route>
-        <Route path="/friends">
-          <FriendsPageContainer />
+        <Route path="/movies">
+            <Suspense fallback={<Preloader />}>
+          <MoviesPageContainer />
+            </Suspense>
+        </Route>
+        <Route path="/users">
+          <UsersPageContainer />
         </Route>
         <Route path="/account">
           <AccountPageContainer />
@@ -52,7 +67,19 @@ let mapStateToProps = (state) => ({
   initialized: state.app.initialized,
 });
 
-export default compose(
+const AppContainer = compose(
   connect(mapStateToProps, { initializeApp }),
   withRouter
 )(App);
+
+const MainApp = (props) => {
+  return (
+    <Provider store={store}>
+      <Router>
+        <AppContainer />
+      </Router>
+    </Provider>
+  );
+};
+
+export default MainApp;

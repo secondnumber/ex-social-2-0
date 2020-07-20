@@ -26,7 +26,7 @@ const ProfilePage = ({ profile, isOwner, defaultAvatar, savePhoto }) => {
               <ProfileAbout
                 savePhoto={savePhoto}
                 isOwner={isOwner}
-                avatar={profile.photos.large}
+                avatars={profile.photos}
                 defaultAvatar={defaultAvatar}
                 name={profile.fullName}
               />

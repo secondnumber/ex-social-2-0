@@ -1,7 +1,7 @@
 let initialState = {
   navMenuList: [
     { id: 1, name: 'Timeline', link: '/timeline' },
-    { id: 2, name: 'Friends', link: '/friends' },
+    { id: 2, name: 'Users', link: '/users' },
     { id: 3, name: 'Account', link: '/account' },
     { id: 4, name: 'Profile', link: '/profile' },
   ],

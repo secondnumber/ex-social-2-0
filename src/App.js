@@ -14,7 +14,7 @@ import { connect, Provider } from 'react-redux';
 import { compose } from 'redux';
 import { initializeApp } from './redux/reducers/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
-import FriendsPageContainer from './components/UsersPage/UsersPageContainer';
+import UsersPageContainer from './components/UsersPage/UsersPageContainer';
 import store from './redux/reduxStore';
 const MoviesPageContainer = React.lazy(() => import('./components/MoviesPage/MoviesPageContainer'));
 
@@ -49,8 +49,8 @@ class App extends Component {
           <MoviesPageContainer />
             </Suspense>
         </Route>
-        <Route path="/friends">
-          <FriendsPageContainer />
+        <Route path="/users">
+          <UsersPageContainer />
         </Route>
         <Route path="/account">
           <AccountPageContainer />

@@ -20,6 +20,9 @@ const LoginPage = ({ isAuth }) => {
         <Route exact path="/register">
           <RegisterFormBlock />
         </Route>
+        <Route exact path="/">
+          <LoginFormBlock />
+        </Route>
         <Route exact path="/login">
           <LoginFormBlock />
         </Route>

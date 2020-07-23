@@ -9,7 +9,19 @@ import ProfileAbout from './ProfileAbout/ProfileAbout';
 import ProfilePosts from './ProfilePosts/ProfilePosts';
 import Preloader from '../common/Preloader/Preloader';
 
-const ProfilePage = ({ profile, isOwner, defaultAvatar, savePhoto }) => {
+const ProfilePage = ({
+  profile,
+  isOwner,
+  defaultAvatar,
+  savePhoto,
+  getStatus,
+  status,
+  saveProfile,
+}) => {
+  const handleSubmit = (formData) => {
+    saveProfile(formData, profile.userId);
+  };
+
   return (
     <div className={classes.wrapper}>
       <HeaderContainer />
@@ -28,7 +40,11 @@ const ProfilePage = ({ profile, isOwner, defaultAvatar, savePhoto }) => {
                 isOwner={isOwner}
                 avatars={profile.photos}
                 defaultAvatar={defaultAvatar}
+                initialValues={profile}
                 profile={profile}
+                getStatus={getStatus}
+                status={status}
+                onSubmit={handleSubmit}
               />
             </div>
             <div className={classes.center}>

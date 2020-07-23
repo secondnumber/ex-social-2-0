@@ -27,15 +27,15 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 80px;
     grid-column-gap: 15px;
     grid-template-areas:
             "left center right"
+            ". . .";
 }
 
 .info {
     grid-area: left;
-    background-color: $white;
-    border-radius: 12px;
 }
 
 .center {

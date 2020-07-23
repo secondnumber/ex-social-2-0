@@ -1,12 +1,105 @@
 @import '../../../colors.scss';
 
 .wrapper {
+  margin-bottom: 20px;
   padding: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: $white;
+  border-radius: 12px;
 }
 
 .avatar {
   width: 100px;
+}
+
+.upload {
+  display: inline-block;
+  width: 35%;
+  height: 25px;
+  margin: 10px 0;
+  line-height: 25px;
+  text-align: center;
+  background-color: $indigo;
+  color: $white;
+  border-radius: 8px;
+}
+
+.upload:hover {
+  cursor: pointer;
+  background-color: $cyan;
+}
+
+.upload input[type="file"]{
+  display: none;
+}
+
+.toggle {
+  align-self: flex-end;
+  width: 35%;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.toggle svg {
+  fill: $gray;
+}
+
+.toggle svg:hover {
+  fill: $cyan;
+  cursor: pointer;
+}
+
+.label {
+  display: inline;
+}
+.caption {
+  height: 25px;
+ }
+
+.form input[type="text"] {
+  width: 100%;
+  height: 20px;
+  padding-left: 10px;
+  border: 1px solid $gray;
+  border-radius: 8px;
+  outline: none;
+}
+
+.form textarea {
+  width: 100%;
+  padding-left: 10px;
+  border: 1px solid $gray;
+  border-radius: 8px;
+  outline: none;
+}
+
+.form input[type="text"]:focus,
+.form textarea:focus {
+  border: 1px solid $cyan;
+}
+
+.button {
+  width: 50px;
+  height: 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: $indigo;
+  color: $white;
+  outline: none;
+}
+
+.button:hover {
+  background-color: $cyan;
+  cursor: pointer;
+}
+
+.formSummaryError {
+  color: crimson;
+}
+
+.formFreePlace {
+  height: 30px;
 }

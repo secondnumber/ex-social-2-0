@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
   withRouter,
-  HashRouter as Router,
+  BrowserRouter as Router,
 } from 'react-router-dom';
 import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
 import AccountPageContainer from './components/AccountHubPage/AccountPageContainer';
@@ -16,13 +16,24 @@ import { initializeApp } from './redux/reducers/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
 import UsersPageContainer from './components/UsersPage/UsersPageContainer';
 import store from './redux/reduxStore';
+import Redirect from "react-router-dom/es/Redirect";
 const MoviesPageContainer = React.lazy(() => import('./components/MoviesPage/MoviesPageContainer'));
 
 class App extends Component {
+    catchAllUnhandledErrors = (promiseRejectionEvent) => {
+      alert(promiseRejectionEvent);
+    }
+
   componentDidMount() {
     this.props.initializeApp();
+    window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors);
   }
-  render() {
+
+  componentWillUnmount() {
+    window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors);
+  }
+
+    render() {
     if (!this.props.initialized) {
       return (
         <div className={classes.wrapper}>
@@ -32,9 +43,9 @@ class App extends Component {
     }
     return (
       <Switch>
-        <Route exact path="/">
-          <LoginPage />
-        </Route>
+          <Route exact path="/">
+              <Redirect from="/" to="/login" />
+          </Route>
         <Route path="/login">
           <LoginPage />
         </Route>

@@ -9,7 +9,7 @@ import { createField, Input } from '../../../common/FormsControls/Form';
 
 const maxLength30 = maxLengthCreator(30);
 
-const LoginForm = ({ handleSubmit, error }) => (
+const LoginForm = ({ handleSubmit, error, captchaUrl }) => (
   <form onSubmit={handleSubmit} className={classes.form}>
     {createField(Input, 'email', 'text', 'Email', [required, maxLength30])}
     {createField(Input, 'password', 'password', 'Password', [
@@ -23,8 +23,10 @@ const LoginForm = ({ handleSubmit, error }) => (
       Remember Me
     </label>
     <p className={classes.forgot}>
-      <a>Forgot Password?</a>
+      <a href={'#'}>Forgot Password?</a>
     </p>
+    {captchaUrl && <img src={captchaUrl} />}
+    {captchaUrl && createField(Input, 'captcha', 'text', 'Captcha', [required])}
     <button className={classes.button}>Login to your Account!</button>
     <p>Login with your Social Account</p>
     <ul className={classes.socialList}>

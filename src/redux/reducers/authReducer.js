@@ -1,7 +1,8 @@
-import { authAPI } from '../../api/usersApi';
+import { authAPI, securityAPI } from '../../api/usersApi';
 import { stopSubmit } from 'redux-form';
 
 const SET_USER_DATA = 'auth/SET_USER_DATA';
+const GET_CAPTCHA_URL_SUCCESS = 'auth/GET_CAPTCHA_URL_SUCCESS';
 
 let initialState = {
   id: null,
@@ -9,6 +10,7 @@ let initialState = {
   login: null,
   isAuth: false,
   isFetching: false,
+  captchaUrl: null,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -17,6 +19,11 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
+      };
+    case GET_CAPTCHA_URL_SUCCESS:
+      return {
+        ...state,
+        captchaUrl: action.url,
       };
     default:
       return state;
@@ -28,6 +35,11 @@ export const setAuthUserData = (id, email, login, isAuth) => ({
   payload: { id, email, login, isAuth },
 });
 
+export const getCaptchaUrl = (url) => ({
+  type: GET_CAPTCHA_URL_SUCCESS,
+  url,
+});
+
 export const getAuthUserData = () => async (dispatch) => {
   const response = await authAPI.isAuthCurrentUser();
   if (response.resultCode === 0) {
@@ -36,18 +48,42 @@ export const getAuthUserData = () => async (dispatch) => {
   }
 };
 
-export const login = (email, password, rememberMe) => async (dispatch) => {
-  const response = await authAPI.loginUser(email, password, rememberMe);
+export const login = (email, password, rememberMe, captcha) => async (
+  dispatch
+) => {
+  const response = await authAPI.loginUser(
+    email,
+    password,
+    rememberMe,
+    captcha
+  );
+  console.log(response.resultCode);
   if (response.resultCode === 0) {
     dispatch(getAuthUserData());
   } else {
-    let message =
-      response.messages.length > 0
-        ? response.messages[0]
-        : 'Email or Password is wrong';
-    let action = stopSubmit('login', { _error: message });
-    dispatch(action);
+    if (response.resultCode === 10) {
+      let message =
+        response.messages.length > 0
+          ? response.messages[0]
+          : 'Email or Password is wrong';
+      let action = stopSubmit('login', { _error: message });
+      dispatch(action);
+      dispatch(getCaptcha());
+    } else {
+      let message =
+        response.messages.length > 0
+          ? response.messages[0]
+          : 'Email or Password is wrong';
+      let action = stopSubmit('login', { _error: message });
+      dispatch(action);
+    }
   }
+};
+
+export const getCaptcha = () => async (dispatch) => {
+  const response = await securityAPI.getCaptcha();
+  const captchaUrl = response.url;
+  dispatch(getCaptchaUrl(captchaUrl));
 };
 
 export const logout = () => async (dispatch) => {

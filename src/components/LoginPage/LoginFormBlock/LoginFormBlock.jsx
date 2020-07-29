@@ -6,9 +6,14 @@ import { connect } from 'react-redux';
 import { login } from '../../../redux/reducers/authReducer';
 import { Redirect, Switch, withRouter } from 'react-router-dom';
 
-const LoginFormBlock = ({ login, auth, isAuth }) => {
+const LoginFormBlock = ({ login, auth, isAuth, captchaUrl }) => {
   const onSubmit = (formData) => {
-    login(formData.email, formData.password, formData.rememberMe);
+    login(
+      formData.email,
+      formData.password,
+      formData.rememberMe,
+      formData.captcha
+    );
   };
 
   if (isAuth) {
@@ -24,7 +29,7 @@ const LoginFormBlock = ({ login, auth, isAuth }) => {
       <div className={classes.box}>
         <img className={classes.image} src={Rocket} alt="" />
         <p className={classes.header}>Account Login</p>
-        <LoginForm onSubmit={onSubmit} auth={auth} />
+        <LoginForm onSubmit={onSubmit} auth={auth} captchaUrl={captchaUrl} />
       </div>
     </div>
   );
@@ -32,6 +37,7 @@ const LoginFormBlock = ({ login, auth, isAuth }) => {
 
 let mapStateToProps = (state) => {
   return {
+    captchaUrl: state.auth.captchaUrl,
     isAuth: state.auth.isAuth,
   };
 };

@@ -1,3 +1,17 @@
+export type InitialStateType = typeof initialState;
+
+type AccountInfoListType = {
+  id: number
+  name: string
+  description: string
+};
+
+type ProfileMenuListType = {
+  id: number
+  name: string
+  link: string
+};
+
 let initialState = {
   accountInfoList: [
     {
@@ -12,7 +26,7 @@ let initialState = {
         { id: 4, name: 'Notifications', link: '/notifications' },
         { id: 5, name: 'Messages', link: '/dialogs' },
         { id: 6, name: 'Friend Requests', link: '/friend_requests' },
-      ],
+      ] as Array<ProfileMenuListType>,
     },
     {
       id: 2,
@@ -32,10 +46,10 @@ let initialState = {
       description:
         'Review your account, manage products check stats and much more!',
     },
-  ],
+  ] as Array<AccountInfoListType>,
 };
 
-const accountReducer = (state = initialState, action) => {
+const accountReducer = (state = initialState, action: any): InitialStateType => {
   return state;
 };
 

@@ -1,5 +1,13 @@
+export type InitialStateType = typeof initialState;
+
+type AboutType = {
+  id: number
+  option: string
+  value: string
+};
+
 let initialState = {
-  title: 'About me',
+  title: 'About me' as string,
   infoList: [
     {
       id: 1,
@@ -26,10 +34,10 @@ let initialState = {
       option: 'Web',
       value: 'www.gamehuntress.com',
     },
-  ],
+  ] as Array<AboutType>,
 };
 
-const aboutReducer = (state = initialState, action) => {
+const aboutReducer = (state = initialState, action: any): InitialStateType => {
   return state;
 };
 

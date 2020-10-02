@@ -16,7 +16,7 @@ import { initializeApp } from './redux/reducers/appReducer';
 import Preloader from './components/common/Preloader/Preloader';
 import UsersPageContainer from './components/UsersPage/UsersPageContainer';
 import store from './redux/reduxStore';
-import Redirect from "react-router-dom/es/Redirect";
+import { Redirect } from "react-router-dom";
 const MoviesPageContainer = React.lazy(() => import('./components/MoviesPage/MoviesPageContainer'));
 
 class App extends Component {

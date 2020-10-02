@@ -1,16 +1,19 @@
 import DefaultAvatar from '../../assets/FriendsPage/avatar.png';
 import { profileAPI, usersAPI } from '../../api/usersApi';
 import { stopSubmit } from 'redux-form';
+import {PhotosType, UserProfileType} from "../../types";
 
 const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
 const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS';
 
+export type InitialStateType = typeof initialState;
+
 let initialState = {
-  defaultAvatar: DefaultAvatar,
-  userProfile: null,
+  defaultAvatar: DefaultAvatar as any,
+  userProfile: null as null | UserProfileType,
 };
 
-const profileReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case SET_USER_PROFILE: {
       return { ...state, userProfile: action.userProfile };
@@ -18,7 +21,7 @@ const profileReducer = (state = initialState, action) => {
     case SAVE_PHOTO_SUCCESS: {
       return {
         ...state,
-        userProfile: { ...state.userProfile, photos: action.photos },
+        userProfile: { ...state.userProfile, photos: action.photos } as UserProfileType,
       };
     }
     default:
@@ -26,25 +29,35 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const setUserProfile = (userProfile) => ({
+type SetUserProfileActionType = {
+  type: typeof SET_USER_PROFILE
+  userProfile: UserProfileType
+}
+
+type SavePhotoSuccessActionType = {
+  type: typeof SAVE_PHOTO_SUCCESS
+  photos: PhotosType
+}
+
+export const setUserProfile = (userProfile: UserProfileType): SetUserProfileActionType => ({
   type: SET_USER_PROFILE,
   userProfile,
 });
 
-export const savePhotoSuccess = (photos) => ({
+export const savePhotoSuccess = (photos: PhotosType): SavePhotoSuccessActionType => ({
   type: SAVE_PHOTO_SUCCESS,
   photos,
 });
 
-export const getUser = (userId) => {
-  return async (dispatch) => {
+export const getUser = (userId: number) => {
+  return async (dispatch: any) => {
     const response = await usersAPI.getProfile(userId);
     dispatch(setUserProfile(response));
   };
 };
 
-export const savePhoto = (file) => {
-  return async (dispatch) => {
+export const savePhoto = (file: any) => {
+  return async (dispatch: any) => {
     const response = await profileAPI.savePhoto(file);
     console.log(response);
     if (response.resultCode === 0) {
@@ -53,8 +66,8 @@ export const savePhoto = (file) => {
   };
 };
 
-export const saveProfile = (profile) => {
-  return async (dispatch, getState) => {
+export const saveProfile = (profile: any) => {
+  return async (dispatch: any, getState: Function) => {
     const userId = getState().auth.id;
     const response = await profileAPI.saveProfile(profile);
     console.log(response);

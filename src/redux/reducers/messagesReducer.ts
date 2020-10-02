@@ -2,6 +2,18 @@ const SEND_MESSAGE = 'messages/SEND-MESSAGE';
 const DELETE_MESSAGE = 'messages/DELETE_MESSAGE';
 const UPDATE_NEW_MESSAGE_BODY = 'messages/UPDATE-NEW-MESSAGE-BODY';
 
+export type InitialStateType = typeof initialState;
+
+type FriendsDataType = {
+  id: number
+  name: string
+}
+
+type MessagesDataType = {
+  id: number
+  message: string
+}
+
 let initialState = {
   friendsData: [
     { id: 1, name: 'Bearded Wonder' },
@@ -9,17 +21,17 @@ let initialState = {
     { id: 3, name: 'Nick Grissom' },
     { id: 4, name: 'Sarah Diamond' },
     { id: 5, name: 'Matt Parker' },
-  ],
+  ] as Array<FriendsDataType>,
 
   messagesData: [
     { id: 1, message: 'Hi' },
     { id: 2, message: 'Hello' },
     { id: 3, message: 'How are you?' },
-  ],
-  newMessageBody: '',
+  ] as Array<MessagesDataType>,
+  newMessageBody: '' as string,
 };
 
-const messagesReducer = (state = initialState, action) => {
+const messagesReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case SEND_MESSAGE:
       let body = state.newMessageBody;
@@ -40,11 +52,25 @@ const messagesReducer = (state = initialState, action) => {
   }
 };
 
-export const sendMessage = () => ({ type: SEND_MESSAGE});
+type SendMessageActionType = {
+  type: typeof SEND_MESSAGE
+}
 
-export const deleteMessage = (id) => ({ type: DELETE_MESSAGE, id });
+type DeleteMessageActionType = {
+  type: typeof DELETE_MESSAGE
+  id: number
+}
 
-export const updateNewMessageBody = (text) => ({
+type UpdateNewMessageBodyActionType = {
+  type: typeof UPDATE_NEW_MESSAGE_BODY
+  newBody: string
+}
+
+export const sendMessage = (): SendMessageActionType => ({ type: SEND_MESSAGE});
+
+export const deleteMessage = (id: number): DeleteMessageActionType => ({ type: DELETE_MESSAGE, id });
+
+export const updateNewMessageBody = (text: string): UpdateNewMessageBodyActionType => ({
   type: UPDATE_NEW_MESSAGE_BODY,
   newBody: text,
 });

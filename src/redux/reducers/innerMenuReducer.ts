@@ -8,6 +8,14 @@ import BadgesIcon from '../../assets/InnerMenu/icons/badgesIcon.png';
 import StreamsIcon from '../../assets/InnerMenu/icons/timelineIcon.png';
 import BlogIcon from '../../assets/InnerMenu/icons/blogPostsIcon.png';
 
+export type InitialStateType = typeof initialState;
+
+type InnerMenuList = {
+  id: number
+  icon: any
+  link: string
+}
+
 let initialState = {
   innerMenuList: [
     { id: 1, icon: AboutIcon, link: '/about' },
@@ -19,10 +27,10 @@ let initialState = {
     { id: 7, icon: BadgesIcon, link: '/badges' },
     { id: 8, icon: StreamsIcon, link: '/streams' },
     { id: 9, icon: BlogIcon, link: '/blog' },
-  ],
+  ] as Array<InnerMenuList>,
 };
 
-const innerMenuReducer = (state = initialState, action) => {
+const innerMenuReducer = (state = initialState, action: any): InitialStateType => {
   return state;
 };
 

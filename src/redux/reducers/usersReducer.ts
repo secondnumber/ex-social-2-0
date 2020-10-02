@@ -1,6 +1,7 @@
 import DefaultAvatar from '../../assets/FriendsPage/friendAvatar.png';
 import { usersAPI } from '../../api/usersApi';
 import { updateObjectsInArray } from '../../utils/objectsHelper';
+import {UserType} from "../../types";
 
 const ADD_FRIEND = 'users/ADD_FRIEND';
 const DELETE_FRIEND = 'users/DELETE_FRIEND';
@@ -10,18 +11,21 @@ const SET_TOTAL_USERS_COUNT = 'users/SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_FETCHING = 'users/TOGGLE_IS_FETCHING';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'users/TOGGLE_IS_FOLLOWING_PROGRESS';
 
+export type InitialStateType = typeof initialState;
+
 let initialState = {
-  usersList: [],
+  usersList: [] as Array<UserType>,
   defaultAvatar: DefaultAvatar,
   pageSize: 9,
   totalUsersCount: 0,
   currentPage: 1,
   isFollowed: true,
-  followingInProgress: [],
+  isFetching: false,
+  followingInProgress: [] as Array<number>, //array of users ids
 };
 
 let usersReducer;
-usersReducer = (state = initialState, action) => {
+usersReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case ADD_FRIEND: {
       return {
@@ -65,10 +69,10 @@ usersReducer = (state = initialState, action) => {
 };
 
 const followUnfollowFlow = async (
-  dispatch,
-  userId,
-  apiMethod,
-  actionCreator
+  dispatch: any,
+  userId: number,
+  apiMethod: any,
+  actionCreator: any
 ) => {
   dispatch(toggleFollowingProgress(true, userId));
   const response = await apiMethod(userId);
@@ -78,29 +82,65 @@ const followUnfollowFlow = async (
   dispatch(toggleFollowingProgress(false, userId));
 };
 
-export const addFriend = (userId) => ({ type: ADD_FRIEND, userId });
-export const deleteFriend = (userId) => ({ type: DELETE_FRIEND, userId });
-export const setUsers = (users) => ({ type: SET_USERS, users });
-export const setCurrentPage = (pageNumber) => ({
+type AddFriendActionType = {
+  type: typeof ADD_FRIEND
+  userId: number
+};
+
+type DeleteFriendActionType = {
+  type: typeof DELETE_FRIEND
+  userId: number
+};
+
+type SetUsersActionType = {
+  type: typeof SET_USERS
+  users: Array<UserType>
+};
+
+type SetCurrentPageActionType = {
+  type: typeof SET_CURRENT_PAGE
+  pageNumber: number
+};
+
+type SetTotalUsersCountActionType = {
+  type: typeof SET_TOTAL_USERS_COUNT
+  totalUsersCount: number
+};
+
+type ToggleIsFetchingActionType = {
+  type: typeof TOGGLE_IS_FETCHING
+  isLoaded: boolean
+};
+
+type ToggleFollowingProgressActionType = {
+  type: typeof TOGGLE_IS_FOLLOWING_PROGRESS
+  isFollowed: boolean
+  userId: number
+};
+
+export const addFriend = (userId: number): AddFriendActionType => ({ type: ADD_FRIEND, userId });
+export const deleteFriend = (userId: number): DeleteFriendActionType => ({ type: DELETE_FRIEND, userId });
+export const setUsers = (users: Array<UserType>): SetUsersActionType => ({ type: SET_USERS, users });
+export const setCurrentPage = (pageNumber: number): SetCurrentPageActionType => ({
   type: SET_CURRENT_PAGE,
   pageNumber,
 });
-export const setTotalUsersCount = (totalUsersCount) => ({
+export const setTotalUsersCount = (totalUsersCount: number): SetTotalUsersCountActionType => ({
   type: SET_TOTAL_USERS_COUNT,
   totalUsersCount,
 });
-export const toggleIsFetching = (isLoaded) => ({
+export const toggleIsFetching = (isLoaded: boolean): ToggleIsFetchingActionType => ({
   type: TOGGLE_IS_FETCHING,
   isLoaded,
 });
-export const toggleFollowingProgress = (isFollowed, userId) => ({
+export const toggleFollowingProgress = (isFollowed: boolean, userId: number): ToggleFollowingProgressActionType => ({
   type: TOGGLE_IS_FOLLOWING_PROGRESS,
   isFollowed,
   userId,
 });
 
-export const requestUsers = (currentPage, pageSize) => {
-  return async (dispatch) => {
+export const requestUsers = (currentPage: number, pageSize: number) => {
+  return async (dispatch: any) => {
     dispatch(toggleIsFetching(true));
     const response = await usersAPI.getUsers(currentPage, pageSize);
     dispatch(setUsers(response.items));
@@ -109,16 +149,16 @@ export const requestUsers = (currentPage, pageSize) => {
   };
 };
 
-export const addUser = (userId) => {
-  return async (dispatch) => {
+export const addUser = (userId: number) => {
+  return async (dispatch: any) => {
     let apiMethod = usersAPI.addUser.bind(usersAPI);
     let actionCreator = addFriend;
     followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);
   };
 };
 
-export const deleteUser = (userId) => {
-  return async (dispatch) => {
+export const deleteUser = (userId: number) => {
+  return async (dispatch: any) => {
     let apiMethod = usersAPI.deleteUser.bind(usersAPI);
     let actionCreator = deleteFriend;
     followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);

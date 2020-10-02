@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import classes from './Paginator.module.scss';
-import leftArrow from '../../../assets/Common/left-chevron.svg';
-import rightArrow from '../../../assets/Common/right-chevron.svg';
+
+type Props = {
+  totalItemsCount: number
+  pageSize: number
+  currentPage: number
+  onPageChanged: () => void
+  portionSize: number
+}
 
 const Paginator = ({
   totalItemsCount,
@@ -9,7 +15,7 @@ const Paginator = ({
   currentPage,
   onPageChanged,
   portionSize = 10,
-}) => {
+}: Props) => {
   let pagesCount = Math.ceil(totalItemsCount / pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {

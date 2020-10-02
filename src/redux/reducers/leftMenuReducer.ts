@@ -10,6 +10,13 @@ import OverviewIcon from '../../assets/LeftMenu/icons/OverviewIcon.png';
 import QuestsIcon from '../../assets/LeftMenu/icons/QuestsIcon.png';
 import StreamsIcon from '../../assets/LeftMenu/icons/StreamsIcon.png';
 
+export type InitialStateType = typeof initialState;
+
+type IconsListType = {
+  id: number
+  icon: any
+}
+
 let initialState = {
   iconsList: [
     { id: 1, icon: SmallProfileIcon },
@@ -23,10 +30,10 @@ let initialState = {
     { id: 9, icon: OverviewIcon },
     { id: 10, icon: QuestsIcon },
     { id: 11, icon: StreamsIcon },
-  ],
+  ] as Array<IconsListType>,
 };
 
-const leftMenuReducer = (state = initialState, action) => {
+const leftMenuReducer = (state = initialState, action: any): InitialStateType => {
   return state;
 };
 

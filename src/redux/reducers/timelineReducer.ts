@@ -1,11 +1,14 @@
 import { profileAPI } from '../../api/usersApi';
 import avatarSmall from '../../assets/TimelinePage/avatar.png';
+import {PostsDataType} from "../../types";
 
 const ADD_POST = 'timeline/ADD-POST';
 const SET_STATUS = 'timeline/SET_STATUS';
 
+export type InitialStateType = typeof initialState;
+
 let initialState = {
-  status: '',
+  status: '' as string,
   postsData: [
     {
       id: 1,
@@ -39,10 +42,10 @@ let initialState = {
       comments: 0,
       shares: 0,
     },
-  ],
+  ] as Array<PostsDataType>,
 };
 
-const timelineReducer = (state = initialState, action) => {
+const timelineReducer = (state = initialState, action: any): InitialStateType => {
   switch (action.type) {
     case ADD_POST:
       let date = new Date();
@@ -55,7 +58,7 @@ const timelineReducer = (state = initialState, action) => {
         reactions: 0,
         comments: 0,
         shares: 0,
-      };
+      } as PostsDataType;
       state.postsData.unshift(newPost);
       return { ...state };
     case SET_STATUS:
@@ -65,22 +68,32 @@ const timelineReducer = (state = initialState, action) => {
   }
 };
 
-export const addPost = (message) => ({
+type AddPostActionType = {
+  type: typeof ADD_POST
+  message: string
+}
+
+type SetStatusActionType = {
+  type: typeof SET_STATUS
+  status: string
+}
+
+export const addPost = (message: string): AddPostActionType => ({
   type: ADD_POST,
   message,
 });
 
-export const setStatus = (status) => ({
+export const setStatus = (status: string): SetStatusActionType => ({
   type: SET_STATUS,
   status,
 });
 
-export const getStatus = (userId) => async (dispatch) => {
+export const getStatus = (userId: number) => async (dispatch: any) => {
   const response = await profileAPI.getStatus(userId);
   dispatch(setStatus(response));
 };
 
-export const updateStatus = (status) => async (dispatch) => {
+export const updateStatus = (status: string) => async (dispatch: any) => {
   const response = await profileAPI.updateStatus(status);
   if (response.resultCode === 0) {
     dispatch(setStatus(status));

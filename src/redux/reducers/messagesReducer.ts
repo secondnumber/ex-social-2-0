@@ -1,18 +1,10 @@
+import {FriendsDataType, MessagesDataType} from "../../types";
+
 const SEND_MESSAGE = 'messages/SEND-MESSAGE';
 const DELETE_MESSAGE = 'messages/DELETE_MESSAGE';
 const UPDATE_NEW_MESSAGE_BODY = 'messages/UPDATE-NEW-MESSAGE-BODY';
 
 export type InitialStateType = typeof initialState;
-
-type FriendsDataType = {
-  id: number
-  name: string
-}
-
-type MessagesDataType = {
-  id: number
-  message: string
-}
 
 let initialState = {
   friendsData: [

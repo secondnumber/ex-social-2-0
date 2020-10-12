@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './ProfileMenu.module.scss';
 import { NavLink } from 'react-router-dom';
 
-const ProfileMenu = (props) => {
+const ProfileMenu: React.FC = () => {
   return (
     <ul className={classes.listInner}>
       <li>
@@ -15,6 +15,7 @@ const ProfileMenu = (props) => {
         </NavLink>
       </li>
       <li>
+
         <NavLink
           className={classes.link}
           activeClassName={classes.active}

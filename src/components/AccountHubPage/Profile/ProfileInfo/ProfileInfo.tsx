@@ -1,16 +1,16 @@
 import React from 'react';
-import classes from './SocialStream.module.scss';
+import classes from './ProfileInfo.module.scss';
 
-const SocialStream = () => (
+const ProfileInfo: React.FC = () => (
   <div className={classes.wrapper}>
     <h3>MY PROFILE</h3>
-    <h2>Social and Stream</h2>
+    <h2>ProfileInfo</h2>
     <div className={classes.messagesArea}>
       <ul>
-        <li>Social and Stream</li>
+        <li>ProfileInfo</li>
       </ul>
     </div>
   </div>
 );
 
-export default SocialStream;
+export default ProfileInfo;

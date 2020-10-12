@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './FriendRequests.module.scss';
 
-const FriendRequests = () => (
+const FriendRequests: React.FC = () => (
   <div className={classes.wrapper}>
     <h3>MY PROFILE</h3>
     <h2>Friend Requests</h2>

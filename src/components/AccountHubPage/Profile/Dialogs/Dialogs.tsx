@@ -2,25 +2,36 @@ import React from 'react';
 import classes from './Dialogs.module.scss';
 import FriendItem from './FriendItem/FriendItem';
 import MessageItem from './MessageItem/MessageItem';
+import {FriendsDataType, MessagesDataType} from "../../../../types";
 
-const Dialogs = (props) => {
-  let friendsElements = props.messages.friendsData.map((friend) => (
+type PropsType = {
+  messages: {
+    friendsData: Array<FriendsDataType>
+    messagesData: Array<MessagesDataType>
+    newMessageBody: string
+  },
+  updateNewMessageBody: any
+  sendMessage: any
+}
+
+const Dialogs: React.FC<PropsType> = ( {messages, updateNewMessageBody, sendMessage} ) => {
+  let friendsElements = messages.friendsData.map((friend) => (
     <FriendItem key={friend.id} id={friend.id} name={friend.name} />
   ));
 
-  let messagesElements = props.messages.messagesData.map((message) => (
+  let messagesElements = messages.messagesData.map((message) => (
     <MessageItem key={message.id} id={message.id} message={message.message} />
   ));
 
   let newMessageElement = React.createRef();
 
   let onSendMessage = () => {
-    props.sendMessage();
+    sendMessage();
   };
 
-  let onMessageChange = (e) => {
+  let onMessageChange = (e: any) => {
     let body = e.target.value;
-    props.updateNewMessageBody(body);
+    updateNewMessageBody(body);
   };
 
   return (
@@ -35,7 +46,7 @@ const Dialogs = (props) => {
             className={classes.textarea}
             onChange={onMessageChange}
             ref={newMessageElement}
-            value={props.newMessageBody}
+            value={messages.newMessageBody}
           ></textarea>
           <button className={classes.button} onClick={onSendMessage}>
             Add message

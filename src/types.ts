@@ -24,9 +24,8 @@ export type ContactsType = {
 }
 
 export type UserType = {
-    name: string,
     id: number,
-    uniqueUrlName: string
+    name: string,
     photos: PhotosType
     status: string
     followed: boolean
@@ -44,5 +43,15 @@ export type PostsDataType = {
 }
 
 export type FollowedObjType = {
-    followed: true
+    followed: boolean
+}
+
+export type MessagesDataType = {
+    id: number
+    message: string
+}
+
+export type FriendsDataType = {
+    id: number
+    name: string
 }

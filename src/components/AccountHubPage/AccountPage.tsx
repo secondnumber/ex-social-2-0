@@ -5,7 +5,7 @@ import HeaderContainer from '../common/Header/HeaderContainer';
 import LeftMenuContainer from '../common/LeftMenu/LeftMenuContainer';
 import RightMenuContainer from '../common/RightMenu/RightMenuContainer';
 
-const AccountPage = (props) => (
+const AccountPage: React.FC = () => (
   <div className={classes.wrapper}>
     <HeaderContainer />
     <LeftMenuContainer />

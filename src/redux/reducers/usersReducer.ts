@@ -1,6 +1,6 @@
 import DefaultAvatar from '../../assets/FriendsPage/friendAvatar.png';
 import { usersAPI } from '../../api/usersApi';
-import { updateObjectsInArray } from '../../utils/objectsHelper';
+import {updateObjectsInArray} from '../../utils/objectsHelper';
 import {UserType} from "../../types";
 
 const ADD_FRIEND = 'users/ADD_FRIEND';
@@ -30,7 +30,7 @@ usersReducer = (state = initialState, action: any): InitialStateType => {
     case ADD_FRIEND: {
       return {
         ...state,
-        users: updateObjectsInArray(state.usersList, action.userId, 'id', {
+        usersList: updateObjectsInArray(state.usersList, action.userId, 'id', {
           followed: true,
         }),
       };
@@ -38,7 +38,7 @@ usersReducer = (state = initialState, action: any): InitialStateType => {
     case DELETE_FRIEND: {
       return {
         ...state,
-        users: updateObjectsInArray(state.usersList, action.userId, 'id', {
+        usersList: updateObjectsInArray(state.usersList, action.userId, 'id', {
           followed: false,
         }),
       };

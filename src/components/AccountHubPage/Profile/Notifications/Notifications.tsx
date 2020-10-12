@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Notifications.module.scss';
 
-const Notifications = () => (
+const Notifications: React.FC = () => (
   <div className={classes.wrapper}>
     <h3>MY PROFILE</h3>
     <h2>Notifications</h2>

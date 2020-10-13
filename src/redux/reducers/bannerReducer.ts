@@ -6,20 +6,9 @@ import Twitch from '../../assets/FriendsPage/social/twitch.png';
 import Youtube from '../../assets/FriendsPage/social/youtube.png';
 import Patreon from '../../assets/FriendsPage/social/patreon.png';
 import Discord from '../../assets/FriendsPage/social/discord.png';
+import {BannerBigSocialType, BannerBigStatsType} from "../../types";
 
 export type InitialStateType = typeof initialState;
-
-type BannerBigStatsType = {
-  id: number
-  value: number
-  label: string
-};
-
-type BannerBigSocialType = {
-  id: number
-  name: any
-  hint: string
-};
 
 let initialState = {
   bannerBigAvatar: Avatar as any,

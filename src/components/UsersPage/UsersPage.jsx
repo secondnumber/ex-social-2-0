@@ -17,9 +17,9 @@ const UsersPage = (props) => (
     <div className={classes.block}>
       <BannerBigContainer />
       <InnerMenuContainer />
-      <TitleContainer name={'Friends'}/>
+      <TitleContainer name='Friends'/>
       <UsersFilterContainer />
-      <UsersContainer />
+      <UsersContainer pageTitile='Hello'/>
     </div>
   </div>
 );

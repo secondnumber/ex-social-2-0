@@ -11,8 +11,17 @@ import Facebook from '../../../../assets/FriendsPage/social/facebook.png';
 import Twitter from '../../../../assets/FriendsPage/social/twitter.png';
 import Instagram from '../../../../assets/FriendsPage/social/instagram.png';
 import Twitch from '../../../../assets/FriendsPage/social/twitch.png';
+import {UserType} from "../../../../types";
 
-const User = ({
+type PropsType = {
+  user: UserType
+  addUser: (id: number) => void
+  deleteUser: (id: number) => void
+  defaultAvatar: any
+  followingInProgress: Array<number>
+}
+
+const User: React.FC<PropsType> = ({
   user,
   addUser,
   deleteUser,

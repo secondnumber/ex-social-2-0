@@ -1,16 +1,6 @@
+import {AccountInfoListType, ProfileMenuListType} from "../../types";
+
 export type InitialStateType = typeof initialState;
-
-type AccountInfoListType = {
-  id: number
-  name: string
-  description: string
-};
-
-type ProfileMenuListType = {
-  id: number
-  name: string
-  link: string
-};
 
 let initialState = {
   accountInfoList: [

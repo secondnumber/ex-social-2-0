@@ -3,13 +3,13 @@ import classes from './ToggleSideMenu.module.scss';
 import ToggleSideMenuIcon from '../../../../assets/Header/ToggleSideMenuIcon.png';
 
 const ToggleSideMenu = () => (
-  <div className={classes.wrapper}>
+  <>
     <img
       src={ToggleSideMenuIcon}
       alt="ToogleSideMenu"
       className={classes.toggle}
     />
-  </div>
+  </>
 );
 
 export default ToggleSideMenu;

@@ -55,3 +55,38 @@ export type FriendsDataType = {
     id: number
     name: string
 }
+
+export type AccountInfoListType = {
+    id: number
+    name: string
+    description: string
+};
+
+export type ProfileMenuListType = {
+    id: number
+    name: string
+    link: string
+};
+
+export type BannerBigStatsType = {
+    id: number
+    value: number
+    label: string
+};
+
+export type BannerBigSocialType = {
+    id: number
+    name: any
+    hint: string
+};
+
+export type NavMenuListType = {
+    id: number
+    name: string
+    link: string
+}
+
+export type ProgressCountType = {
+    id: number
+    experience: number
+}

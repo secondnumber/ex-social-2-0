@@ -1,15 +1,6 @@
+import {NavMenuListType, ProgressCountType} from "../../types";
+
 export type InitialStateType = typeof initialState;
-
-type NavMenuListType = {
-  id: number
-  name: string
-  link: string
-}
-
-type ProgressCountType = {
-  id: number
-  experience: number
-}
 
 let initialState = {
   navMenuList: [

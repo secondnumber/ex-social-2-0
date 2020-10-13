@@ -9,9 +9,13 @@ import FriendRequests from './FriendRequests/FriendRequests';
 import AccountInfo from './AccountInfo/AccountInfo';
 import TimelineContainer from '../../TimelinePage/Timeline/TimelineContainer';
 import DialogsContainer from './Dialogs/DialogsContainer';
+import {AccountInfoListType} from "../../../types";
 
-const Profile = (props) => {
-  let accountInfoList = props.account.accountInfoList.map((element) => (
+type PropsType = {
+  accountInfoList: Array<AccountInfoListType>
+}
+const Profile: React.FC<PropsType> = ({ accountInfoList }) => {
+  let accountList = accountInfoList.map((element) => (
     <AccountInfo
       key={element.id}
       id={element.id}
@@ -25,7 +29,7 @@ const Profile = (props) => {
     <Switch>
       <div className={classes.wrapper}>
         <ProfileBanner />
-        <ul className={classes.list}>{accountInfoList}</ul>
+        <ul className={classes.list}>{accountList}</ul>
         <Route path="/timeline">
           <TimelineContainer />
         </Route>

@@ -17,7 +17,10 @@ import { reducer as formReducer } from 'redux-form';
 import appReducer from './reducers/appReducer';
 import moviesReducer from './reducers/moviesReducer';
 
-let reducers = combineReducers({
+type RootReducerType = typeof rootReducer
+export type AppStateType = ReturnType<RootReducerType>
+
+let rootReducer = combineReducers({
   headers: headersReducer,
   account: accountReducer,
   leftMenu: leftMenuReducer,
@@ -36,12 +39,14 @@ let reducers = combineReducers({
   form: formReducer,
 });
 
+// @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-  reducers,
+  rootReducer,
   composeEnhancers(applyMiddleware(thunkMiddleware))
 );
 
+// @ts-ignore
 window.store = store;
 
 export default store;

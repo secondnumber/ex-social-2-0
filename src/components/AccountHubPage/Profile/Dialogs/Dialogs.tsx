@@ -23,7 +23,7 @@ const Dialogs: React.FC<PropsType> = ( {messages, updateNewMessageBody, sendMess
     <MessageItem key={message.id} id={message.id} message={message.message} />
   ));
 
-  let newMessageElement = React.createRef();
+  let newMessageElement = React.createRef<HTMLTextAreaElement>();
 
   let onSendMessage = () => {
     sendMessage();
@@ -40,7 +40,7 @@ const Dialogs: React.FC<PropsType> = ( {messages, updateNewMessageBody, sendMess
       <h2>Messages</h2>
       <div className={classes.messagesArea}>
         <ul className={classes.friendsList}>{friendsElements}</ul>
-        <div className={classes.dialogsArea}>
+        <div>
           <ul className={classes.messagesList}>{messagesElements}</ul>
           <textarea
             className={classes.textarea}

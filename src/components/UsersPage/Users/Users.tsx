@@ -2,8 +2,18 @@ import React from 'react';
 import classes from './Users.module.scss';
 import Paginator from '../../common/Paginator/Paginator';
 import User from './User/User';
+import {UserType} from "../../../types";
 
-const Users = ({ users, onPageChanged, ...props }) => {
+type PropsType = {
+    key: number
+    users: any
+    deleteUser: (id: number) => void
+    addUser: (id: number) => void
+    onPageChanged: (pageNumber: number) => void
+    toggleFollowingProgress: any
+}
+
+const Users: React.FC<PropsType> = ({ users, onPageChanged, ...props }) => {
   return (
     <div className={classes.wrapper}>
       <Paginator
@@ -13,7 +23,7 @@ const Users = ({ users, onPageChanged, ...props }) => {
         onPageChanged={onPageChanged}
       />
       <ul className={classes.list}>
-        {users.usersList.map((el) => (
+        {users.usersList.map((el: UserType) => (
           <User
             key={el.id}
             user={el}
